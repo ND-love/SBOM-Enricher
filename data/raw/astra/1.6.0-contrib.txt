@@ -1,0 +1,120 @@
+Package: fly-term
+Version: 1.4.5
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 348
+Depends: libc6 (>= 2.14), libflyintegration1, libflyuiextra2, libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5codecs5 (>= 4.96.0), libkf5configcore5 (>= 4.97.0), libkf5configgui5 (>= 4.97.0), libkf5configwidgets5 (>= 4.96.0), libkf5coreaddons5 (>= 4.97.0), libkf5widgetsaddons5 (>= 4.96.0), libkf5xmlgui-bin, libkf5xmlgui5 (>= 4.96.0), libkonsoleprivate, libqt5core5a (>= 5.11.0~rc1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.7.0), libqt5widgets5 (>= 5.11.0~rc1), libqt5xml5 (>= 5.0.2), libstdc++6 (>= 4.1.1), fly-data
+Suggests: xfonts-terminus
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: contrib/fly
+Filename: pool/contrib/f/fly-term/fly-term_1.4.5_amd64.deb
+Size: 92910
+SHA256: 21f7eb923237f73421ae9905d51f6202ac2fe0f82e5f35fddba57e26ef962001
+SHA1: ee7c05a2c0c5dc889bf9c7d45cec26d2c2a24fac
+MD5sum: 31f4effcf12194ac50cd3010be52d7fb
+Description: Fly Terminal Emulation
+ Fly Terminal Emulation
+Description-md5: e34ca17dd49d8113758d0836b6374f15
+
+Package: fly-admin-cron
+Version: 1.2.5
+Architecture: amd64
+Maintainer: Michael Vasiliev <support@rusbitech.ru>
+Installed-Size: 448
+Depends: libc6 (>= 2.14), libflyintegration1, libflyuiextra2, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.11.0~rc1), libqt5gui5 (>= 5.7.0), libqt5printsupport5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 4.1.1)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: contrib/fly
+Filename: pool/contrib/f/fly-admin-cron/fly-admin-cron_1.2.5_amd64.deb
+Size: 199412
+SHA256: 93b9803bb933888803ef28a66021f65bb3de20921101229c899841941c1f485a
+SHA1: cccb202e40ccec032d82a17f1a70921161ce7a22
+MD5sum: 89a2ccbb9aab09735e180b8482f500b0
+Description: Cron management
+ Cron management. Based on kcron.
+Description-md5: 27296adc8c8e1345570cd3af54905605
+
+Package: fly-xkbmap
+Version: 1.1.5
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 278
+Depends: libc6 (>= 2.14), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.11.0~rc1), libqt5gui5 (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 4.1.1), libx11-6, libxkbfile1, x11-xkb-utils
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: contrib/fly
+Filename: pool/contrib/f/fly-xkbmap/fly-xkbmap_1.1.5_amd64.deb
+Size: 81876
+SHA256: 9e963150a7d5fc8ac249106f3a317fa2a54b7677ab14a848d90067009749193d
+SHA1: ab50083d7ed2aedbc4cf4140df5bce741e6d1fb1
+MD5sum: 5bea9ae2e5c2898236d5ac335beb7f53
+Description: Keyboard layout setup
+ Keyboard layout setup for Fly desktop
+Description-md5: 52c70a2a2c58c034c500c6ca69b60fe9
+
+Package: flyqt5platformtheme
+Version: 1.4.6
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 357
+Depends: libc6 (>= 2.14), libflyfiledialog2, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.11.0~rc1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.10.0), libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5), qtbase-abi-5-11-0, qt5-style-plugins, kde-style-breeze
+Recommends: fly-data
+Replaces: fly-data (= 2.2.6-1)
+Priority: optional
+Section: contrib/fly
+Filename: pool/contrib/f/flyqt5platformtheme/flyqt5platformtheme_1.4.6_amd64.deb
+Size: 98816
+SHA256: 97a7c55ad8db249bd8f9c337cf1234e4389b438f1731c706cd8b13afa3beccee
+SHA1: 433a14cc72302d87d43bb3a36998a43b7cf69d01
+MD5sum: ae689f46fe6aef30de096dee158d3844
+Description: Fly DE plugin for Qt 5
+ This plugin allows Qt 5 to use specific settings
+ for Fly DE (style, icon theme, fonts...)
+Description-md5: 482a3b195235f827959e9f44fe6267f2
+
+Package: contrib-stub-dummy
+Version: 1.0.0
+Architecture: all
+Maintainer: Andrey Mironov <support@rusbitech.ru>
+Installed-Size: 8
+Homepage: http://rusbitech.ru
+Priority: extra
+Section: contrib/devel
+Filename: pool/contrib/c/contrib-stub-dummy/contrib-stub-dummy_1.0.0_all.deb
+Size: 1234
+SHA256: eeeeabbe4a3b540758ebd765715e2104a63e5f2fe999406c3d47909f6ac92614
+SHA1: 935267a554c7c7d7ff743748732056502e2c1637
+MD5sum: e99e3f4b09f929bf269223f2784676ce
+Description: Dummy package for section contrib
+ Dummy package for section contrib
+Description-md5: 2fa442d62dde2f9634d07d0e7fe3f515
+
+Package: iucode-tool
+Version: 2.1.1-1
+Architecture: amd64
+Maintainer: Henrique de Moraes Holschuh <hmh@debian.org>
+Installed-Size: 100
+Depends: libc6 (>= 2.14)
+Recommends: intel-microcode (>= 1)
+Homepage: https://gitlab.com/iucode-tool
+Priority: optional
+Section: contrib/utils
+Filename: pool/contrib/i/iucode-tool/iucode-tool_2.1.1-1_amd64.deb
+Size: 53402
+SHA256: cae6a3728cb3893a4f3ae6dcbfa5c490992b53925111e77bcdc67c4f313353ed
+SHA1: 48ca54a0f5e81315ace433e1e6c56dbb0d9d159f
+MD5sum: 1383504496ef1368730c577df96fc2b1
+Description: Intel processor microcode tool
+ iucode_tool is a program to manipulate Intel? X86 and X86-64 processor
+ microcode collections, and to use the kernel facilities to upgrade the
+ microcode on Intel system processors.
+ .
+ It can load microcode data files in text and binary format, sort, list and
+ filter the microcodes contained in these files, write selected microcodes to a
+ new file in binary format, or upload them to the kernel.
+ .
+ It operates on non-free microcode data downloaded directly from Intel or
+ installed by the intel-microcode package.
+Description-md5: 85b8e9a4d04e1dafc3c5baa7e46a23a4
+

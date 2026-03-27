@@ -8,11 +8,11 @@
     const navItems = Array.from(document.querySelectorAll("[data-mode-link]"));
     const modePanels = Array.from(document.querySelectorAll("[data-mode-panel]"));
 
-    let activeTableWrap = null;
     let floatingScrollbar = null;
-    let floatingScrollbarTrack = null;
+    let floatingScrollbarInner = null;
+    let activeWrap = null;
     let syncLock = false;
-    let resizeObserver = null;
+    let rafId = null;
 
     function applySidebarState() {
         const collapsed = localStorage.getItem(sidebarStorageKey) === "1";
@@ -37,14 +37,16 @@
             sessionStorage.setItem(modeStorageKey, mode);
         }
 
-        requestAnimationFrame(syncFloatingScrollbar);
+        requestFloatingScrollbarRefresh();
     }
 
     function initModeNavigation() {
         if (!stack) return;
 
         const knownModes = new Set(
-            modePanels.map((panel) => panel.dataset.modePanel).filter(Boolean)
+            modePanels
+                .map((panel) => panel.dataset.modePanel)
+                .filter(Boolean)
         );
 
         const serverMode = stack.getAttribute("data-active-mode") || "check";
@@ -198,151 +200,117 @@
 
         floatingScrollbar = document.createElement("div");
         floatingScrollbar.className = "floating-table-scroll is-hidden";
-        floatingScrollbar.setAttribute("aria-hidden", "true");
 
-        floatingScrollbarTrack = document.createElement("div");
-        floatingScrollbarTrack.className = "floating-table-scroll__track";
+        floatingScrollbarInner = document.createElement("div");
+        floatingScrollbarInner.className = "floating-table-scroll__inner";
 
-        floatingScrollbar.appendChild(floatingScrollbarTrack);
-
-        floatingScrollbar.addEventListener(
-            "scroll",
-            () => {
-                if (!activeTableWrap || syncLock) return;
-
-                syncLock = true;
-                activeTableWrap.scrollLeft = floatingScrollbar.scrollLeft;
-                requestAnimationFrame(() => {
-                    syncLock = false;
-                });
-            },
-            { passive: true }
-        );
-
+        floatingScrollbar.appendChild(floatingScrollbarInner);
         document.body.appendChild(floatingScrollbar);
+
+        floatingScrollbar.addEventListener("scroll", () => {
+            if (!activeWrap || syncLock) return;
+
+            syncLock = true;
+            activeWrap.scrollLeft = floatingScrollbar.scrollLeft;
+            requestAnimationFrame(() => {
+                syncLock = false;
+            });
+        }, { passive: true });
     }
 
-    function getVisibleHorizontalTableWraps() {
+    function getVisibleWraps() {
         const activePanel = document.querySelector(".mode-panel.is-active");
         if (!activePanel) return [];
 
-        return Array.from(activePanel.querySelectorAll(".table-wrap")).filter((wrap) => {
-            return wrap.offsetParent !== null && wrap.scrollWidth > wrap.clientWidth + 4;
-        });
+        return Array.from(
+            activePanel.querySelectorAll(".table-wrap[data-floating-scroll-target]")
+        ).filter((wrap) => wrap.offsetParent !== null);
     }
 
-    function pickBestTableWrap() {
-        const wraps = getVisibleHorizontalTableWraps();
+    function resolveActiveWrap() {
+        const wraps = getVisibleWraps();
         if (!wraps.length) return null;
 
-        const viewportMiddle = window.innerHeight * 0.45;
-        let bestWrap = null;
-        let bestScore = Infinity;
+        if (activeWrap && wraps.includes(activeWrap)) {
+            return activeWrap;
+        }
 
-        wraps.forEach((wrap) => {
-            const rect = wrap.getBoundingClientRect();
-            const visible = rect.bottom > 120 && rect.top < window.innerHeight - 40;
-            if (!visible) return;
-
-            const score = Math.abs(rect.top - viewportMiddle);
-            if (score < bestScore) {
-                bestScore = score;
-                bestWrap = wrap;
-            }
-        });
-
-        return bestWrap || wraps[0];
+        return wraps[0];
     }
 
-    function positionFloatingScrollbar() {
-        if (!floatingScrollbar) return;
-
-        const shell = document.querySelector(".content-shell") || document.querySelector(".main-content");
-        if (!shell) return;
-
-        const rect = shell.getBoundingClientRect();
-        floatingScrollbar.style.left = `${Math.max(12, rect.left + 6)}px`;
-        floatingScrollbar.style.right = `${Math.max(12, window.innerWidth - rect.right + 6)}px`;
-    }
-
-    function syncFloatingScrollbar() {
+    function refreshFloatingScrollbar() {
         ensureFloatingScrollbar();
-        positionFloatingScrollbar();
 
-        const candidate =
-            activeTableWrap && activeTableWrap.offsetParent !== null && activeTableWrap.scrollWidth > activeTableWrap.clientWidth + 4
-                ? activeTableWrap
-                : pickBestTableWrap();
-
-        if (!candidate) {
+        const wrap = resolveActiveWrap();
+        if (!wrap) {
             floatingScrollbar.classList.add("is-hidden");
-            activeTableWrap = null;
+            activeWrap = null;
             return;
         }
 
-        activeTableWrap = candidate;
+        activeWrap = wrap;
+
+        if (wrap.scrollWidth <= wrap.clientWidth + 2) {
+            floatingScrollbar.classList.add("is-hidden");
+            return;
+        }
+
+        const shell = document.querySelector(".content-shell") || document.querySelector(".main-content");
+        const shellRect = shell ? shell.getBoundingClientRect() : { left: 12, right: window.innerWidth - 12 };
+
+        floatingScrollbar.style.left = `${Math.max(12, shellRect.left + 6)}px`;
+        floatingScrollbar.style.right = `${Math.max(12, window.innerWidth - shellRect.right + 6)}px`;
+
+        floatingScrollbarInner.style.width = `${wrap.scrollWidth}px`;
         floatingScrollbar.classList.remove("is-hidden");
-        floatingScrollbarTrack.style.width = `${candidate.scrollWidth}px`;
 
-        if (syncLock) return;
+        if (!syncLock) {
+            syncLock = true;
+            floatingScrollbar.scrollLeft = wrap.scrollLeft;
+            requestAnimationFrame(() => {
+                syncLock = false;
+            });
+        }
+    }
 
-        syncLock = true;
-        floatingScrollbar.scrollLeft = candidate.scrollLeft;
-        requestAnimationFrame(() => {
-            syncLock = false;
+    function requestFloatingScrollbarRefresh() {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+            rafId = null;
+            refreshFloatingScrollbar();
         });
     }
 
-    function bindTableWraps() {
-        const wraps = Array.from(document.querySelectorAll(".table-wrap"));
+    function initFloatingScrollbarBindings() {
+        ensureFloatingScrollbar();
 
+        const wraps = document.querySelectorAll(".table-wrap[data-floating-scroll-target]");
         wraps.forEach((wrap) => {
-            if (wrap.dataset.scrollBound === "1") return;
-            wrap.dataset.scrollBound = "1";
-
-            ["mouseenter", "pointerdown", "focusin", "touchstart"].forEach((eventName) => {
-                wrap.addEventListener(
-                    eventName,
-                    () => {
-                        activeTableWrap = wrap;
-                        syncFloatingScrollbar();
-                    },
-                    { passive: true }
-                );
+            ["mouseenter", "mousedown", "touchstart", "focusin"].forEach((eventName) => {
+                wrap.addEventListener(eventName, () => {
+                    activeWrap = wrap;
+                    requestFloatingScrollbarRefresh();
+                }, { passive: true });
             });
 
-            wrap.addEventListener(
-                "scroll",
-                () => {
-                    if (!floatingScrollbar) return;
-                    if (activeTableWrap !== wrap) {
-                        activeTableWrap = wrap;
-                    }
+            wrap.addEventListener("scroll", () => {
+                if (activeWrap !== wrap) {
+                    activeWrap = wrap;
+                }
 
-                    if (syncLock) return;
+                if (!floatingScrollbar || syncLock) return;
 
-                    syncLock = true;
-                    floatingScrollbar.scrollLeft = wrap.scrollLeft;
-                    requestAnimationFrame(() => {
-                        syncLock = false;
-                    });
-                },
-                { passive: true }
-            );
+                syncLock = true;
+                floatingScrollbar.scrollLeft = wrap.scrollLeft;
+                requestAnimationFrame(() => {
+                    syncLock = false;
+                });
+            }, { passive: true });
         });
 
-        if ("ResizeObserver" in window && !resizeObserver) {
-            resizeObserver = new ResizeObserver(() => {
-                syncFloatingScrollbar();
-            });
-
-            wraps.forEach((wrap) => resizeObserver.observe(wrap));
-
-            const shell = document.querySelector(".content-shell");
-            if (shell) {
-                resizeObserver.observe(shell);
-            }
-        }
+        window.addEventListener("resize", requestFloatingScrollbarRefresh, { passive: true });
+        window.addEventListener("scroll", requestFloatingScrollbarRefresh, { passive: true });
+        requestFloatingScrollbarRefresh();
     }
 
     if (toggle) {
@@ -350,35 +318,18 @@
             const nextCollapsed = !body.classList.contains("sidebar-collapsed");
             localStorage.setItem(sidebarStorageKey, nextCollapsed ? "1" : "0");
             applySidebarState();
-            requestAnimationFrame(syncFloatingScrollbar);
+            requestFloatingScrollbarRefresh();
         });
     }
 
-    window.addEventListener(
-        "resize",
-        () => {
-            applySidebarState();
-            syncFloatingScrollbar();
-        },
-        { passive: true }
-    );
-
-    window.addEventListener(
-        "scroll",
-        () => {
-            syncFloatingScrollbar();
-        },
-        { passive: true }
-    );
+    window.addEventListener("resize", applySidebarState, { passive: true });
 
     applySidebarState();
     initModeNavigation();
     initTableSearch();
     initTargetSelectionUI();
-    bindTableWraps();
-    syncFloatingScrollbar();
+    initFloatingScrollbarBindings();
 })();
-
 
 /* =========================================================
    SPACE PARTICLES BACKGROUND
@@ -400,7 +351,7 @@
     if (!ctx) return;
 
     /* ---------- твои настройки: НЕ МЕНЯЛ ---------- */
-    const PARTICLE_COUNT = 10;   // сколько частиц на экране
+    const PARTICLE_COUNT = 200;   // сколько частиц на экране
     const BASE_SPEED = 0.05;      // базовая скорость дрейфа
     const MOUSE_RADIUS = 80;      // радиус влияния мышки
     const MOUSE_FORCE = 8;        // сила отталкивания от курсора
@@ -412,7 +363,7 @@
     const TWINKLE_SPEED_MAX = 0.0012;
     const TRAIL_ALPHA = 0.1;      // чем меньше, тем длиннее ощущение "шлейфа"
 
-    /* ---------- новые настройки перерождения ---------- */
+    /* ---------- новые настройки перерождения ---------- #R.D.A*/
     const RESPAWN_RADIUS_MIN = 12;   // минимально близко к месту смерти
     const RESPAWN_RADIUS_MAX = 110;  // максимально далеко от места смерти
 
@@ -603,7 +554,7 @@
                 }
             }
 
-            /* мягкое проявление новой частицы */
+            /* мягкое проявление новой частицы #R.D.A*/
             if (this.phase === "fadingIn") {
                 this.fadeProgress += 1;
 
@@ -683,7 +634,7 @@
     }
 
     function clearFrame() {
-        /* не полностью очищаем холст,
+        /* не #R.D.Aполностью очищаем холст,
            а даём лёгкое затухание для ощущения живого движения */
         ctx.clearRect(0, 0, width, height);
 
