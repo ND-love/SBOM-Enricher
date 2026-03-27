@@ -1,55 +1,89 @@
 /* =========================================================
-   CERT CHECKER — CLEAN STYLES
+   CERT CHECKER — ЧИСТЫЙ STYLES.CSS
    ---------------------------------------------------------
-   Сохранён твой основной стиль из верхней части файла.
-   Конфликтующие патчи внизу объединены в один согласованный блок.
+   ВАЖНО:
+   1. Почти весь внешний вид настраивается в блоке :root ниже.
+   2. Хочешь быстро поменять стиль — меняй сначала только :root.
+   3. Этот файл собран под текущие классы:
+      - base.html
+      - index.html
+      - app.js
+
+   ГЛАВНЫЕ РУЧКИ:
+   - фон:               --bg-*
+   - стекло:            --glass-*
+   - текст:             --text-*
+   - кнопки:            --btn-*
+   - меню:              --sidebar-width
+   - скругления:        --radius-*
+   - тени:              --shadow-*
+
    ========================================================= */
 
+
+/* =========================================================
+   1. ГЛОБАЛЬНЫЕ НАСТРОЙКИ
+   ---------------------------------------------------------
+   САМЫЙ ВАЖНЫЙ БЛОК.
+   Меняй сначала его, а не нижние секции.
+   ========================================================= */
 :root {
-    --bg-0: #02050b;
-    --bg-1: #03060a;
-    --bg-2: #0b1626;
-    --bg-3: #341212;
+    /* ---------- ФОН ---------- */
+    --bg-0: #02050b; /* самый темный фон */
+    --bg-1: #03060a; /* основной космический фон */
+    --bg-2: #0b1626; /* более синий слой */
+    --bg-3: #341212; /* легкий холодный оттенок */
 
-    --text-main: #edf4ff;
-    --text-soft: rgba(230, 238, 252, 0.80);
-    --text-muted: rgba(205, 216, 236, 0.62);
 
-    --glass-top-light: rgba(255, 255, 255, 0);
-    --glass-top-light-soft: rgba(255, 0, 0, 0);
-    --glass-base-1: rgba(0, 0, 0, 0);
-    --glass-base-2: rgba(0, 0, 0, 0);
-    --glass-base-soft-1: rgba(7, 16, 27, 0);
-    --glass-base-soft-2: rgba(10, 10, 27, 0);
 
-    --border-main: rgba(184, 181, 228, 0.363);
-    --border-soft: rgba(117, 114, 121, 0.527);
-    --border-strong: rgba(60, 43, 88, 0.61);
-    --line-soft: rgba(255, 255, 255, 0.13);
+    /* ---------- ТЕКСТ ---------- */
+    --text-main: #edf4ff;                 /* главный текст */
+    --text-soft: rgba(230, 238, 252, 0.80); /* второй по важности текст */
+    --text-muted: rgba(205, 216, 236, 0.62); /* слабый текст */
 
+    /* ---------- СТЕКЛО ---------- */
+    --glass-top-light: rgba(255, 255, 255, 0);    /* свет сверху у стекла */
+    --glass-top-light-soft: rgba(255, 0, 0, 0); /* более мягкий свет */
+    --glass-base-1: rgba(0, 0, 0, 0);          /* основа стекла 1 */
+    --glass-base-2: rgba(0, 0, 0, 0);           /* основа стекла 2 */
+    --glass-base-soft-1: rgba(7, 16, 27, 0);     /* мягкое стекло */
+    --glass-base-soft-2: rgba(10, 10, 27, 0);      /* мягкое стекло 2 */
+
+    /* ---------- РАМКИ ---------- */
+    --border-main: rgba(184, 181, 228, 0.2); /* обычная рамка */
+    --border-soft: rgba(255, 255, 255, 0.09); /* слабая рамка */
+    --border-strong: rgba(60, 43, 88, 0.18); /* усиленная рамка */
+    --line-soft: rgba(255, 255, 255, 0.07); /* линии внутри таблиц */
+
+    /* ---------- АКЦЕНТЫ ---------- */
     --accent-main: #dde8ff;
     --accent-cool: #bdc4ffb9;
 
-    --btn-glass-top: rgba(255, 255, 255, 0.144);
-    --btn-glass-bottom: rgba(83, 73, 83, 0.267);
-    --btn-primary-tint-1: rgba(49, 17, 78, 0.144);
-    --btn-primary-tint-2: rgba(56, 13, 13, 0.144);
-    --btn-text-dark: #0a1220;
-    --btn-text-light: var(--text-main);
+    /* ---------- КНОПКИ ---------- */
+    --btn-glass-top: rgba(255, 255, 255, 0.144);   /* верх кнопок */
+    --btn-glass-bottom: rgba(83, 73, 83, 0.267); /* низ кнопок */
+    --btn-primary-tint-1: rgba(49, 17, 78, 0.144); /* оттенок главной кнопки */
+    --btn-primary-tint-2: rgba(56, 13, 13, 0.144); /* оттенок главной кнопки */
+    --btn-text-dark: #0a1220; /* текст на светлой кнопке */
+    --btn-text-light: var(--text-main); /* текст на стеклянных кнопках */
 
+    /* ---------- СТАТУСЫ ---------- */
     --status-ok: #97e6b1;
     --status-warn: #ffd779;
     --status-danger: #ff9aa7;
     --status-info: #9cc9ff;
 
-    --sidebar-width: 270px;
-    --sidebar-width-collapsed: 96px;
+    /* ---------- РАЗМЕРЫ ---------- */
+    --sidebar-width: 270px;          /* ширина бокового меню */
+    --sidebar-width-collapsed: 96px; /* ширина свернутого меню */
 
-    --radius-xl: 30px;
-    --radius-lg: 22px;
-    --radius-md: 18px;
-    --radius-sm: 14px;
+    /* ---------- СКРУГЛЕНИЯ ---------- */
+    --radius-xl: 30px; /* большие панели */
+    --radius-lg: 22px; /* карточки и таблицы */
+    --radius-md: 18px; /* кнопки и инпуты */
+    --radius-sm: 14px; /* мелкие элементы */
 
+    /* ---------- ТЕНИ ---------- */
     --shadow-xl:
         0 24px 80px rgba(0, 0, 0, 0),
         inset 0 1px 0 rgba(37, 11, 99, 0.09),
@@ -63,10 +97,17 @@
         0 8px 24px rgba(0, 0, 0, 0.16),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
-    --blur-strong: 1.2px;
-    --blur-soft: 1.2px;
+    /* ---------- РАЗМЫТИЕ ---------- */
+    --blur-strong: 1.2px; /* сильное стекло */
+    --blur-soft: 1.2px;   /* более мягкое стекло */
 }
 
+
+/* =========================================================
+   2. БАЗОВЫЙ СБРОС
+   ---------------------------------------------------------
+   Убираем странности браузера и задаем базу.
+   ========================================================= */
 * {
     box-sizing: border-box;
 }
@@ -103,6 +144,15 @@ select {
     font: inherit;
 }
 
+
+/* =========================================================
+   3. ГЛУБИНА ФОНА
+   ---------------------------------------------------------
+   Два слоя:
+   - body::before = "звезды"
+   - body::after  = мягкое свечение
+   ========================================================= */
+   
 body::before {
     content: "";
     position: fixed;
@@ -138,16 +188,24 @@ body::after {
     opacity: 0.9;
 }
 
+/* =========================================================
+   ДВИЖУЩИЕСЯ ЧАСТИЦЫ ФОНА
+   ---------------------------------------------------------
+   Это отдельный canvas-слой на фоне страницы.
+   Он лежит под интерфейсом и не мешает кликам.
+   ========================================================= */
+
 .space-particles {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.8;
+    pointer-events: none; /* чтобы canvas не мешал кликам */
+    z-index: 0;           /* слой фона */
+    opacity: 0.8;        /* общая видимость частиц */
 }
 
+/* Все реальные панели и контент держим выше canvas */
 .app-layout,
 .sidebar,
 .content-shell,
@@ -160,21 +218,18 @@ body::after {
     position: relative;
     z-index: 1;
 }
-
+/* =========================================================
+   4. ОБЩАЯ РАЗМЕТКА
+   ---------------------------------------------------------
+   Левая колонка = меню
+   Правая колонка = контент
+   ========================================================= */
 .app-layout {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     gap: 30px;
     padding: 20px;
     align-items: start;
-}
-
-.content-shell,
-.main-content,
-.modes-stack,
-.mode-panel,
-.panel-block {
-    min-width: 0;
 }
 
 .content-shell {
@@ -187,16 +242,20 @@ body::after {
     margin-top: 18px;
 }
 
+
+/* =========================================================
+   5. ОБЩИЕ СТЕКЛЯННЫЕ БЛОКИ
+   ---------------------------------------------------------
+   Здесь живет общий glass-эффект.
+   Хочешь более "мокрое стекло" — увеличивай blur и ослабляй base.
+   ========================================================= */
 .glass-panel,
 .glass-inset,
 .sidebar,
 .topbar,
 .panel-block,
 .metric-card,
-.family-selector-card,
-.search-counter,
-.per-page-form,
-.pager-indicator {
+.table-wrap {
     position: relative;
     backdrop-filter: blur(var(--blur-strong)) saturate(90%);
     -webkit-backdrop-filter: blur(var(--blur-strong)) saturate(90%);
@@ -206,11 +265,7 @@ body::after {
 .sidebar,
 .topbar,
 .panel-block,
-.metric-card,
-.family-selector-card,
-.search-counter,
-.per-page-form,
-.pager-indicator {
+.metric-card {
     background:
         linear-gradient(180deg, var(--glass-top-light), rgba(18, 1, 49, 0.007)),
         linear-gradient(135deg, var(--glass-base-1), var(--glass-base-2));
@@ -218,7 +273,8 @@ body::after {
     box-shadow: var(--shadow-xl);
 }
 
-.glass-inset {
+.glass-inset,
+.table-wrap {
     background:
         linear-gradient(180deg, var(--glass-top-light-soft), rgba(5, 1, 27, 0.007)),
         linear-gradient(135deg, var(--glass-base-soft-1), var(--glass-base-soft-2));
@@ -263,6 +319,12 @@ body::after {
     opacity: 0.1;
 }
 
+
+/* =========================================================
+   6. БОКОВОЕ МЕНЮ
+   ---------------------------------------------------------
+   Логотип, меню, кнопка сворачивания.
+   ========================================================= */
 .sidebar {
     width: var(--sidebar-width);
     min-width: var(--sidebar-width);
@@ -300,7 +362,8 @@ body::after {
     font-weight: 800;
     letter-spacing: 0.08em;
     border: 1px solid var(--border-strong);
-    background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
     box-shadow: var(--shadow-sm);
 }
 
@@ -328,7 +391,8 @@ body::after {
     flex: 0 0 42px;
     border: 1px solid var(--border-main);
     border-radius: 15px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
     color: var(--text-main);
     display: inline-flex;
     flex-direction: column;
@@ -343,7 +407,8 @@ body::after {
 .sidebar-toggle:hover {
     transform: translateY(-1px);
     border-color: var(--border-strong);
-    background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
 }
 
 .sidebar-toggle span {
@@ -374,14 +439,21 @@ body::after {
     gap: 12px;
     text-align: left;
     cursor: pointer;
-    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
 .nav-item:hover,
 .nav-item.is-active {
-    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
     border-color: var(--border-soft);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 10px 24px rgba(0,0,0,0.14);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        0 10px 24px rgba(0,0,0,0.14);
 }
 
 .nav-item:hover {
@@ -401,7 +473,8 @@ body::after {
     letter-spacing: 0.08em;
     color: var(--accent-main);
     border: 1px solid var(--border-soft);
-    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
     box-shadow: var(--shadow-sm);
 }
 
@@ -412,6 +485,7 @@ body::after {
     font-weight: 700;
 }
 
+/* ---------- Свернутое меню ---------- */
 body.sidebar-collapsed .sidebar {
     width: var(--sidebar-width-collapsed);
     min-width: var(--sidebar-width-collapsed);
@@ -439,6 +513,12 @@ body.sidebar-collapsed .nav-item {
     gap: 0;
 }
 
+
+/* =========================================================
+   7. ВЕРХНЯЯ ПАНЕЛЬ
+   ---------------------------------------------------------
+   Верхняя шапка справа.
+   ========================================================= */
 .topbar {
     min-height: 108px;
     border-radius: var(--radius-xl);
@@ -473,6 +553,10 @@ body.sidebar-collapsed .nav-item {
     letter-spacing: -0.03em;
 }
 
+
+/* =========================================================
+   8. ОБЩИЕ СЕКЦИИ И ТИХАЯ ИНФО-ПЛАШКА
+   ========================================================= */
 .page-note {
     min-height: 56px;
     display: flex;
@@ -547,6 +631,12 @@ body.sidebar-collapsed .nav-item {
     color: #ffdbe0;
 }
 
+
+/* =========================================================
+   9. ФОРМЫ
+   ---------------------------------------------------------
+   Все select / file / search / лейблы форм.
+   ========================================================= */
 .upload-form {
     display: grid;
     gap: 16px;
@@ -579,6 +669,7 @@ body.sidebar-collapsed .nav-item {
     justify-content: flex-start;
 }
 
+/* ---------- ПОЛЯ ---------- */
 select,
 input[type="file"],
 input[type="search"] {
@@ -589,22 +680,37 @@ input[type="search"] {
     border: 1px solid var(--border-main);
     outline: none;
     color: var(--text-main);
-    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 22px rgba(0,0,0,0.12);
-    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 8px 22px rgba(0,0,0,0.12);
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
 }
 
 select:focus,
 input[type="file"]:focus,
 input[type="search"]:focus {
     border-color: rgba(190, 208, 255, 0.28);
-    box-shadow: 0 0 0 3px rgba(184, 204, 255, 0.08), inset 0 1px 0 rgba(255,255,255,0.06);
+    box-shadow:
+        0 0 0 3px rgba(184, 204, 255, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 option {
     color: #09111d;
 }
 
+
+/* =========================================================
+   10. КНОПКИ
+   ---------------------------------------------------------
+   Здесь удобно менять прозрачность кнопок отдельно от панелей.
+   Если хочешь сделать кнопки еще "стекляннее", меняй только этот блок.
+   ========================================================= */
 .primary-btn,
 .secondary-btn {
     min-height: 54px;
@@ -616,21 +722,34 @@ option {
     border: 1px solid var(--border-main);
     font-weight: 800;
     cursor: pointer;
-    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, opacity 0.18s ease;
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease,
+        opacity 0.18s ease;
 }
 
+/* ---------- Главная кнопка ---------- */
+/* Меняй этот блок, если хочешь другую прозрачность у кнопки "Проверить" */
 .primary-btn {
     color: var(--btn-text-light);
     background:
         linear-gradient(180deg, var(--btn-glass-top), var(--btn-glass-bottom)),
         linear-gradient(135deg, var(--btn-primary-tint-1), var(--btn-primary-tint-2));
-    box-shadow: inset 0 1px 0 rgba(255, 0, 0, 0.021), 0 10px 24px rgba(48, 12, 82, 0.16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 0, 0, 0.021),
+        0 10px 24px rgba(48, 12, 82, 0.16);
 }
 
-.secondary-btn {/*#R.D.A*/
+/* ---------- Вторичная кнопка ---------- */
+.secondary-btn {
     color: var(--btn-text-light);
-    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 18px rgba(0,0,0,0.12);
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 8px 18px rgba(0,0,0,0.12);
 }
 
 .primary-btn:hover,
@@ -640,15 +759,24 @@ option {
     opacity: 0.9;
 }
 
+
+/* =========================================================
+   11. МЕТРИКИ
+   ---------------------------------------------------------
+   Карточки со статистикой.
+   ========================================================= */
 .summary-grid {
     display: grid;
     gap: 14px;
 }
 
-.summary-grid-check-multi,
+.summary-grid-check {
+    grid-template-columns: 1.6fr repeat(5, minmax(0, 1fr));
+}
+
 .summary-grid-compare,
 .summary-grid-family {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .metric-card {
@@ -678,9 +806,14 @@ option {
 .metric-value.small {
     font-size: 21px;
     line-height: 1.3;
-    word-break: break-word;
 }
 
+
+/* =========================================================
+   12. ТАБЛИЦЫ
+   ---------------------------------------------------------
+   Поиск, тулбар, обертка таблицы, строки, hover.
+   ========================================================= */
 .download-row,
 .table-toolbar,
 .section-heading-row {
@@ -708,10 +841,628 @@ option {
     align-items: center;
     justify-content: center;
     border-radius: 16px;
+    border: 1px solid var(--border-main);
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
     color: var(--text-muted);
+    box-shadow: var(--shadow-sm);
     white-space: nowrap;
 }
 
+.table-wrap {
+    margin-top: 18px;
+    overflow: auto;
+    border-radius: 22px;
+}
+
+.results-table {
+    width: 100%;
+    min-width: 980px;
+    border-collapse: collapse;
+}
+
+.results-table th,
+.results-table td {
+    padding: 15px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.results-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: rgba(8, 13, 23, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    font-size: 13px;
+    color: rgba(229, 237, 252, 0.92);
+}
+
+.results-table tbody tr:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+.results-table tbody tr.is-hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   13. БЕЙДЖИ СТАТУСОВ
+   ========================================================= */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.status-badge.exact,
+.status-badge.same_version {
+    background: rgba(151, 230, 177, 0.14);
+    color: var(--status-ok);
+}
+
+.status-badge.different_version,
+.status-badge.compare-different_version {
+    background: rgba(255, 215, 121, 0.14);
+    color: var(--status-warn);
+}
+
+.status-badge.absent {
+    background: rgba(255, 154, 167, 0.14);
+    color: var(--status-danger);
+}
+
+.status-badge.unresolved,
+.status-badge.only_left,
+.status-badge.only_right,
+.status-badge.compare-only_left,
+.status-badge.compare-only_right {
+    background: rgba(156, 201, 255, 0.14);
+    color: var(--status-info);
+}
+
+
+/* =========================================================
+   14. СТАРЫЕ БЛОКИ — СКРЫТЬ
+   ---------------------------------------------------------
+   На случай, если в шаблонах остались старые элементы.
+   ========================================================= */
+.intro-panel,
+.intro-tags,
+.topbar-badge,
+.sidebar-foot,
+#catalogs-section,
+a[href="#catalogs-section"] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   15. АДАПТИВ
+   ========================================================= */
+@media (max-width: 1280px) {
+    .summary-grid-check {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .summary-grid-check .metric-card.wide {
+        grid-column: span 3;
+    }
+
+    .summary-grid-compare,
+    .summary-grid-family {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .summary-grid-compare .metric-card.wide,
+    .summary-grid-family .metric-card.wide {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 1024px) {
+    .app-layout {
+        grid-template-columns: 1fr;
+        padding: 14px;
+        gap: 16px;
+    }
+
+    .sidebar,
+    body.sidebar-collapsed .sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        min-width: 0;
+        padding: 14px;
+    }
+
+    .sidebar-top,
+    body.sidebar-collapsed .sidebar-top {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .brand-copy,
+    body.sidebar-collapsed .brand-copy {
+        display: block;
+    }
+
+    .sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .nav-item,
+    body.sidebar-collapsed .nav-item {
+        justify-content: flex-start;
+        padding: 10px 12px;
+        gap: 12px;
+    }
+
+    .nav-label,
+    body.sidebar-collapsed .nav-label {
+        display: block;
+    }
+
+    .topbar {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .topbar-title {
+        font-size: 27px;
+    }
+
+    .upload-form.two-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .download-row,
+    .table-toolbar,
+    .section-heading-row,
+    .toolbar-right {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        min-width: 0;
+    }
+
+    .summary-grid-check,
+    .summary-grid-compare,
+    .summary-grid-family {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card.wide,
+    .summary-grid-check .metric-card.wide,
+    .summary-grid-compare .metric-card.wide,
+    .summary-grid-family .metric-card.wide {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .sidebar-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar-title {
+        font-size: 24px;
+    }
+
+    .panel-block,
+    .metric-card {
+        padding: 18px;
+    }
+
+    .mode-header h2,
+    .panel-block h2,
+    .panel-block h3,
+    .section-heading-row h2 {
+        font-size: 22px;
+    }
+
+    .results-table {
+        min-width: 760px;
+    }
+}
+
+
+
+
+/*=============НОВЫЙ БЛОК============
+
+/* =========================================================
+   PATCH: MULTI-TARGET DOCX + STICKY TABLES + HSCROLL
+   ========================================================= */
+
+.content-shell,
+.mode-panel,
+.panel-block {
+    min-width: 0;
+}
+
+/* ---------- выбор нескольких ОС ---------- */
+.target-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.target-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    border: 1px solid var(--border-main);
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 8px 18px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
+
+.target-checkbox input {
+    margin-top: 3px;
+    accent-color: #b8caff;
+}
+
+.target-checkbox-copy {
+    display: grid;
+    gap: 4px;
+}
+
+.target-checkbox-title {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.target-checkbox-meta {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+
+.target-selection-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.selection-counter {
+    min-width: 72px;
+    min-height: 32px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid var(--border-main);
+    background: rgba(255,255,255,0.04);
+    color: var(--text-soft);
+}
+
+/* ---------- summary по выбранным ОС ---------- */
+.summary-grid-check-multi {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.target-breakdown-card {
+    min-height: 116px;
+}
+
+.mini-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.mini-stat {
+    min-height: 30px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+.mini-stat.ok {
+    background: rgba(151, 230, 177, 0.14);
+    color: var(--status-ok);
+}
+
+.mini-stat.warn {
+    background: rgba(255, 215, 121, 0.14);
+    color: var(--status-warn);
+}
+
+.mini-stat.danger {
+    background: rgba(255, 154, 167, 0.14);
+    color: var(--status-danger);
+}
+
+.mini-stat.info {
+    background: rgba(156, 201, 255, 0.14);
+    color: var(--status-info);
+}
+
+/* ---------- таблицы: скролл + sticky header + sticky first column ---------- */
+.table-wrap {
+    position: relative;
+    max-width: 100%;
+    overflow: auto;
+    overscroll-behavior: contain;
+    border-radius: 22px;
+}
+
+.results-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.results-table th,
+.results-table td {
+    background-clip: padding-box;
+}
+
+.results-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(8, 13, 23, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.results-table .sticky-col {
+    position: sticky;
+    left: 0;
+    z-index: 12;
+    background: rgba(6, 10, 18, 0.96);
+    box-shadow:
+        1px 0 0 rgba(255,255,255,0.08),
+        12px 0 22px rgba(0,0,0,0.22);
+}
+
+.results-table thead .sticky-col {
+    z-index: 30;
+    background: rgba(8, 13, 23, 0.98);
+}
+
+.results-table td.sticky-col,
+.results-table th.sticky-col {
+    min-width: 240px;
+    max-width: 240px;
+}
+
+.results-table td:not(.sticky-col),
+.results-table th:not(.sticky-col) {
+    min-width: 170px;
+}
+
+.target-column-header {
+    min-width: 250px !important;
+    max-width: 250px;
+    white-space: normal;
+}
+
+.target-result-cell {
+    min-width: 250px !important;
+    max-width: 250px;
+    white-space: normal;
+}
+
+.target-result-stack {
+    display: grid;
+    gap: 8px;
+}
+
+.target-result-value {
+    font-weight: 700;
+    color: var(--text-main);
+    word-break: break-word;
+}
+
+.target-result-meta {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--text-muted);
+    word-break: break-word;
+}
+
+/* на очень широких таблицах без этого иногда едет layout */
+.results-table tbody tr:hover .sticky-col {
+    background: rgba(10, 15, 26, 0.98);
+}
+
+/* ---------- адаптив ---------- */
+@media (max-width: 900px) {
+    .target-picker-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .target-selection-note {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* =========================================================
+   PATCH: FAST TABLES + FLOATING HSCROLL + VERSION CARDS
+   ========================================================= */
+
+/* ---------- облегчение таблиц ---------- */
+.table-wrap {
+    margin-top: 18px;
+    overflow: auto;
+    overscroll-behavior: contain;
+    border-radius: 22px;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    background: rgba(10, 15, 25, 0.78) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+.results-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.results-table th,
+.results-table td {
+    padding: 15px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--line-soft);
+    background-clip: padding-box;
+}
+
+.results-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #0d1522 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    font-size: 13px;
+    color: rgba(229, 237, 252, 0.92);
+}
+
+.results-table .sticky-col {
+    position: sticky;
+    left: 0;
+    z-index: 12;
+    background: #101928 !important;
+    box-shadow: inset -1px 0 0 rgba(255,255,255,0.08);
+}
+
+.results-table thead .sticky-col {
+    z-index: 26;
+    background: #121d2d !important;
+}
+
+.results-table td.sticky-col,
+.results-table th.sticky-col {
+    min-width: 240px;
+    max-width: 240px;
+}
+
+.results-table td:not(.sticky-col),
+.results-table th:not(.sticky-col) {
+    min-width: 170px;
+}
+
+.results-table tbody tr:hover td {
+    background: rgba(255,255,255,0.02);
+}
+
+.results-table tbody tr:hover .sticky-col {
+    background: #142031 !important;
+}
+
+.target-column-header {
+    min-width: 250px !important;
+    max-width: 250px;
+    white-space: normal;
+}
+
+.target-result-cell {
+    min-width: 250px !important;
+    max-width: 250px;
+    white-space: normal;
+}
+
+.target-result-stack {
+    display: grid;
+    gap: 8px;
+}
+
+.target-result-value {
+    font-weight: 700;
+    color: var(--text-main);
+    word-break: break-word;
+}
+
+.target-result-meta {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--text-muted);
+    word-break: break-word;
+}
+
+/* ---------- плавающий горизонтальный скроллбар ---------- */
+.floating-table-scroll {
+    position: fixed;
+    bottom: 12px;
+    height: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 80;
+
+    border-radius: 999px;
+    background: rgba(11, 17, 28, 0.94);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.32);
+
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.floating-table-scroll.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+}
+
+.floating-table-scroll__track {
+    height: 1px;
+}
+
+.floating-table-scroll::-webkit-scrollbar {
+    height: 14px;
+}
+
+.floating-table-scroll::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 999px;
+}
+
+.floating-table-scroll::-webkit-scrollbar-thumb {
+    background: rgba(184, 202, 255, 0.55);
+    border-radius: 999px;
+    border: 2px solid rgba(11, 17, 28, 0.94);
+}
+
+/* ---------- выбранные версии сверху ---------- */
 .selected-targets-toolbar {
     display: flex;
     align-items: flex-start;
@@ -780,6 +1531,7 @@ option {
     white-space: nowrap;
 }
 
+/* ---------- семейства и карточки версий ---------- */
 .family-selector-stack {
     display: grid;
     gap: 16px;
@@ -788,6 +1540,8 @@ option {
 .family-selector-card {
     padding: 16px 18px;
     border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
 }
 
 .family-selector-head {
@@ -855,6 +1609,12 @@ option {
     box-shadow: inset 0 0 0 1px rgba(133, 224, 161, 0.18);
 }
 
+.summary-grid-check-multi {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
 .target-breakdown-card {
     min-height: 116px;
 }
@@ -898,434 +1658,13 @@ option {
     color: var(--status-info);
 }
 
-.search-form-inline {
-    display: flex;
-    align-items: flex-end;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.search-form-inline .search-box {
-    min-width: 280px;
-}
-
-.table-toolbar-paged {
-    align-items: flex-end;
-}
-
-.pager-cluster {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: flex-end;
-    gap: 12px;
-}
-
-.per-page-form {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 52px;
-    padding: 0 14px;
-    border-radius: 16px;
-    color: var(--text-soft);
-}
-
-.per-page-form span {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-soft);
-}
-
-.per-page-form select {
-    min-width: 92px;
-    min-height: 40px;
-    padding: 0 12px;
-}
-
-.pager-nav {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.pager-nav form {
-    margin: 0;
-}
-
-.pager-btn {
-    min-width: 52px;
-    padding: 0 16px;
-}
-
-.pager-btn.is-disabled,
-.pager-btn:disabled {
-    opacity: 0.45;
-    pointer-events: none;
-    cursor: default;
-}
-
-.pager-indicator {
-    min-width: 86px;
-    min-height: 52px;
-    padding: 0 14px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 16px;
-    color: var(--text-soft);
-    font-weight: 800;
-}
-
-.table-wrap {
-    position: relative;
-    max-width: 100%;
-    margin-top: 18px;
-    overflow-x: auto;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    border-radius: 22px;
-    padding-bottom: 10px;
-    background: rgba(10, 15, 25, 0.30);
-    border: 1px solid rgba(255, 255, 255, 0.295);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    scrollbar-gutter: stable both-edges;
-}
-
-.table-wrap::-webkit-scrollbar {
-    height: 14px;
-    width: 14px;
-}
-
-.table-wrap::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.04);
-    border-radius: 999px;
-}
-
-.table-wrap::-webkit-scrollbar-thumb {
-    background: rgba(188, 206, 255, 0.38);
-    border-radius: 999px;
-    border: 2px solid rgba(10, 15, 25, 0.30);
-}
-
-.results-table {
-    width: max-content;
-    min-width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-.results-table th,
-.results-table td {
-    padding: 15px 16px;
-    text-align: left;
-    vertical-align: top;
-    border-bottom: 1px solid var(--line-soft);
-    background-clip: padding-box;
-}
-
-.results-table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 25;
-    background: rgba(8, 13, 23, 0.96);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    font-size: 13px;
-    color: rgba(229, 237, 252, 0.92);
-}
-
-.results-table .sticky-col {
-    position: sticky;
-    left: 0;
-    z-index: 16;
-    background: rgba(10, 15, 25, 0.96);
-    box-shadow: inset -1px 0 0 rgba(255,255,255,0.08);
-}
-
-.results-table thead .sticky-col {
-    z-index: 35;
-    background: rgba(8, 13, 23, 0.98);
-}
-
-.results-table td.sticky-col,
-.results-table th.sticky-col {
-    min-width: 240px;
-    max-width: 240px;
-}
-
-.results-table td:not(.sticky-col),
-.results-table th:not(.sticky-col) {
-    min-width: 170px;
-}
-
-.target-column-header,
-.target-result-cell {
-    min-width: 250px !important;
-    max-width: 250px;
-    white-space: normal;
-}
-
-.target-result-stack {
-    display: grid;
-    gap: 8px;
-}
-
-.target-result-value {
-    font-weight: 700;
-    color: var(--text-main);
-    word-break: break-word;
-}
-
-.target-result-meta {
-    font-size: 12px;
-    line-height: 1.45;
-    color: var(--text-muted);
-    word-break: break-word;
-}
-
-.results-table tbody tr:hover td {
-    background: rgba(255,255,255,0.02);
-}
-
-.results-table tbody tr:hover .sticky-col {
-    background: rgba(12, 18, 28, 0.98);
-}
-
-.results-table tbody tr.is-hidden {
-    display: none;
-}
-
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 32px;
-    padding: 0 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.12);
-    font-size: 12px;
-    font-weight: 800;
-    white-space: nowrap;
-}
-
-.status-badge.exact,
-.status-badge.same_version {
-    background: rgba(151, 230, 177, 0.14);
-    color: var(--status-ok);
-}
-
-.status-badge.different_version,
-.status-badge.compare-different_version {
-    background: rgba(255, 215, 121, 0.14);
-    color: var(--status-warn);
-}
-
-.status-badge.absent {
-    background: rgba(255, 154, 167, 0.14);
-    color: var(--status-danger);
-}
-
-.status-badge.unresolved,
-.status-badge.only_left,
-.status-badge.only_right,
-.status-badge.compare-only_left,
-.status-badge.compare-only_right {
-    background: rgba(156, 201, 255, 0.14);
-    color: var(--status-info);
-}
-
-.floating-table-scroll {
-    display: block !important;
-    position: fixed;
-    left: 16px;
-    right: 16px;
-    bottom: 12px;
-    height: 18px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    z-index: 90;
-    border-radius: 999px;
-    background: rgba(8, 13, 22, 0.94);
-    border: 1px solid rgba(255,255,255,0.10);
-    box-shadow: 0 10px 26px rgba(0,0,0,0.28);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-.floating-table-scroll.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(8px);
-}
-
-.floating-table-scroll__inner {
-    height: 1px;
-}
-
-.floating-table-scroll::-webkit-scrollbar {
-    height: 14px;
-}
-
-.floating-table-scroll::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.05);
-    border-radius: 999px;
-}
-
-.floating-table-scroll::-webkit-scrollbar-thumb {
-    background: rgba(188, 206, 255, 0.55);
-    border-radius: 999px;
-    border: 2px solid rgba(8, 13, 22, 0.94);
-}
-
-.intro-panel,
-.intro-tags,
-.topbar-badge,
-.sidebar-foot,
-#catalogs-section,
-a[href="#catalogs-section"] {
-    display: none !important;
-}
-
-@media (max-width: 1280px) {
-    .metric-card.wide {
-        grid-column: auto;
-    }
-}
-
-@media (max-width: 1100px) {
-    .pager-cluster {
-        justify-content: stretch;
-    }
-
-    .per-page-form,
-    .pager-indicator {
-        min-height: 46px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .app-layout {
-        grid-template-columns: 1fr;
-        padding: 14px;
-        gap: 16px;
-    }
-
-    .sidebar,
-    body.sidebar-collapsed .sidebar {
-        position: relative;
-        top: 0;
-        width: 100%;
-        min-width: 0;
-        padding: 14px;
-    }
-
-    .sidebar-top,
-    body.sidebar-collapsed .sidebar-top {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .brand-copy,
-    body.sidebar-collapsed .brand-copy {
-        display: block;
-    }
-
-    .sidebar-nav {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .nav-item,
-    body.sidebar-collapsed .nav-item {
-        justify-content: flex-start;
-        padding: 10px 12px;
-        gap: 12px;
-    }
-
-    .nav-label,
-    body.sidebar-collapsed .nav-label {
-        display: block;
-    }
-
-    .topbar {
-        min-height: auto;
-        padding: 20px;
-    }
-
-    .topbar-title {
-        font-size: 27px;
-    }
-
-    .upload-form.two-columns {
-        grid-template-columns: 1fr;
-    }
-
-    .download-row,
-    .table-toolbar,
-    .section-heading-row,
-    .toolbar-right,
-    .table-toolbar-paged,
-    .pager-cluster,
-    .selected-targets-toolbar,
-    .search-form-inline {
+@media (max-width: 900px) {
+    .selected-targets-toolbar {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .search-box,
-    .search-form-inline .search-box {
-        min-width: 0;
-    }
-
-    .summary-grid-check-multi,
-    .summary-grid-compare,
-    .summary-grid-family {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 900px) {
-    .pager-nav {
-        justify-content: space-between;
-    }
-
     .version-card-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 640px) {
-    .sidebar-nav {
-        grid-template-columns: 1fr;
-    }
-
-    .topbar-title {
-        font-size: 24px;
-    }
-
-    .panel-block,
-    .metric-card {
-        padding: 18px;
-    }
-
-    .mode-header h2,
-    .panel-block h2,
-    .panel-block h3,
-    .section-heading-row h2 {
-        font-size: 22px;
-    }
-
-    .results-table td.sticky-col,
-    .results-table th.sticky-col {
-        min-width: 200px;
-        max-width: 200px;
-    }
-
-    .results-table td:not(.sticky-col),
-    .results-table th:not(.sticky-col) {
-        min-width: 150px;
     }
 }

@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-import json
-import math
 from datetime import datetime
 from pathlib import Path
 from uuid import uuid4
 
-from fastapi import APIRouter, File, Form, HTTPException, Query, Request, UploadFile
+from fastapi import APIRouter, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 
@@ -21,150 +19,6 @@ from app.services.catalog_lookup_service import CatalogLookupService
 
 router = APIRouter()
 templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
-
-ALLOWED_PAGE_SIZES = (25, 50, 100, 250)
-DEFAULT_PAGE_SIZE = 50
-CHECK_STATE_PREFIX = "check_state_"
-
-
-def _normalize_page(page: int | None) -> int:
-    if page is None or page < 1:
-        return 1
-    return int(page)
-
-
-def _normalize_per_page(per_page: int | None) -> int:
-    if per_page in ALLOWED_PAGE_SIZES:
-        return int(per_page)
-    return DEFAULT_PAGE_SIZE
-
-
-def _normalize_search_query(value: str | None) -> str:
-    return (value or "").strip().casefold()
-
-
-def _stringify_search_value(value: object) -> str:
-    if value is None:
-        return ""
-    if isinstance(value, (list, tuple, set)):
-        return " ".join(_stringify_search_value(item) for item in value)
-    if isinstance(value, dict):
-        return " ".join(_stringify_search_value(item) for item in value.values())
-    return str(value)
-
-
-def _check_row_matches(row: dict[str, object], query: str) -> bool:
-    if not query:
-        return True
-
-    haystack_parts = [
-        row.get("component"),
-        row.get("requested_version"),
-    ]
-
-    for cell in row.get("target_cells", []) or []:
-        haystack_parts.extend(
-            [
-                cell.get("target_label"),
-                cell.get("status"),
-                cell.get("status_label"),
-                cell.get("display_value"),
-                cell.get("message"),
-                cell.get("resolved_component_name"),
-                cell.get("repository_name"),
-                cell.get("filename"),
-            ]
-        )
-
-    haystack = " ".join(_stringify_search_value(part) for part in haystack_parts).casefold()
-    return query in haystack
-
-
-def _compare_row_matches(row: dict[str, object], query: str) -> bool:
-    if not query:
-        return True
-
-    haystack = " ".join(
-        [
-            _stringify_search_value(row.get("package_name")),
-            _stringify_search_value(row.get("left_versions")),
-            _stringify_search_value(row.get("right_versions")),
-            _stringify_search_value(row.get("status")),
-        ]
-    ).casefold()
-
-    return query in haystack
-
-
-def _family_row_matches(row: dict[str, object], query: str) -> bool:
-    if not query:
-        return True
-
-    haystack = " ".join(
-        [
-            _stringify_search_value(row.get("package_name")),
-            _stringify_search_value(row.get("versions_by_os")),
-        ]
-    ).casefold()
-
-    return query in haystack
-
-
-def _filter_rows(
-    rows: list[dict[str, object]],
-    *,
-    search_query: str | None,
-    matcher,
-) -> list[dict[str, object]]:
-    normalized_query = _normalize_search_query(search_query)
-    if not normalized_query:
-        return rows
-    return [row for row in rows if matcher(row, normalized_query)]
-
-
-def _paginate_rows(rows: list[dict[str, object]], *, page: int | None, per_page: int | None) -> dict[str, object]:
-    normalized_page = _normalize_page(page)
-    normalized_per_page = _normalize_per_page(per_page)
-
-    total_items = len(rows)
-    total_pages = max(1, math.ceil(total_items / normalized_per_page))
-    current_page = min(normalized_page, total_pages)
-    start = (current_page - 1) * normalized_per_page
-    end = start + normalized_per_page
-
-    return {
-        "items": rows[start:end],
-        "pagination": {
-            "page": current_page,
-            "per_page": normalized_per_page,
-            "total_items": total_items,
-            "total_pages": total_pages,
-            "start_item": start + 1 if total_items else 0,
-            "end_item": min(end, total_items),
-            "has_prev": current_page > 1,
-            "has_next": current_page < total_pages,
-            "prev_page": current_page - 1 if current_page > 1 else 1,
-            "next_page": current_page + 1 if current_page < total_pages else total_pages,
-            "page_sizes": list(ALLOWED_PAGE_SIZES),
-        },
-    }
-
-
-def _check_state_path(token: str) -> Path:
-    safe_token = "".join(ch for ch in token if ch.isalnum() or ch in ("-", "_"))
-    return UPLOADS_DIR / f"{CHECK_STATE_PREFIX}{safe_token}.json"
-
-
-def _save_check_state(*, token: str, payload: dict[str, object]) -> None:
-    path = _check_state_path(token)
-    path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-
-
-def _load_check_state(token: str) -> dict[str, object] | None:
-    path = _check_state_path(token)
-    if not path.exists():
-        return None
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def _load_targets() -> list[dict[str, object]]:
@@ -233,48 +87,16 @@ def _empty_context(request: Request) -> dict[str, object]:
         "selected_family_target_key": default_target["target_key"] if default_target else None,
         "check_summary": None,
         "check_results": [],
-        "check_pagination": None,
-        "check_result_token": None,
-        "check_search_query": "",
         "report_download_url": None,
         "compare_summary": None,
         "compare_results": [],
-        "compare_pagination": None,
-        "compare_search_query": "",
         "compare_left_label": None,
         "compare_right_label": None,
         "family_summary": None,
         "family_versions": [],
         "family_rows": [],
-        "family_pagination": None,
-        "family_search_query": "",
         "family_label": None,
     }
-
-
-def _apply_check_state_to_context(
-    context: dict[str, object],
-    *,
-    state: dict[str, object],
-    page: int | None,
-    per_page: int | None,
-    search_query: str | None,
-) -> dict[str, object]:
-    filtered_rows = _filter_rows(
-        list(state.get("check_results", [])),
-        search_query=search_query,
-        matcher=_check_row_matches,
-    )
-    paged = _paginate_rows(filtered_rows, page=page, per_page=per_page)
-
-    context["selected_check_target_keys"] = list(state.get("selected_check_target_keys", []))
-    context["check_summary"] = state.get("check_summary")
-    context["check_results"] = paged["items"]
-    context["check_pagination"] = paged["pagination"]
-    context["check_result_token"] = state.get("result_token")
-    context["check_search_query"] = search_query or ""
-    context["report_download_url"] = state.get("report_download_url")
-    return context
 
 
 @router.get("/", response_class=HTMLResponse)
@@ -282,36 +104,11 @@ def home(request: Request):
     return templates.TemplateResponse(request, "index.html", _empty_context(request))
 
 
-@router.get("/check/view", response_class=HTMLResponse)
-def check_catalog_view(
-    request: Request,
-    token: str = Query(...),
-    page: int = Query(1),
-    per_page: int = Query(DEFAULT_PAGE_SIZE),
-    search_query: str = Query(""),
-):
-    context = _empty_context(request)
-    state = _load_check_state(token)
-    if state is None:
-        context["error"] = "Сохранённый результат проверки не найден. Запустите сравнение DOCX заново."
-        return templates.TemplateResponse(request, "index.html", context, status_code=404)
-
-    _apply_check_state_to_context(
-        context,
-        state=state,
-        page=page,
-        per_page=per_page,
-        search_query=search_query,
-    )
-    return templates.TemplateResponse(request, "index.html", context)
-
-
 @router.post("/check", response_class=HTMLResponse)
 async def check_catalog(
-    request: Request,#R.D.A
+    request: Request,
     input_file: UploadFile = File(...),
     target_keys: list[str] = Form([]),
-    per_page: int = Form(DEFAULT_PAGE_SIZE),
 ):
     context = _empty_context(request)
     context["selected_check_target_keys"] = target_keys
@@ -432,35 +229,22 @@ async def check_catalog(
             rows=report_rows,
         )
 
-        result_token = uuid4().hex
-        state = {
-            "result_token": result_token,
-            "selected_check_target_keys": list(target_keys),
-            "check_summary": {
-                "checked_rows": len(ui_rows),
-                "selected_target_count": len(selected_targets),
-                "targets": [
-                    {
-                        "label": str(target["label"]),
-                        "exact": per_target_counters[str(target["target_key"])]["exact"],
-                        "different_version": per_target_counters[str(target["target_key"])]["different_version"],
-                        "absent": per_target_counters[str(target["target_key"])]["absent"],
-                        "unresolved": per_target_counters[str(target["target_key"])]["unresolved"],
-                    }
-                    for target in selected_targets
-                ],
-            },
-            "check_results": ui_rows,
-            "report_download_url": f"/download/{report_filename}",
+        context["check_results"] = ui_rows
+        context["check_summary"] = {
+            "checked_rows": len(ui_rows),
+            "selected_target_count": len(selected_targets),
+            "targets": [
+                {
+                    "label": str(target["label"]),
+                    "exact": per_target_counters[str(target["target_key"])]["exact"],
+                    "different_version": per_target_counters[str(target["target_key"])]["different_version"],
+                    "absent": per_target_counters[str(target["target_key"])]["absent"],
+                    "unresolved": per_target_counters[str(target["target_key"])]["unresolved"],
+                }
+                for target in selected_targets
+            ],
         }
-        _save_check_state(token=result_token, payload=state)
-        _apply_check_state_to_context(
-            context,
-            state=state,
-            page=1,
-            per_page=per_page,
-            search_query="",
-        )
+        context["report_download_url"] = f"/download/{report_filename}"
 
         return templates.TemplateResponse(request, "index.html", context)
     finally:
@@ -468,18 +252,14 @@ async def check_catalog(
 
 
 @router.post("/compare", response_class=HTMLResponse)
-def compare_targets(#R.D.A
+def compare_targets(
     request: Request,
     left_target_key: str = Form(...),
     right_target_key: str = Form(...),
-    page: int = Form(1),
-    per_page: int = Form(DEFAULT_PAGE_SIZE),
-    search_query: str = Form(""),
 ):
     context = _empty_context(request)
     context["selected_compare_left_key"] = left_target_key
     context["selected_compare_right_key"] = right_target_key
-    context["compare_search_query"] = search_query
 
     left_target = _target_from_key(context["targets"], left_target_key)
     right_target = _target_from_key(context["targets"], right_target_key)
@@ -506,11 +286,7 @@ def compare_targets(#R.D.A
         status = str(row["status"])
         counters[status] = counters.get(status, 0) + 1
 
-    filtered_rows = _filter_rows(rows, search_query=search_query, matcher=_compare_row_matches)
-    paged = _paginate_rows(filtered_rows, page=page, per_page=per_page)
-
-    context["compare_results"] = paged["items"]
-    context["compare_pagination"] = paged["pagination"]
+    context["compare_results"] = rows
     context["compare_summary"] = {"total": len(rows), **counters}
     context["compare_left_label"] = left_target["label"]
     context["compare_right_label"] = right_target["label"]
@@ -521,13 +297,9 @@ def compare_targets(#R.D.A
 def family_view(
     request: Request,
     target_key: str = Form(...),
-    page: int = Form(1),
-    per_page: int = Form(DEFAULT_PAGE_SIZE),
-    search_query: str = Form(""),
 ):
     context = _empty_context(request)
     context["selected_family_target_key"] = target_key
-    context["family_search_query"] = search_query
     target = _target_from_key(context["targets"], target_key)
 
     if target is None:
@@ -545,12 +317,8 @@ def family_view(
     finally:
         db.close()
 
-    filtered_rows = _filter_rows(list(matrix["rows"]), search_query=search_query, matcher=_family_row_matches)
-    paged = _paginate_rows(filtered_rows, page=page, per_page=per_page)
-
     context["family_versions"] = matrix["versions"]
-    context["family_rows"] = paged["items"]
-    context["family_pagination"] = paged["pagination"]
+    context["family_rows"] = matrix["rows"]
     context["family_summary"] = {"total": len(matrix["rows"]), "series": matrix["series"]}
     context["family_label"] = prettify_os_family(str(target["os_family"]))
     return templates.TemplateResponse(request, "index.html", context)

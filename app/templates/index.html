@@ -10,6 +10,7 @@
     {% set active_mode = 'family' %}
 {% endif %}
 
+
 {% if error %}
 <section class="glass-panel panel-block">
     <div class="alert alert-error">{{ error }}</div>
@@ -81,7 +82,7 @@
             </form>
         </div>
 
-        {% if check_summary and check_pagination %}
+        {% if check_summary %}
         <section class="summary-grid summary-grid-check-multi">
             <div class="glass-panel metric-card">
                 <div class="metric-label">Проверено строк</div>
@@ -119,60 +120,9 @@
         </section>
 
         <section class="glass-panel panel-block">
-            <div class="table-toolbar table-toolbar-paged">
-                <div>
-                    <h3>Результаты проверки</h3>
-                    <p class="muted">
-                        Показано {{ check_pagination.start_item }}–{{ check_pagination.end_item }} из {{ check_pagination.total_items }} строк.
-                    </p>
-                </div>
-
-                <div class="toolbar-right pager-cluster">
-                    <form class="search-form-inline" method="get" action="/check/view">
-                        <input type="hidden" name="token" value="{{ check_result_token }}">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="per_page" value="{{ check_pagination.per_page }}">
-
-                        <label class="search-box">
-                            <span>Поиск по всем результатам</span>
-                            <input type="search" name="search_query" value="{{ check_search_query }}" placeholder="Компонент, версия, статус...">
-                        </label>
-
-                        <button class="secondary-btn" type="submit">Найти</button>
-                    </form>
-
-                    <form class="per-page-form" method="get" action="/check/view">
-                        <input type="hidden" name="token" value="{{ check_result_token }}">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="search_query" value="{{ check_search_query }}">
-                        <span>На странице</span>
-                        <select name="per_page" onchange="this.form.submit()">
-                            {% for size in check_pagination.page_sizes %}
-                            <option value="{{ size }}" {% if size == check_pagination.per_page %}selected{% endif %}>{{ size }}</option>
-                            {% endfor %}
-                        </select>
-                    </form>
-
-                    <div class="pager-nav">
-                        {% if check_pagination.has_prev %}
-                        <a class="secondary-btn pager-btn" href="/check/view?token={{ check_result_token }}&page={{ check_pagination.prev_page }}&per_page={{ check_pagination.per_page }}&search_query={{ check_search_query | urlencode }}">←</a>
-                        {% else %}
-                        <span class="secondary-btn pager-btn is-disabled">←</span>
-                        {% endif %}
-
-                        <span class="pager-indicator">{{ check_pagination.page }} / {{ check_pagination.total_pages }}</span>
-
-                        {% if check_pagination.has_next %}
-                        <a class="secondary-btn pager-btn" href="/check/view?token={{ check_result_token }}&page={{ check_pagination.next_page }}&per_page={{ check_pagination.per_page }}&search_query={{ check_search_query | urlencode }}">→</a>
-                        {% else %}
-                        <span class="secondary-btn pager-btn is-disabled">→</span>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-
-            <div class="table-wrap" data-floating-scroll-target>
-                <table class="results-table" id="check-table">
+            <h3>Результаты проверки</h3>
+            <div class="table-wrap">
+                <table class="results-table">
                     <thead>
                         <tr>
                             <th class="sticky-col">Component</th>
@@ -253,7 +203,7 @@
             </form>
         </div>
 
-        {% if compare_summary and compare_pagination %}
+        {% if compare_summary %}
         <section class="summary-grid summary-grid-compare">
             <div class="glass-panel metric-card wide"><div class="metric-label">Левая ОС</div><div class="metric-value small">{{ compare_left_label }}</div></div>
             <div class="glass-panel metric-card wide"><div class="metric-label">Правая ОС</div><div class="metric-value small">{{ compare_right_label }}</div></div>
@@ -265,71 +215,20 @@
         </section>
 
         <section class="glass-panel panel-block">
-            <div class="table-toolbar table-toolbar-paged">
+            <div class="table-toolbar">
                 <div>
                     <h3>Сравнение ОС</h3>
-                    <p class="muted">
-                        Показано {{ compare_pagination.start_item }}–{{ compare_pagination.end_item }} из {{ compare_pagination.total_items }} строк.
-                    </p>
+                    <p class="muted">Поиск фильтрует таблицу по названию компонента и всем ячейкам строки.</p>
                 </div>
-
-                <div class="toolbar-right pager-cluster">
-                    <form class="search-form-inline" method="post" action="/compare">
-                        <input type="hidden" name="left_target_key" value="{{ selected_compare_left_key }}">
-                        <input type="hidden" name="right_target_key" value="{{ selected_compare_right_key }}">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="per_page" value="{{ compare_pagination.per_page }}">
-
-                        <label class="search-box">
-                            <span>Поиск по всем компонентам</span>
-                            <input type="search" name="search_query" value="{{ compare_search_query }}" placeholder="Компонент или версия...">
-                        </label>
-
-                        <button class="secondary-btn" type="submit">Найти</button>
-                    </form>
-
-                    <div class="search-counter">
-                        {{ compare_pagination.total_items }} найдено
-                    </div>
-
-                    <form class="per-page-form" method="post" action="/compare">
-                        <input type="hidden" name="left_target_key" value="{{ selected_compare_left_key }}">
-                        <input type="hidden" name="right_target_key" value="{{ selected_compare_right_key }}">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="search_query" value="{{ compare_search_query }}">
-                        <span>На странице</span>
-                        <select name="per_page" onchange="this.form.submit()">
-                            {% for size in compare_pagination.page_sizes %}
-                            <option value="{{ size }}" {% if size == compare_pagination.per_page %}selected{% endif %}>{{ size }}</option>
-                            {% endfor %}
-                        </select>
-                    </form>
-
-                    <div class="pager-nav">
-                        <form method="post" action="/compare">
-                            <input type="hidden" name="left_target_key" value="{{ selected_compare_left_key }}">
-                            <input type="hidden" name="right_target_key" value="{{ selected_compare_right_key }}">
-                            <input type="hidden" name="per_page" value="{{ compare_pagination.per_page }}">
-                            <input type="hidden" name="page" value="{{ compare_pagination.prev_page }}">
-                            <input type="hidden" name="search_query" value="{{ compare_search_query }}">
-                            <button class="secondary-btn pager-btn" type="submit" {% if not compare_pagination.has_prev %}disabled{% endif %}>←</button>
-                        </form>
-
-                        <span class="pager-indicator">{{ compare_pagination.page }} / {{ compare_pagination.total_pages }}</span>
-
-                        <form method="post" action="/compare">
-                            <input type="hidden" name="left_target_key" value="{{ selected_compare_left_key }}">
-                            <input type="hidden" name="right_target_key" value="{{ selected_compare_right_key }}">
-                            <input type="hidden" name="per_page" value="{{ compare_pagination.per_page }}">
-                            <input type="hidden" name="page" value="{{ compare_pagination.next_page }}">
-                            <input type="hidden" name="search_query" value="{{ compare_search_query }}">
-                            <button class="secondary-btn pager-btn" type="submit" {% if not compare_pagination.has_next %}disabled{% endif %}>→</button>
-                        </form>
-                    </div>
+                <div class="toolbar-right">
+                    <label class="search-box">
+                        <span>Поиск</span>
+                        <input type="search" placeholder="Компонент или версия..." data-table-search="#compare-table">
+                    </label>
+                    <div class="search-counter" data-table-counter="#compare-table"></div>
                 </div>
             </div>
-
-            <div class="table-wrap" data-floating-scroll-target>
+            <div class="table-wrap">
                 <table class="results-table" id="compare-table">
                     <thead>
                         <tr>
@@ -381,7 +280,7 @@
             </form>
         </div>
 
-        {% if family_summary and family_pagination %}
+        {% if family_summary %}
         <section class="summary-grid summary-grid-family">
             <div class="glass-panel metric-card wide"><div class="metric-label">Семейство</div><div class="metric-value small">{{ family_label }} {{ family_summary.series }}.x</div></div>
             <div class="glass-panel metric-card"><div class="metric-label">Компонентов</div><div class="metric-value">{{ family_summary.total }}</div></div>
@@ -389,67 +288,20 @@
         </section>
 
         <section class="glass-panel panel-block">
-            <div class="table-toolbar table-toolbar-paged">
+            <div class="table-toolbar">
                 <div>
                     <h3>Состав семейства версий</h3>
-                    <p class="muted">
-                        Показано {{ family_pagination.start_item }}–{{ family_pagination.end_item }} из {{ family_pagination.total_items }} строк.
-                    </p>
+                    <p class="muted">Поиск работает по имени пакета и всем версиям, попавшим в строку.</p>
                 </div>
-
-                <div class="toolbar-right pager-cluster">
-                    <form class="search-form-inline" method="post" action="/family-view">
-                        <input type="hidden" name="target_key" value="{{ selected_family_target_key }}">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="per_page" value="{{ family_pagination.per_page }}">
-
-                        <label class="search-box">
-                            <span>Поиск по всему семейству</span>
-                            <input type="search" name="search_query" value="{{ family_search_query }}" placeholder="Компонент или версия...">
-                        </label>
-
-                        <button class="secondary-btn" type="submit">Найти</button>
-                    </form>
-
-                    <div class="search-counter">
-                        {{ family_pagination.total_items }} найдено
-                    </div>
-
-                    <form class="per-page-form" method="post" action="/family-view">
-                        <input type="hidden" name="target_key" value="{{ selected_family_target_key }}">
-                        <input type="hidden" name="page" value="1">
-                        <input type="hidden" name="search_query" value="{{ family_search_query }}">
-                        <span>На странице</span>
-                        <select name="per_page" onchange="this.form.submit()">
-                            {% for size in family_pagination.page_sizes %}
-                            <option value="{{ size }}" {% if size == family_pagination.per_page %}selected{% endif %}>{{ size }}</option>
-                            {% endfor %}
-                        </select>
-                    </form>
-
-                    <div class="pager-nav">
-                        <form method="post" action="/family-view">
-                            <input type="hidden" name="target_key" value="{{ selected_family_target_key }}">
-                            <input type="hidden" name="per_page" value="{{ family_pagination.per_page }}">
-                            <input type="hidden" name="page" value="{{ family_pagination.prev_page }}">
-                            <input type="hidden" name="search_query" value="{{ family_search_query }}">
-                            <button class="secondary-btn pager-btn" type="submit" {% if not family_pagination.has_prev %}disabled{% endif %}>←</button>
-                        </form>
-
-                        <span class="pager-indicator">{{ family_pagination.page }} / {{ family_pagination.total_pages }}</span>
-
-                        <form method="post" action="/family-view">
-                            <input type="hidden" name="target_key" value="{{ selected_family_target_key }}">
-                            <input type="hidden" name="per_page" value="{{ family_pagination.per_page }}">
-                            <input type="hidden" name="page" value="{{ family_pagination.next_page }}">
-                            <input type="hidden" name="search_query" value="{{ family_search_query }}">
-                            <button class="secondary-btn pager-btn" type="submit" {% if not family_pagination.has_next %}disabled{% endif %}>→</button>
-                        </form>
-                    </div>
+                <div class="toolbar-right">
+                    <label class="search-box">
+                        <span>Поиск</span>
+                        <input type="search" placeholder="Компонент или версия..." data-table-search="#family-table">
+                    </label>
+                    <div class="search-counter" data-table-counter="#family-table"></div>
                 </div>
             </div>
-
-            <div class="table-wrap" data-floating-scroll-target>
+            <div class="table-wrap">
                 <table class="results-table" id="family-table">
                     <thead>
                         <tr>
