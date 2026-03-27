@@ -1,0 +1,482 @@
+{% extends "base.html" %}
+
+{% block title %}Cert Checker{% endblock %}
+
+{% block content %}
+{% set active_mode = 'check' %}
+{% if compare_summary %}
+    {% set active_mode = 'compare' %}
+{% elif family_summary %}
+    {% set active_mode = 'family' %}
+{% endif %}
+
+{% if error %}
+<section class="glass-panel panel-block">
+    <div class="alert alert-error">{{ error }}</div>
+</section>
+{% endif %}
+
+<div class="modes-stack" data-active-mode="{{ active_mode }}">
+    <section class="mode-panel" id="mode-check" data-mode-panel="check">
+        <div class="mode-header">
+            <div>
+                <div class="section-kicker">Режим</div>
+                <h2>Работа с DOCX</h2>
+                <p class="muted">
+                    Загрузите файл с колонками <b>component</b> и <b>version</b>.
+                    Ниже выберите до <b>5</b> версий ОС. Сначала идёт семейство, внутри — карточки версий.
+                </p>
+            </div>
+        </div>
+
+        <div class="glass-panel panel-block">
+            <form class="upload-form" method="post" action="/check" enctype="multipart/form-data">
+                <div class="field-label">
+                    <span>Выбранные версии</span>
+
+                    <div class="selected-targets-toolbar">
+                        <div class="selected-targets-list" data-selected-targets></div>
+                        <span class="selection-counter" data-target-counter>0 / 5</span>
+                    </div>
+                </div>
+
+                <div class="family-selector-stack">
+                    {% for family in targets | groupby('family_label') %}
+                    <section class="family-selector-card">
+                        <div class="family-selector-head">
+                            <div>
+                                <div class="family-selector-title">{{ family.grouper }}</div>
+                                <div class="family-selector-subtitle">{{ family.list | length }} доступных версий</div>
+                            </div>
+                        </div>
+
+                        <div class="version-card-grid">
+                            {% for target in family.list %}
+                            <label class="version-card">
+                                <input
+                                    type="checkbox"
+                                    name="target_keys"
+                                    value="{{ target.target_key }}"
+                                    {% if target.target_key in selected_check_target_keys %}checked{% endif %}
+                                >
+                                <span class="version-card-body">
+                                    <span class="version-card-title">{{ target.label }}</span>
+                                    <span class="version-card-meta">
+                                        {{ target.package_count }} пакетов • {{ target.source_count }} источн.
+                                    </span>
+                                </span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </section>
+                    {% endfor %}
+                </div>
+
+                <label class="file-label">
+                    <span>Word-файл</span>
+                    <input type="file" name="input_file" accept=".docx" required>
+                </label>
+
+                <button class="primary-btn" type="submit">Проверить и собрать XLSX</button>
+            </form>
+        </div>
+
+        {% if check_summary and check_pagination %}
+        <section class="summary-grid summary-grid-check-multi">
+            <div class="glass-panel metric-card">
+                <div class="metric-label">Проверено строк</div>
+                <div class="metric-value">{{ check_summary.checked_rows }}</div>
+            </div>
+
+            <div class="glass-panel metric-card">
+                <div class="metric-label">Выбрано систем</div>
+                <div class="metric-value">{{ check_summary.selected_target_count }}</div>
+            </div>
+
+            {% for target in check_summary.targets %}
+            <div class="glass-panel metric-card wide target-breakdown-card">
+                <div class="metric-label">{{ target.label }}</div>
+                <div class="mini-stats">
+                    <span class="mini-stat ok">exact: {{ target.exact }}</span>
+                    <span class="mini-stat warn">different: {{ target.different_version }}</span>
+                    <span class="mini-stat danger">absent: {{ target.absent }}</span>
+                    <span class="mini-stat info">unresolved: {{ target.unresolved }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+        <section class="glass-panel panel-block">
+            <div class="download-row">
+                <div>
+                    <h3>Excel-отчёт готов</h3>
+                    <p class="muted">
+                        В выгрузку уходят: <b>component</b>, <b>version</b> и все выбранные версии ОС.
+                    </p>
+                </div>
+                <a class="secondary-btn" href="{{ report_download_url }}">Скачать XLSX</a>
+            </div>
+        </section>
+
+        <section class="glass-panel panel-block">
+            <div class="table-toolbar table-toolbar-paged">
+                <div>
+                    <h3>Результаты проверки</h3>
+                    <p class="muted">
+                        Показано {{ check_pagination.start_item }}–{{ check_pagination.end_item }} из {{ check_pagination.total_items }} строк.
+                    </p>
+                </div>
+
+                <div class="toolbar-right pager-cluster">
+                    <form class="search-form-inline" method="get" action="/check/view">
+                        <input type="hidden" name="token" value="{{ check_result_token }}">
+                        <input type="hidden" name="page" value="1">
+                        <input type="hidden" name="per_page" value="{{ check_pagination.per_page }}">
+
+                        <label class="search-box">
+                            <span>Поиск по всем результатам</span>
+                            <input type="search" name="search_query" value="{{ check_search_query }}" placeholder="Компонент, версия, статус...">
+                        </label>
+
+                        <button class="secondary-btn" type="submit">Найти</button>
+                    </form>
+
+                    <form class="per-page-form" method="get" action="/check/view">
+                        <input type="hidden" name="token" value="{{ check_result_token }}">
+                        <input type="hidden" name="page" value="1">
+                        <input type="hidden" name="search_query" value="{{ check_search_query }}">
+                        <span>На странице</span>
+                        <select name="per_page" onchange="this.form.submit()">
+                            {% for size in check_pagination.page_sizes %}
+                            <option value="{{ size }}" {% if size == check_pagination.per_page %}selected{% endif %}>{{ size }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+
+                    <div class="pager-nav">
+                        {% if check_pagination.has_prev %}
+                        <a class="secondary-btn pager-btn" href="/check/view?token={{ check_result_token }}&page={{ check_pagination.prev_page }}&per_page={{ check_pagination.per_page }}&search_query={{ check_search_query | urlencode }}">←</a>
+                        {% else %}
+                        <span class="secondary-btn pager-btn is-disabled">←</span>
+                        {% endif %}
+
+                        <span class="pager-indicator">{{ check_pagination.page }} / {{ check_pagination.total_pages }}</span>
+
+                        {% if check_pagination.has_next %}
+                        <a class="secondary-btn pager-btn" href="/check/view?token={{ check_result_token }}&page={{ check_pagination.next_page }}&per_page={{ check_pagination.per_page }}&search_query={{ check_search_query | urlencode }}">→</a>
+                        {% else %}
+                        <span class="secondary-btn pager-btn is-disabled">→</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-wrap" data-floating-scroll-target>
+                <table class="results-table" id="check-table">
+                    <thead>
+                        <tr>
+                            <th class="sticky-col">Component</th>
+                            <th>Requested version</th>
+                            {% for target in check_summary.targets %}
+                            <th class="target-column-header">{{ target.label }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in check_results %}
+                        <tr>
+                            <td class="sticky-col">{{ row.component }}</td>
+                            <td>{{ row.requested_version or '—' }}</td>
+
+                            {% for cell in row.target_cells %}
+                            <td class="target-result-cell">
+                                <div class="target-result-stack">
+                                    <span class="status-badge {{ cell.status }}">{{ cell.status_label }}</span>
+                                    <div class="target-result-value">{{ cell.display_value }}</div>
+                                    <div class="target-result-meta">{{ cell.message }}</div>
+
+                                    {% if cell.was_aliased %}
+                                    <div class="target-result-meta">alias → {{ cell.resolved_component_name }}</div>
+                                    {% endif %}
+
+                                    {% if cell.repository_name %}
+                                    <div class="target-result-meta">{{ cell.repository_name }}</div>
+                                    {% endif %}
+                                </div>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+    </section>
+
+    <section class="mode-panel" id="mode-compare" data-mode-panel="compare">
+        <div class="mode-header">
+            <div>
+                <div class="section-kicker">Режим</div>
+                <h2>Сравнение ОС</h2>
+                <p class="muted">Сравнение состава двух каталогов. Можно выбирать любые пары версий и семейств.</p>
+            </div>
+        </div>
+
+        <div class="glass-panel panel-block">
+            <form class="upload-form two-columns" method="post" action="/compare">
+                <label class="field-label">
+                    <span>Левая ОС</span>
+                    <select name="left_target_key" required>
+                        {% for target in targets %}
+                        <option value="{{ target.target_key }}" {% if target.target_key == selected_compare_left_key %}selected{% endif %}>
+                            {{ target.label }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label class="field-label">
+                    <span>Правая ОС</span>
+                    <select name="right_target_key" required>
+                        {% for target in targets %}
+                        <option value="{{ target.target_key }}" {% if target.target_key == selected_compare_right_key %}selected{% endif %}>
+                            {{ target.label }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <div class="form-actions full-row">
+                    <button class="primary-btn" type="submit">Сравнить каталоги</button>
+                </div>
+            </form>
+        </div>
+
+        {% if compare_summary and compare_pagination %}
+        <section class="summary-grid summary-grid-compare">
+            <div class="glass-panel metric-card wide"><div class="metric-label">Левая ОС</div><div class="metric-value small">{{ compare_left_label }}</div></div>
+            <div class="glass-panel metric-card wide"><div class="metric-label">Правая ОС</div><div class="metric-value small">{{ compare_right_label }}</div></div>
+            <div class="glass-panel metric-card"><div class="metric-label">Всего компонентов</div><div class="metric-value">{{ compare_summary.total }}</div></div>
+            <div class="glass-panel metric-card"><div class="metric-label">Совпали версии</div><div class="metric-value">{{ compare_summary.same_version }}</div></div>
+            <div class="glass-panel metric-card"><div class="metric-label">Разные версии</div><div class="metric-value">{{ compare_summary.different_version }}</div></div>
+            <div class="glass-panel metric-card"><div class="metric-label">Только слева</div><div class="metric-value">{{ compare_summary.only_left }}</div></div>
+            <div class="glass-panel metric-card"><div class="metric-label">Только справа</div><div class="metric-value">{{ compare_summary.only_right }}</div></div>
+        </section>
+
+        <section class="glass-panel panel-block">
+            <div class="table-toolbar table-toolbar-paged">
+                <div>
+                    <h3>Сравнение ОС</h3>
+                    <p class="muted">
+                        Показано {{ compare_pagination.start_item }}–{{ compare_pagination.end_item }} из {{ compare_pagination.total_items }} строк.
+                    </p>
+                </div>
+
+                <div class="toolbar-right pager-cluster">
+                    <form class="search-form-inline" method="post" action="/compare">
+                        <input type="hidden" name="left_target_key" value="{{ selected_compare_left_key }}">
+                        <input type="hidden" name="right_target_key" value="{{ selected_compare_right_key }}">
+                        <input type="hidden" name="page" value="1">
+                        <input type="hidden" name="per_page" value="{{ compare_pagination.per_page }}">
+
+                        <label class="search-box">
+                            <span>Поиск по всем компонентам</span>
+                            <input type="search" name="search_query" value="{{ compare_search_query }}" placeholder="Компонент или версия...">
+                        </label>
+
+                        <button class="secondary-btn" type="submit">Найти</button>
+                    </form>
+
+                    <div class="search-counter">
+                        {{ compare_pagination.total_items }} найдено
+                    </div>
+
+                    <form class="per-page-form" method="post" action="/compare">
+                        <input type="hidden" name="left_target_key" value="{{ selected_compare_left_key }}">
+                        <input type="hidden" name="right_target_key" value="{{ selected_compare_right_key }}">
+                        <input type="hidden" name="page" value="1">
+                        <input type="hidden" name="search_query" value="{{ compare_search_query }}">
+                        <span>На странице</span>
+                        <select name="per_page" onchange="this.form.submit()">
+                            {% for size in compare_pagination.page_sizes %}
+                            <option value="{{ size }}" {% if size == compare_pagination.per_page %}selected{% endif %}>{{ size }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+
+                    <div class="pager-nav">
+                        <form method="post" action="/compare">
+                            <input type="hidden" name="left_target_key" value="{{ selected_compare_left_key }}">
+                            <input type="hidden" name="right_target_key" value="{{ selected_compare_right_key }}">
+                            <input type="hidden" name="per_page" value="{{ compare_pagination.per_page }}">
+                            <input type="hidden" name="page" value="{{ compare_pagination.prev_page }}">
+                            <input type="hidden" name="search_query" value="{{ compare_search_query }}">
+                            <button class="secondary-btn pager-btn" type="submit" {% if not compare_pagination.has_prev %}disabled{% endif %}>←</button>
+                        </form>
+
+                        <span class="pager-indicator">{{ compare_pagination.page }} / {{ compare_pagination.total_pages }}</span>
+
+                        <form method="post" action="/compare">
+                            <input type="hidden" name="left_target_key" value="{{ selected_compare_left_key }}">
+                            <input type="hidden" name="right_target_key" value="{{ selected_compare_right_key }}">
+                            <input type="hidden" name="per_page" value="{{ compare_pagination.per_page }}">
+                            <input type="hidden" name="page" value="{{ compare_pagination.next_page }}">
+                            <input type="hidden" name="search_query" value="{{ compare_search_query }}">
+                            <button class="secondary-btn pager-btn" type="submit" {% if not compare_pagination.has_next %}disabled{% endif %}>→</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-wrap" data-floating-scroll-target>
+                <table class="results-table" id="compare-table">
+                    <thead>
+                        <tr>
+                            <th class="sticky-col">Component</th>
+                            <th>{{ compare_left_label }}</th>
+                            <th>{{ compare_right_label }}</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in compare_results %}
+                        <tr>
+                            <td class="sticky-col">{{ row.package_name }}</td>
+                            <td>{{ row.left_versions | join(', ') if row.left_versions else '—' }}</td>
+                            <td>{{ row.right_versions | join(', ') if row.right_versions else '—' }}</td>
+                            <td><span class="status-badge compare-{{ row.status }}">{{ row.status }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+    </section>
+
+    <section class="mode-panel" id="mode-family" data-mode-panel="family">
+        <div class="mode-header">
+            <div>
+                <div class="section-kicker">Режим</div>
+                <h2>Семейство версий</h2>
+                <p class="muted">Просмотр одной ветки версий, например <b>1.8.x</b>, с отображением компонентного состава по всем доступным подвёрсиям.</p>
+            </div>
+        </div>
+
+        <div class="glass-panel panel-block">
+            <form class="upload-form" method="post" action="/family-view">
+                <label class="field-label">
+                    <span>Опорная версия</span>
+                    <select name="target_key" required>
+                        {% for target in targets %}
+                        <option value="{{ target.target_key }}" {% if target.target_key == selected_family_target_key %}selected{% endif %}>
+                            {{ target.label }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <button class="primary-btn" type="submit">Показать семейство</button>
+            </form>
+        </div>
+
+        {% if family_summary and family_pagination %}
+        <section class="summary-grid summary-grid-family">
+            <div class="glass-panel metric-card wide"><div class="metric-label">Семейство</div><div class="metric-value small">{{ family_label }} {{ family_summary.series }}.x</div></div>
+            <div class="glass-panel metric-card"><div class="metric-label">Компонентов</div><div class="metric-value">{{ family_summary.total }}</div></div>
+            <div class="glass-panel metric-card wide"><div class="metric-label">Версии в просмотре</div><div class="metric-value small">{{ family_versions | join(', ') }}</div></div>
+        </section>
+
+        <section class="glass-panel panel-block">
+            <div class="table-toolbar table-toolbar-paged">
+                <div>
+                    <h3>Состав семейства версий</h3>
+                    <p class="muted">
+                        Показано {{ family_pagination.start_item }}–{{ family_pagination.end_item }} из {{ family_pagination.total_items }} строк.
+                    </p>
+                </div>
+
+                <div class="toolbar-right pager-cluster">
+                    <form class="search-form-inline" method="post" action="/family-view">
+                        <input type="hidden" name="target_key" value="{{ selected_family_target_key }}">
+                        <input type="hidden" name="page" value="1">
+                        <input type="hidden" name="per_page" value="{{ family_pagination.per_page }}">
+
+                        <label class="search-box">
+                            <span>Поиск по всему семейству</span>
+                            <input type="search" name="search_query" value="{{ family_search_query }}" placeholder="Компонент или версия...">
+                        </label>
+
+                        <button class="secondary-btn" type="submit">Найти</button>
+                    </form>
+
+                    <div class="search-counter">
+                        {{ family_pagination.total_items }} найдено
+                    </div>
+
+                    <form class="per-page-form" method="post" action="/family-view">
+                        <input type="hidden" name="target_key" value="{{ selected_family_target_key }}">
+                        <input type="hidden" name="page" value="1">
+                        <input type="hidden" name="search_query" value="{{ family_search_query }}">
+                        <span>На странице</span>
+                        <select name="per_page" onchange="this.form.submit()">
+                            {% for size in family_pagination.page_sizes %}
+                            <option value="{{ size }}" {% if size == family_pagination.per_page %}selected{% endif %}>{{ size }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+
+                    <div class="pager-nav">
+                        <form method="post" action="/family-view">
+                            <input type="hidden" name="target_key" value="{{ selected_family_target_key }}">
+                            <input type="hidden" name="per_page" value="{{ family_pagination.per_page }}">
+                            <input type="hidden" name="page" value="{{ family_pagination.prev_page }}">
+                            <input type="hidden" name="search_query" value="{{ family_search_query }}">
+                            <button class="secondary-btn pager-btn" type="submit" {% if not family_pagination.has_prev %}disabled{% endif %}>←</button>
+                        </form>
+
+                        <span class="pager-indicator">{{ family_pagination.page }} / {{ family_pagination.total_pages }}</span>
+
+                        <form method="post" action="/family-view">
+                            <input type="hidden" name="target_key" value="{{ selected_family_target_key }}">
+                            <input type="hidden" name="per_page" value="{{ family_pagination.per_page }}">
+                            <input type="hidden" name="page" value="{{ family_pagination.next_page }}">
+                            <input type="hidden" name="search_query" value="{{ family_search_query }}">
+                            <button class="secondary-btn pager-btn" type="submit" {% if not family_pagination.has_next %}disabled{% endif %}>→</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-wrap" data-floating-scroll-target>
+                <table class="results-table" id="family-table">
+                    <thead>
+                        <tr>
+                            <th class="sticky-col">Component</th>
+                            {% for version in family_versions %}
+                            <th>{{ version }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in family_rows %}
+                        <tr>
+                            <td class="sticky-col">{{ row.package_name }}</td>
+                            {% for version in family_versions %}
+                            <td>
+                                {% set values = row.versions_by_os[version] %}
+                                {{ values | join(', ') if values else '—' }}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+    </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cert Checker{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css?v=15">
+    <script src="/static/app.js" defer></script>
+</head>
+<body>
+    <canvas id="spaceParticles" class="space-particles" aria-hidden="true"></canvas>
+    <div class="app-layout">
+        <aside class="sidebar glass-panel" id="sidebar">
+            <div class="sidebar-top">
+                <a class="brand" href="/">
+                    <div class="brand-mark">CC</div>
+                    <div class="brand-copy">
+                        <div class="brand-title">Cert Checker</div>
+                        <div class="brand-subtitle">xxx</div>
+                    </div>
+                </a>
+
+                <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Свернуть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item" type="button" data-mode-link="check">
+                    <span class="nav-icon">DOC</span>
+                    <span class="nav-label">Работа с DOCX</span>
+                </button>
+
+                <button class="nav-item" type="button" data-mode-link="compare">
+                    <span class="nav-icon">CMP</span>
+                    <span class="nav-label">Сравнение ОС</span>
+                </button>
+
+                <button class="nav-item" type="button" data-mode-link="family">
+                    <span class="nav-icon">FAM</span>
+                    <span class="nav-label">Семейство версий</span>
+                </button>
+            </nav>
+        </aside>
+
+        <div class="content-shell">
+            <main class="main-content">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+</body>
+</html>

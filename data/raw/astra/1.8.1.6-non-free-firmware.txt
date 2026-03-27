@@ -1,0 +1,47 @@
+Package: amd64-microcode
+Version: 3.20230808.1.1~deb12u1
+Architecture: amd64
+Maintainer: Henrique de Moraes Holschuh <hmh@debian.org>
+Installed-Size: 274
+Recommends: initramfs-tools (>= 0.113~) | dracut (>= 044) | tiny-initramfs
+Breaks: intel-microcode (<< 2)
+Priority: standard
+Section: non-free-firmware/admin
+Filename: pool/non-free-firmware/a/amd64-microcode/amd64-microcode_3.20230808.1.1~deb12u1_amd64.deb
+Size: 137184
+SHA256: 3a63c106c4846835400c67a71771d179b1f4eb69e8c966b20df1d35b6670e050
+SHA1: e7cd1c3362f440dd79479cfc92101177469d2650
+MD5sum: f0830f30c35abe473ab640bbc16f4d12
+Description: Processor microcode firmware for AMD CPUs
+ This package contains microcode patches for all AMD AMD64
+ processors.  AMD releases microcode patches to correct
+ processor behavior as documented in the respective processor
+ revision guides.  This package includes both AMD CPU microcode
+ patches and AMD SEV firmware updates.
+ .
+ For Intel processors, please refer to the intel-microcode package.
+
+Package: intel-microcode
+Version: 3.20231114.1~deb12u1
+Architecture: amd64
+Maintainer: Henrique de Moraes Holschuh <hmh@debian.org>
+Installed-Size: 12200
+Depends: iucode-tool (>= 1.0)
+Recommends: initramfs-tools (>= 0.113~)
+Conflicts: microcode.ctl (<< 0.18~0)
+Homepage: https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files
+Priority: standard
+Section: non-free-firmware/admin
+Filename: pool/non-free-firmware/i/intel-microcode/intel-microcode_3.20231114.1~deb12u1_amd64.deb
+Size: 6104136
+SHA256: 13f74b89ab6588752fb99bb09b70dbc3a30695e20a23ae13a6aa467d1073361b
+SHA1: 61123531c8434f2a40e44d97b93e5c591d97997e
+MD5sum: a92e2da88090758de35c9e52d02f87df
+Description: Processor microcode firmware for Intel CPUs
+ This package contains updated system processor microcode for
+ Intel i686 and Intel X86-64 processors.  Intel releases microcode
+ updates to correct processor behavior as documented in the
+ respective processor specification updates.
+ .
+ For AMD processors, please refer to the amd64-microcode package.
+
