@@ -1,0 +1,172 @@
+<section class="mode-panel is-active" id="mode-sbom" data-mode-panel="sbom">
+    <div class="mode-header">
+        <div>
+            <div class="section-kicker">Режим</div>
+            <h2>Сверка SBOM</h2>
+            <p class="muted">Выберите снимок Astra Linux Special Edition и проверьте имена и полные версии пакетов из SBOM.</p>
+        </div>
+    </div>
+
+    <div class="glass-panel panel-block">
+        {% if sbom.error and sbom.rows is not defined %}<div class="alert alert-error" role="alert">{{ sbom.error }}</div>{% endif %}
+        {% if not sbom.releases %}
+        <p class="muted">Импортируйте каталоги командой <code>python -m scripts.import_astra</code>.</p>
+        {% endif %}
+        <form class="upload-form" method="post" action="/sbom#sbom-results" enctype="multipart/form-data">
+            {% if sbom.upload_id %}<input type="hidden" name="upload_id" value="{{ sbom.upload_id }}">{% endif %}
+            {% if sbom.edit_id %}<input type="hidden" name="edit_id" value="{{ sbom.edit_id }}">{% endif %}
+            <div class="field-label">
+                <span>Версия Astra Linux</span>
+                <p class="muted">Счетчики показывают уникальные пакеты основного каталога. Для этих пакетов учитываются версии из фиксированного репозитория обновлений.</p>
+            </div>
+            <div class="family-selector-stack sbom-version-groups">
+                {% for branch in sbom.releases | groupby('series') %}
+                <details class="family-selector-card" {% if sbom.version in branch.list | map(attribute='version') | list %}open{% endif %}>
+                    <summary class="sbom-branch">
+                        <span class="family-selector-title">Astra Linux {{ branch.grouper }}.x</span>
+                        <span class="family-selector-subtitle">Снимков {{ branch.list | length }}</span>
+                    </summary>
+                    <div class="version-card-grid">
+                        {% for release in branch.list %}
+                        <label class="version-card">
+                            <input type="radio" name="release" value="{{ release.version }}" required
+                                   {% if release.version == sbom.version %}checked{% endif %}>
+                            <span class="version-card-body">
+                                <span class="version-card-title">{{ release.version }}</span>
+                                <span class="version-card-meta">{{ "{:,}".format(release.count) | replace(",", " ") }} пакетов</span>
+                            </span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </details>
+                {% endfor %}
+            </div>
+            <label class="file-label">
+                <span>SBOM · CycloneDX JSON 1.6 / 1.7</span>
+                <input type="file" name="file" accept=".json,application/json" {% if not sbom.upload_id %}required{% endif %}>
+                {% if sbom.upload_id %}<small class="muted">Для повторной сверки можно использовать уже загруженный SBOM.</small>{% endif %}
+            </label>
+            <div class="form-actions">
+                <button class="primary-btn" type="submit" {% if not sbom.releases %}disabled{% endif %}>{{ "Сверить повторно" if sbom.upload_id else "Сверить SBOM" }}</button>
+            </div>
+        </form>
+    </div>
+
+    {% if sbom.rows is defined %}
+    {% set statuses = [
+        ("match", "Точное совпадение", "exact"),
+        ("version", "Версия отличается", "different_version"),
+        ("invalid", "Отметка Astra не подтверждена", "absent"),
+        ("missing", "Пакет не найден", "unresolved")
+    ] %}
+    <section id="sbom-results" class="glass-panel panel-block">
+        <div class="table-toolbar">
+            <div>
+                <h3>Результаты сверки · Astra Linux {{ sbom.version }}</h3>
+                <p class="muted">Проверено строк SBOM {{ sbom.rows | length }}</p>
+            </div>
+            <div class="form-actions">
+                <a class="secondary-btn" href="/sbom/{{ sbom.upload_id }}/original">Скачать оригинал</a>
+                {% if sbom.edit_id %}
+                <a class="primary-btn" href="/sbom/{{ sbom.upload_id }}/revision/{{ sbom.edit_id }}">Скачать измененный SBOM</a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if sbom.error %}<div class="alert alert-error" role="alert">{{ sbom.error }}</div>{% endif %}
+        {% if sbom.applied %}
+        <p role="status">Изменения применены. Добавлено отметок Astra: {{ sbom.applied.marks | length }}. Обновлено версий: {{ sbom.applied.versions | length }}.</p>
+        {% endif %}
+        <p class="muted">Отметьте пакеты для Astra. При расхождении выберите, какую версию записать. Изменения попадут в копию SBOM после нажатия «Применить».</p>
+        <div class="sbom-status-filters" role="group" aria-label="Статус сверки">
+            <button class="secondary-btn sbom-filter" type="button" data-sbom-filter="" aria-pressed="true">Все <strong>{{ sbom.rows | length }}</strong></button>
+            {% for key, label, color in statuses %}
+            <button class="secondary-btn sbom-filter {{ color }}" type="button" data-sbom-filter="{{ key }}" aria-pressed="false">{{ label }} <strong>{{ sbom.counts[key] }}</strong></button>
+            {% endfor %}
+        </div>
+        <div class="sbom-toolbar">
+            <label class="search-box">
+                <span>Поиск по имени или версии</span>
+                <input type="search" id="sbom-search" placeholder="Например, openssl">
+            </label>
+            <label class="field-label">
+                <span>Связь с Astra</span>
+                <select id="sbom-scope">
+                    <option value="">Все компоненты</option>
+                    <option value="related">Есть в каталоге или отмечены Astra</option>
+                    <option value="marked">Уже отмечены Astra</option>
+                    <option value="eligible">Доступны для разметки</option>
+                    <option value="unrelated">Без связи с Astra</option>
+                </select>
+            </label>
+            <span class="selection-counter" id="sbom-visible" aria-live="polite">{{ sbom.rows | length }} из {{ sbom.rows | length }}</span>
+        </div>
+
+        <form method="post" action="/sbom/{{ sbom.upload_id }}/apply#sbom-results" id="sbom-export" class="sbom-export">
+            <input type="hidden" name="release" value="{{ sbom.version }}">
+            <input type="hidden" name="selection" value="[]" id="sbom-selection">
+            <input type="hidden" name="versions" value="{}" id="sbom-versions">
+            {% if sbom.edit_id %}<input type="hidden" name="edit_id" value="{{ sbom.edit_id }}">{% endif %}
+            <div class="sbom-export-actions">
+                <label><input type="checkbox" id="sbom-all"> Принять все доступные совпадения, включая скрытые фильтрами</label>
+                <span class="selection-counter" id="sbom-count" aria-live="polite">Выбрано 0</span>
+            </div>
+            <label><input type="checkbox" name="confirmed" value="true" id="sbom-confirmed"> Подтверждаю происхождение выбранных пакетов из Astra и применимость отметки по требованиям ФСТЭК</label>
+            <p id="sbom-version-confirmation" hidden><label><input type="checkbox" name="versions_confirmed" value="true" id="sbom-versions-confirmed"> Подтверждаю, что выбранные версии фактически используются и связанные сведения SBOM им соответствуют</label></p>
+            <div class="form-actions">
+                <button class="primary-btn" type="submit" id="sbom-apply" disabled>Применить</button>
+            </div>
+            <div class="table-wrap">
+                <table class="results-table sbom-table">
+                    <thead><tr><th>Отметить Astra</th><th>Компонент</th><th>Версия в SBOM</th><th>Версии и источники Astra</th><th>Какую версию оставить</th><th>Результат</th><th>Поставщик в SBOM</th></tr></thead>
+                    <tbody>
+                    {% for row in sbom.rows %}
+                    {% set label, color = (statuses | selectattr('0', 'equalto', row.status) | first)[1:] %}
+                    <tr class="sbom-row {{ color }}" data-sbom-status="{{ row.status }}" data-sbom-marked="{{ row.marked | int }}">
+                        <td>{% if row.eligible or (row.replacements and row.can_mark) %}
+                            <input type="checkbox" data-sbom-row="{{ row.index }}" {% if not row.eligible %}disabled{% endif %} aria-label="Отметить {{ row.component.name }} как предоставленный Astra">
+                        {% else %}—{% endif %}</td>
+                        <td><strong>{{ row.component.name }}</strong>{% if row.component.get("bom-ref") %}<div class="target-result-meta">{{ row.component["bom-ref"] }}</div>{% endif %}</td>
+                        <td class="sbom-version-value">{{ row.component.get("version") or "—" }}</td>
+                        <td>{% if row.status == "match" %}
+                            <strong class="sbom-version-value">{{ row.component.version }}</strong>
+                            <div class="target-result-meta">{{ row.exact | join(", ") }}</div>
+                        {% else %}{{ row.versions | join(", ") or "—" }}{% endif %}</td>
+                        <td>
+                            {% if row.replacements %}
+                            <select data-sbom-version="{{ row.index }}" aria-label="Какую версию оставить для {{ row.component.name }}">
+                                <option value="">Оставить {{ row.component.version or "исходное значение" }}</option>
+                                {% for version in row.replacements %}<option value="{{ version }}">Astra · {{ version }}</option>{% endfor %}
+                            </select>
+                            {% elif row.status == "version" %}
+                            <span class="muted">Исходная версия · замена недоступна</span>
+                            {% else %}—{% endif %}
+                        </td>
+                        <td><span class="status-badge {{ color }}">{{ label }}</span>
+                            {% if sbom.applied and row.index in sbom.applied.versions %}<div class="target-result-meta">Версия изменена</div>{% endif %}
+                            {% if sbom.applied and row.index in sbom.applied.marks %}<div class="target-result-meta">Отметка Astra добавлена</div>{% endif %}
+                        </td>
+                        <td>{{ row.providers | join(", ") or "—" }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <p class="muted" id="sbom-empty" {% if sbom.rows %}hidden{% endif %}>По текущим фильтрам компонентов нет.</p>
+
+        </form>
+
+        {% if sbom.indexes or sbom.catalog_link %}
+        <details class="sbom-sources">
+            <summary>Источники каталогов</summary>
+            <ul>
+                {% for name, url in sbom.indexes %}<li><a href="{{ url }}">{{ name }}</a></li>{% endfor %}
+                {% if sbom.catalog_link %}<li><a href="{{ sbom.catalog_link }}">Официальный каталог ветки</a></li>{% endif %}
+                <li><a href="https://astra.ru/info/certificates-licenses/">Сертификаты и исполнения Astra Linux</a></li>
+            </ul>
+        </details>
+        {% endif %}
+    </section>
+    <script src="/static/sbom.js?v=17" defer></script>
+    {% endif %}
+</section>

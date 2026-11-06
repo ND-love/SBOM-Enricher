@@ -218,7 +218,7 @@ def _targets_from_keys(targets: list[dict[str, object]], target_keys: list[str] 
     return prepared
 
 
-def _empty_context(request: Request) -> dict[str, object]:
+def page_context(request: Request) -> dict[str, object]:
     targets = _load_targets()
     default_target = targets[0] if targets else None
     default_check_targets = [default_target["target_key"]] if default_target else []
@@ -279,7 +279,7 @@ def _apply_check_state_to_context(
 
 @router.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse(request, "index.html", _empty_context(request))
+    return templates.TemplateResponse(request, "index.html", page_context(request))
 
 
 @router.get("/check/view", response_class=HTMLResponse)
@@ -290,7 +290,7 @@ def check_catalog_view(
     per_page: int = Query(DEFAULT_PAGE_SIZE),
     search_query: str = Query(""),
 ):
-    context = _empty_context(request)
+    context = page_context(request)
     state = _load_check_state(token)
     if state is None:
         context["error"] = "Сохранённый результат проверки не найден. Запустите сравнение DOCX заново."
@@ -313,7 +313,7 @@ async def check_catalog(
     target_keys: list[str] = Form([]),
     per_page: int = Form(DEFAULT_PAGE_SIZE),
 ):
-    context = _empty_context(request)
+    context = page_context(request)
     context["selected_check_target_keys"] = target_keys
 
     targets = context["targets"]
@@ -476,7 +476,7 @@ def compare_targets(#R.D.A
     per_page: int = Form(DEFAULT_PAGE_SIZE),
     search_query: str = Form(""),
 ):
-    context = _empty_context(request)
+    context = page_context(request)
     context["selected_compare_left_key"] = left_target_key
     context["selected_compare_right_key"] = right_target_key
     context["compare_search_query"] = search_query
@@ -525,7 +525,7 @@ def family_view(
     per_page: int = Form(DEFAULT_PAGE_SIZE),
     search_query: str = Form(""),
 ):
-    context = _empty_context(request)
+    context = page_context(request)
     context["selected_family_target_key"] = target_key
     context["family_search_query"] = search_query
     target = _target_from_key(context["targets"], target_key)

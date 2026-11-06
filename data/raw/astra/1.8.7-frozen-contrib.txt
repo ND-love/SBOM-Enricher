@@ -1,0 +1,60 @@
+Package: fly-xkbmap
+Source: fly-xkbmap (1.1.14+ci7)
+Version: 1.1.14+ci7+b7
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 335
+Depends: libc6 (>= 2.34), libflycore, libflyintegration1, libgcc-s1 (>= 3.0), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5), libx11-6, libxkbfile1 (>= 1:1.1.0), x11-xkb-utils
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: contrib/fly
+Filename: pool/contrib/f/fly-xkbmap/fly-xkbmap_1.1.14+ci7+b7_amd64.deb
+Size: 93936
+SHA256: 9586bc5300044e5db7b562c0b584715c6e638094287645dd72caf5d214fc8185
+SHA1: edf0370cf96b87b2f192d7d55a10b35f007e1d4f
+MD5sum: 4f5251d45eb88e0ccf8ca3576d110bf9
+Description: Keyboard layout setup
+ Keyboard layout setup for Fly desktop
+Unsigned-SHA1: 619b33f7fbbe8adb1ee949c3a2a2afbcff2d585e
+
+Package: flyqt5platformtheme
+Version: 1.8.0
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 364
+Depends: libc6 (>= 2.14), libflyfiledialog2, libgcc-s1 (>= 3.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.15.8+dfsg-11astra32) | libqt5gui5-gles (>= 5.15.8+dfsg-11astra32), libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5), libxcb1, qtbase-abi-5-15-8, qt5-style-plugins, kde-style-breeze
+Recommends: fly-data
+Replaces: fly-data (= 2.2.6-1)
+Priority: optional
+Section: contrib/fly
+Filename: pool/contrib/f/flyqt5platformtheme/flyqt5platformtheme_1.8.0_amd64.deb
+Size: 105720
+SHA256: 66acbe41cae58bd6aa28399f7febaf7c3ee99bd87a82322f6282904926db007d
+SHA1: 283d9c0aec35dc5991a6206254cea414fb86a209
+MD5sum: 2b67ace8cbd6c6eb9f6600873d09ec22
+Description: Fly DE plugin for Qt 5
+ This plugin allows Qt 5 to use specific settings
+ for Fly DE (style, icon theme, fonts...)
+Unsigned-SHA1: 748d77a3f7c3f16e870a632f52cec8ec8627742d
+
+Package: flyqt6platformtheme
+Source: flyqt5platformtheme
+Version: 1.8.0
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 104
+Depends: libc6 (>= 2.4), libgcc-s1 (>= 3.0), libqt6core6t64 (>= 6.10.2), libqt6gui6 (>= 6.10.2+dfsg-3.astra8), libqt6widgets6 (>= 6.1.2), libstdc++6 (>= 5), libxcb1, qt6-base-private-abi (= 6.10.2), kde-style-breeze6
+Recommends: fly-data
+Replaces: fly-data (= 2.2.6-1)
+Priority: optional
+Section: contrib/fly
+Filename: pool/contrib/f/flyqt5platformtheme/flyqt6platformtheme_1.8.0_amd64.deb
+Size: 30164
+SHA256: 65f38f6b827bf6aa28c54a53ace3827a6dc410fc00db60a758ea7274e73440f1
+SHA1: 4e070a30a2eacd59f509f4a603c69eb2d625903a
+MD5sum: e219bec3044c9b13c732bc95ac70bd14
+Description: Fly DE plugin for Qt 6
+ This plugin allows Qt 6 to use specific settings
+ for Fly DE (style, icon theme, fonts...)
+Unsigned-SHA1: 4284ef93bdc9f5d4b0ad825d6e4dad44ede32986
+

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Cert Checker{% endblock %}</title>
-    <link rel="stylesheet" href="/static/styles.css?v=15">
-    <script src="/static/app.js" defer></script>
+    <link rel="stylesheet" href="/static/styles.css?v=17">
+    <script src="/static/app.js?v=16" defer></script>
 </head>
 <body>
     <canvas id="spaceParticles" class="space-particles" aria-hidden="true"></canvas>
@@ -32,6 +32,8 @@
                     <span class="nav-icon">DOC</span>
                     <span class="nav-label">Работа с DOCX</span>
                 </button>
+
+                <a class="nav-item" data-mode-link="sbom" href="/sbom"><span class="nav-icon">SB</span><span class="nav-label">Сверка SBOM</span></a>
 
                 <button class="nav-item" type="button" data-mode-link="compare">
                     <span class="nav-icon">CMP</span>

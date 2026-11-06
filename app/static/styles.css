@@ -1329,3 +1329,43 @@ a[href="#catalogs-section"] {
         min-width: 150px;
     }
 }
+
+.nav-item[href] { text-decoration: none; }
+
+.sbom-branch { cursor: pointer; }
+.sbom-branch .family-selector-subtitle { margin-left: 10px; }
+.sbom-version-groups details[open] > summary { margin-bottom: 14px; }
+.sbom-version-groups .version-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 155px), 1fr));
+}
+.sbom-version-groups .version-card-body { min-height: 68px; }
+.sbom-version-groups .version-card input {
+    display: block;
+    position: absolute;
+    opacity: 0;
+}
+.sbom-version-groups .version-card input:focus-visible + .version-card-body {
+    outline: 2px solid var(--status-ok);
+    outline-offset: 2px;
+}
+.sbom-toolbar, .sbom-status-filters, .sbom-export-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 10px;
+    margin: 12px 0;
+}
+.sbom-filter[aria-pressed="true"] { border-color: currentColor; background: rgba(255,255,255,.12); }
+.sbom-filter.exact, .sbom-row.exact .sbom-version-value { color: var(--status-ok); }
+.sbom-filter.different_version, .sbom-row.different_version .sbom-version-value { color: var(--status-warn); }
+.sbom-filter.absent, .sbom-row.absent .sbom-version-value { color: var(--status-danger); }
+.sbom-row.exact { background-color: rgba(151, 230, 177, .075); }
+.sbom-row.different_version { background-color: rgba(255, 215, 121, .075); }
+.sbom-row.absent { background-color: rgba(255, 154, 167, .075); }
+.sbom-table { min-width: 780px; }
+.sbom-table td { overflow-wrap: anywhere; }
+.sbom-export .form-actions, .sbom-sources { margin-top: 16px; }
+
+.sbom-table :is(th, td):not(.sticky-col) { min-width: 120px; }
+.sbom-table :is(th, td):first-child:not(.sticky-col) { min-width: 65px; }
+.sbom-table select[data-sbom-version] { max-width: 220px; min-width: 165px; }

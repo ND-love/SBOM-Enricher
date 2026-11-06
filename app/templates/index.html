@@ -4,7 +4,9 @@
 
 {% block content %}
 {% set active_mode = 'check' %}
-{% if compare_summary %}
+{% if sbom is defined %}
+    {% set active_mode = 'sbom' %}
+{% elif compare_summary %}
     {% set active_mode = 'compare' %}
 {% elif family_summary %}
     {% set active_mode = 'family' %}
@@ -16,8 +18,8 @@
 </section>
 {% endif %}
 
-<div class="modes-stack" data-active-mode="{{ active_mode }}">
-    <section class="mode-panel" id="mode-check" data-mode-panel="check">
+<div class="modes-stack" data-active-mode="{{ active_mode }}" {% if active_mode != "check" or request.url.path != "/" %}data-force-mode{% endif %}>
+    <section class="mode-panel{% if active_mode == 'check' %} is-active{% endif %}" id="mode-check" data-mode-panel="check">
         <div class="mode-header">
             <div>
                 <div class="section-kicker">Режим</div>
@@ -214,7 +216,7 @@
         {% endif %}
     </section>
 
-    <section class="mode-panel" id="mode-compare" data-mode-panel="compare">
+    <section class="mode-panel{% if active_mode == 'compare' %} is-active{% endif %}" id="mode-compare" data-mode-panel="compare">
         <div class="mode-header">
             <div>
                 <div class="section-kicker">Режим</div>
@@ -355,7 +357,7 @@
         {% endif %}
     </section>
 
-    <section class="mode-panel" id="mode-family" data-mode-panel="family">
+    <section class="mode-panel{% if active_mode == 'family' %} is-active{% endif %}" id="mode-family" data-mode-panel="family">
         <div class="mode-header">
             <div>
                 <div class="section-kicker">Режим</div>
@@ -477,6 +479,7 @@
         </section>
         {% endif %}
     </section>
+    {% if sbom is defined %}{% include "sbom.html" %}{% endif %}
 </div>
 
 {% endblock %}

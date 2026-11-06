@@ -53,16 +53,18 @@
         const rememberedMode = sessionStorage.getItem(modeStorageKey);
 
         const initialMode =
-            serverMode !== "check" && knownModes.has(serverMode)
+            stack.hasAttribute("data-force-mode") && knownModes.has(serverMode)
                 ? serverMode
                 : (rememberedMode && knownModes.has(rememberedMode) ? rememberedMode : "check");
 
         setActiveMode(initialMode);
 
         navItems.forEach((item) => {
-            item.addEventListener("click", () => {
+            item.addEventListener("click", (event) => {
                 const mode = item.dataset.modeLink;
-                if (!mode) return;
+                if (!knownModes.has(mode)) return;
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                event.preventDefault();
 
                 setActiveMode(mode);
 

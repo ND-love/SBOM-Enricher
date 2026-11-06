@@ -1,0 +1,53 @@
+Package: amd64-microcode
+Version: 3.20240820.1~deb12u1
+Architecture: amd64
+Maintainer: Henrique de Moraes Holschuh <hmh@debian.org>
+Installed-Size: 494
+Recommends: initramfs-tools (>= 0.113~) | dracut (>= 044) | tiny-initramfs
+Breaks: intel-microcode (<< 2)
+Priority: standard
+Section: non-free-firmware/admin
+Filename: pool/non-free-firmware/a/amd64-microcode/amd64-microcode_3.20240820.1~deb12u1_amd64.deb
+Size: 173596
+SHA256: cc9ee6db1887f271979ea5540d6dc699208ff8597b32d3ac0b92fd502bb2284f
+SHA1: c9b4241ba5aa253a8d7d396c8fddecfb879e6cd0
+MD5sum: d9c0a1462c265cdbd0a6cc83bbf518a1
+Description: Platform firmware and microcode for AMD CPUs and SoCs
+ This package contains microcode patches for AMD AMD64
+ processors.  AMD releases microcode patches to correct
+ processor behavior as documented in the respective processor
+ revision guides.
+ .
+ This package includes the required firmware to enable AMD
+ SEV (Secure Encrypted Virtualization) functionality.
+ .
+ This package also includes AMD TAs (Trusted Applications)
+ required by AMD platform drivers such as AMD PMF (Platform
+ Management Framework).
+ .
+ For Intel processors, please refer to the intel-microcode package.
+
+Package: intel-microcode
+Version: 3.20240514.1~deb12u1
+Architecture: amd64
+Maintainer: Henrique de Moraes Holschuh <hmh@debian.org>
+Installed-Size: 13763
+Depends: iucode-tool (>= 1.0)
+Recommends: initramfs-tools (>= 0.113~)
+Conflicts: microcode.ctl (<< 0.18~0)
+Homepage: https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files
+Priority: standard
+Section: non-free-firmware/admin
+Filename: pool/non-free-firmware/i/intel-microcode/intel-microcode_3.20240514.1~deb12u1_amd64.deb
+Size: 6915020
+SHA256: a97e0419a1262895a1567193ee36504fbe9933907eefcb3612614b432c598e1a
+SHA1: 102e0bbfea0e548825d87e6b9a20eb6122e3d517
+MD5sum: 51de5b30979fe2ad4056a8e3f81606c6
+Description: Processor microcode firmware for Intel CPUs
+ This package contains updated system processor microcode for
+ Intel i686 and Intel X86-64 processors.  Intel releases microcode
+ updates to correct processor behavior as documented in the
+ respective processor specification updates.
+ .
+ For AMD processors, please refer to the amd64-microcode package.
+

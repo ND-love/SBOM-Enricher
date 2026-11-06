@@ -1,0 +1,3396 @@
+Package: ald-admin
+Source: ald
+Version: 1.7.87+ci4
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 1218
+Depends: ald-client (= 1.7.87+ci4), libc6 (>= 2.2.5), libcap2 (>= 1:2.10), libdbus-1-3 (>= 1.9.14), libgcc1 (>= 1:3.0), libpcre3, libreadline7 (>= 6.0), libstdc++6 (>= 5.2), libtar0, zlib1g (>= 1:1.1.4)
+Multi-Arch: same
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/admin
+Filename: pool/non-free/a/ald/ald-admin_1.7.87+ci4_amd64.deb
+Size: 298106
+SHA256: 5719e9437b3f186de1459ac65c0dfa97502c34d4135ea4116f52c9b1149d8bc4
+SHA1: 467b1b44f72a835f137c9e22c00c8ab7b8e9eae7
+MD5sum: 487a082cf8f7e87377f726b1541f2e79
+Description: Astra Linux Directory administration tool
+ This is the administrative package for Astra Linux Directory.  Package contains
+ administrative tools for remote management of Astra Linux Directory.
+ It's a component of Astra Linux Directory.
+ .
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: 94b0198507a0f614d81d468ec2b8d17b
+
+Package: ald-admin-common
+Source: ald-common
+Version: 1.7.3+ci3
+Architecture: amd64
+Maintainer: Andrey Shumilin <support@rusbitech.ru>
+Installed-Size: 8
+Depends: ald-admin, ald-client-common (= 1.7.3+ci3), ald-admin-parsec
+Priority: optional
+Section: non-free/metapackages
+Filename: pool/non-free/a/ald-common/ald-admin-common_1.7.3+ci3_amd64.deb
+Size: 1634
+SHA256: 798bb055d9f18bca6fc7ce393fe3be9c0eaf791cb5e70f0333fa39774eb1c1ca
+SHA1: af4a604c90156129fa61600d3a311ffcabd1de99
+MD5sum: 3894cf004555bc6a1f040003c44cefa1
+Description: Astra Linux Directory administration metapackage
+ This is a metapackage for Astra Linux Directory administration
+ It's a component of Astra Linux Directory.
+ .
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: efc3dd7bdf628deffb1a69f7de0cc237
+
+Package: ald-admin-parsec
+Source: ald-parsec
+Version: 1.7.56+ci1
+Architecture: amd64
+Maintainer: Andrey Shumilin <support@rusbitech.ru>
+Installed-Size: 677
+Depends: ald-client, ald-client-parsec (= 1.7.56+ci1), libc6 (>= 2.2.5), libgcc1 (>= 1:3.0), libparsec-base3, libpdp, libstdc++6 (>= 5.2), ald-admin (>= 1.7.46)
+Replaces: ald-admin-parsec-aud, ald-admin-parsec-devac, ald-admin-parsec-mac
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/libs
+Filename: pool/non-free/a/ald-parsec/ald-admin-parsec_1.7.56+ci1_amd64.deb
+Size: 138264
+SHA256: 58fd23d984c193a23fc3fb234bdb680f576434c102bf38d3bda601412167a64e
+SHA1: 3c48b1ac217154edb7961033ddc901096024ac9c
+MD5sum: af6b30f62230273f217dce751e5446a1
+Description: Astra Linux Directory administration tool (integration with PARSEC)
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: 07bef86ff46e461855dbacb1af0e7ed3
+
+Package: ald-client
+Source: ald
+Version: 1.7.87+ci4
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 4289
+Depends: libc6 (>= 2.14), libcap2 (>= 1:2.10), libdbus-1-3 (>= 1.9.14), libgcc1 (>= 1:3.0), libkrb5-3 (>= 1.13~alpha1+dfsg), libldap-2.4-2 (>= 2.4.7), libpam0g (>= 0.99.7.1), libpcre3, libreadline7 (>= 6.0), libsocket++1, libstdc++6 (>= 6), libtar0, zlib1g (>= 1:1.1.4), krb5-user (>= 1.12.1), libpam-runtime, sssd, sssd-dbus, libsasl2-modules-gssapi-mit (>= 2.1.25), keyutils (>= 1.4), cifs-utils (>= 2:5.5), nfs-common (>= 1:1.2.5), sed, rsyslog | syslog-ng, acl, krb5-pkinit, libnss3-tools
+Recommends: logrotate
+Suggests: krb5-doc (>= 1.12.1), krb5-clients (>= 1.12.1)
+Conflicts: aldd (<< 1.7.87+ci4), libpam-ldap, libpam-smbpass
+Replaces: aldd (<< 1.7)
+Multi-Arch: same
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/admin
+Filename: pool/non-free/a/ald/ald-client_1.7.87+ci4_amd64.deb
+Size: 884944
+SHA256: 8337586482e0d59fa23f9556a81622f877d8a33416378be2b240e886ede5590c
+SHA1: effef8c5f291b7ba837bd463e9c8ebe8dc22142c
+MD5sum: e01b0225eb6c2bc9600874fe8da4aca7
+Description: Astra Linux Directory client
+ This is the client package for Astra Linux Directory. Package contains client
+ and client administrative program.
+ It's a component of Astra Linux Directory.
+ .
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: 3f52c5429b1009c6bec4775beedce022
+
+Package: ald-client-common
+Source: ald-common
+Version: 1.7.3+ci3
+Architecture: amd64
+Maintainer: Andrey Shumilin <support@rusbitech.ru>
+Installed-Size: 8
+Depends: ald-client, ald-client-parsec
+Priority: optional
+Section: non-free/metapackages
+Filename: pool/non-free/a/ald-common/ald-client-common_1.7.3+ci3_amd64.deb
+Size: 1616
+SHA256: f94fec1d89b29c141d2ebeb37e1cea17b8027a7193635fe2ecb6fccf94c6e6f4
+SHA1: 29f9e3a4353b3ce8facd2f700883ecb62e0ae4c6
+MD5sum: 7860c4500142fb9d1a198cfd0c2dbc73
+Description: Astra Linux Directory client metapackage
+ This is a metapackage for Astra Linux Directory client
+ It's a component of Astra Linux Directory.
+ .
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: b484c035a7e31d2748e9da6fa10aaa5a
+
+Package: ald-client-fs
+Source: ald
+Version: 1.7.87+ci4
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 282
+Depends: ald-client (= 1.7.87+ci4), libc6 (>= 2.2.5), libcap2 (>= 1:2.10), libdbus-1-3 (>= 1.9.14), libgcc1 (>= 1:3.0), libpcre3, libreadline7 (>= 6.0), libstdc++6 (>= 5.2), libtar0, zlib1g (>= 1:1.1.4), nfs-kernel-server (>= 1:1.2.5), samba (>= 2:3.6.5)
+Suggests: ald-admin (= 1.7.87+ci4), krb5-ftpd (>= 1.12.1), krb5-rsh-server (>= 1.12.1), krb5-telnetd (>= 1.12.1)
+Multi-Arch: same
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/libs
+Filename: pool/non-free/a/ald/ald-client-fs_1.7.87+ci4_amd64.deb
+Size: 60548
+SHA256: 693a873edf99778303a69917f76f63554eab4d5c1d8ab6a85c2c1782a752b52f
+SHA1: 31196e0a9e6611f9042265f48a7ee3677ffe31ad
+MD5sum: 5a9a819f4cb5e63ae6db744eed97a359
+Description: Astra Linux Directory File Server
+ This package provides Astra Linux Directory file server extension.
+ It's a component of Astra Linux Directory.
+ .
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: 8314138e1a2ff87e4fb6d1e49b77ee91
+
+Package: ald-client-parsec
+Source: ald-parsec
+Version: 1.7.56+ci1
+Architecture: amd64
+Maintainer: Andrey Shumilin <support@rusbitech.ru>
+Installed-Size: 1427
+Depends: ald-client (>= 1.7.46), libc6 (>= 2.2.5), libgcc1 (>= 1:3.0), libpam0g (>= 0.99.7.1), libparsec-base3, libpdac++, libpdp, libstdc++6 (>= 5.2), grep, gawk, libparsec-aud-db-sssd3, libparsec-mac-db-sssd3, libparsec-mic-db-sssd3, libparsec-cap-db-sssd3, parsec-base
+Replaces: ald-client-parsec-aud, ald-client-parsec-cfg, ald-client-parsec-devac, ald-client-parsec-mac
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/libs
+Filename: pool/non-free/a/ald-parsec/ald-client-parsec_1.7.56+ci1_amd64.deb
+Size: 246284
+SHA256: 63fcfff556fac7c2cec3e5ca7022812089d844b3824af90a81a7f7d4f9772c30
+SHA1: 908277e1d23cf8c2a3238784e8bb4bb7516e68dd
+MD5sum: db7a5e024030253b5648f2b79cca7443
+Description: Astra Linux Directory client (integration with PARSEC)
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: 7a4153484c76f0f9dd35968498788fcb
+
+Package: ald-server
+Source: ald
+Version: 1.7.87+ci4
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 18
+Depends: ald-server-dc (= 1.7.87+ci4)
+Multi-Arch: foreign
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/metapackages
+Filename: pool/non-free/a/ald/ald-server_1.7.87+ci4_amd64.deb
+Size: 11788
+SHA256: a19c0260c829bcaa26b09fed849c995df33627398e78d66167838bbd207cd012
+SHA1: 1067fb95f53e0304409e4f3d938049fc8b501a64
+MD5sum: 82b0211ea992c98c84304e8a004cd453
+Description: Astra Linux Directory Server metapackage
+ This is a metapackage for Astra Linux Directory main server
+ (alias for ald-server-dc).
+ It's a component of Astra Linux Directory.
+ .
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: c32750501b1e49e5a29a8ef4bf1f67da
+
+Package: ald-server-common
+Source: ald-common
+Version: 1.7.3+ci3
+Architecture: amd64
+Maintainer: Andrey Shumilin <support@rusbitech.ru>
+Installed-Size: 8
+Depends: ald-server-dc, ald-client-common (= 1.7.3+ci3), ald-admin-common (= 1.7.3+ci3), ald-server-parsec
+Priority: optional
+Section: non-free/metapackages
+Filename: pool/non-free/a/ald-common/ald-server-common_1.7.3+ci3_amd64.deb
+Size: 1640
+SHA256: a2f5db06cc1977967bb769f6b137b98555f983d774fc620f859e98b6fc1244d8
+SHA1: c27f666641823d950d502a6e5ddff62f28c65520
+MD5sum: ef22ffec68b3fe5b07b596057ca4ccdc
+Description: Astra Linux Directory server metapackage
+ This is a metapackage for Astra Linux Directory server
+ It's a component of Astra Linux Directory.
+ .
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: 2dd5cb63d0e0deb11f34ff715e73b184
+
+Package: ald-server-dc
+Source: ald
+Version: 1.7.87+ci4
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 1120
+Depends: ald-client (= 1.7.87+ci4), libc6 (>= 2.2.5), libcap2 (>= 1:2.10), libdbus-1-3 (>= 1.9.14), libgcc1 (>= 1:3.0), libpcre3, libreadline7 (>= 6.0), libstdc++6 (>= 5.2), libtar0, zlib1g (>= 1:1.1.4), ald-client-fs (= 1.7.87+ci4), sssd, sssd-dbus, krb5-admin-server (>= 1.12.1), krb5-kdc (>= 1.12.1), krb5-kdc-ldap, slapd (>= 2.4.28), nfs-kernel-server (>= 1:1.2.5), samba (>= 2:3.6.5)
+Suggests: ald-admin (= 1.7.87+ci4), krb5-doc (>= 1.12.1), krb5-clients (>= 1.12.1), krb5-ftpd (>= 1.12.1), krb5-rsh-server (>= 1.12.1), krb5-telnetd (>= 1.12.1)
+Multi-Arch: same
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/libs
+Filename: pool/non-free/a/ald/ald-server-dc_1.7.87+ci4_amd64.deb
+Size: 233708
+SHA256: 0e838f2573a5187023349d51ffb12666afefdc62340073a4aa44575aa8e9f7a3
+SHA1: b01bf5b62ea148e829de2ac48c175597a550f8e6
+MD5sum: e89b74426f0a54fc3b734b3de3e4987c
+Description: Astra Linux Directory DC Server
+ This package provides Astra Linux Directory domain controler. Package contains
+ server and server administrative program.
+ It's a component of Astra Linux Directory.
+ .
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: bcbd481d88b29ea5188c2f3d6b459db6
+
+Package: ald-server-parsec
+Source: ald-parsec
+Version: 1.7.56+ci1
+Architecture: amd64
+Maintainer: Andrey Shumilin <support@rusbitech.ru>
+Installed-Size: 684
+Depends: ald-client, ald-client-parsec (= 1.7.56+ci1), libc6 (>= 2.2.5), libgcc1 (>= 1:3.0), libparsec-base3, libpdp, libstdc++6 (>= 5.2), ald-server-dc (>= 1.7.46)
+Replaces: ald-server-parsec-aud, ald-server-parsec-devac, ald-server-parsec-mac
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/libs
+Filename: pool/non-free/a/ald-parsec/ald-server-parsec_1.7.56+ci1_amd64.deb
+Size: 104746
+SHA256: 5bb8a714422565e6a8572f32c1f9ca7309e17e1240eae5015331d4ea5db189b7
+SHA1: cd7dc7ebf67db807c75f7640d7e34b137d1a2c39
+MD5sum: d0832ae5e884fd3f0e367fcb2f26dab9
+Description: Astra Linux Directory Server (integration with PARSEC)
+ Astra Linux Directory provides easy account management across a domain.
+ The current version utilizes LDAP, Kerberos and NFS4/CIFS as account database,
+ authentication and home directory access respectively.
+ .
+ See ald(7) man page for information.
+Description-md5: 06f9bfb60bee9bae563f5d4fded69898
+
+Package: apache2-se-tests
+Version: 2.0.16
+Architecture: amd64
+Maintainer: Maxim Shishov <support@rusbitech.ru>
+Installed-Size: 1664
+Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libparsec-base3, libparsec-cap3, libpdp, libqt5core5a (>= 5.15.1), libstdc++6 (>= 5.2), pdp, apache2 (>= 2.4.25), parsec (>= 2.5.229), libapache2-mod-authnz-pam, php, php-cgi, php-pgsql, php-xml, postgresql-client, postgresql, libapache2-mod-auth-kerb, ald-server-common, curl, expect
+Priority: extra
+Section: non-free/web
+Filename: pool/non-free/a/apache2-se-tests/apache2-se-tests_2.0.16_amd64.deb
+Size: 42646
+SHA256: 6499fa20faef21d724879f48dc3074b92beb2a0359d399f990ac3a2a2bdc7272
+SHA1: 3d6d598680ae52d72634860c5592aa23769bcc79
+MD5sum: 455ec354325b56116cf9539101a1fcdd
+Description: apache2 se tests
+Description-md5: 356df253d18dd20bd687a7bdc508d43a
+
+Package: astra-event-watcher
+Version: 0.1.12
+Architecture: amd64
+Maintainer: Mikhail Solomatin <msolomatin@astralinux.ru>
+Installed-Size: 79
+Depends: libc6 (>= 2.4), libflyadminpackage (>= 0.2.14), libflyadminprocess (>= 0.2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5coreaddons5 (>= 4.97.0), libkf5notifications5 (>= 5.3.0+git20141030.0311), libpdp, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), util-linux, syslog-ng-mod-astra (>= 0.2.6), libnotify-bin
+Conflicts: fly-notify-prevlogin
+Replaces: fly-notify-prevlogin
+Homepage: https://www.astralinux.ru
+Priority: optional
+Section: non-free
+Filename: pool/non-free/a/astra-event-watcher/astra-event-watcher_0.1.12_amd64.deb
+Size: 21166
+SHA256: 3592d8d7b178c3773c422276fd9675f1eeedb1d373627a64489629ad5efafc74
+SHA1: 3fce69f62b83898572cd9dd19f138b1aebe5e0b2
+MD5sum: ba5c633f091d83c3df4de4cb10641953
+Description: A user service that tracks events and sends notifications.
+ A user service that tracks events and sends notifications.
+Description-md5: 1ad5d80f95696f0efec1f1b562f67ef6
+
+Package: astra-int-check
+Source: fly-admin-int-check
+Version: 1.7.4
+Architecture: amd64
+Maintainer: Ilya Kotov <iokotov@astralinux.ru>
+Installed-Size: 79
+Depends: libc6 (>= 2.4), libfly-admin-int-check, libgcc1 (>= 1:3.0), libqt5core5a (>= 5.15.1), libstdc++6 (>= 5), npyscreen, python3, python3-xdg
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-int-check/astra-int-check_1.7.4_amd64.deb
+Size: 20852
+SHA256: 15bba2e91bcc27f32f44b63588f02323f975c2c890a68faa7b30b928ae41bdeb
+SHA1: 1c14253d8e8714fb0bf75d6dd2f38a62d3e89868
+MD5sum: bda8f55c60175e149b739a37046dac3b
+Description: system integrity checking tool for Fly desktop -- console tools
+ This tool compares system file gostsums with original gostsums from distribution.
+Description-md5: 07a6a151c7266f2d1fa4a1e7993a8d10
+
+Package: astra-orientation
+Source: fly-orientation
+Version: 0.2.2+ci13
+Architecture: amd64
+Maintainer: Nikitin.I <support@rusbitech.ru>
+Installed-Size: 429
+Depends: libc6 (>= 2.14), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5coreaddons5 (>= 4.97.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.5.0), libqt5gui5 (>= 5.2.0) | libqt5gui5-gles (>= 5.2.0), libqt5sensors5 (>= 5.6.0), libqt5singlecoreapplication5, libstdc++6 (>= 5.2), libudev1 (>= 183), libx11-6, libxcb-randr0 (>= 1.3), libxcb1, fly-qdm (>= 2.9.4), iio-sensor-proxy
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-orientation/astra-orientation_0.2.2+ci13_amd64.deb
+Size: 105572
+SHA256: 5588b3828e796109c6aeddf6f400396e3a130fc8d5b2e3280237e427b343065e
+SHA1: e4a143ebd7383f2b130e889a9db700762c3704f1
+MD5sum: 229be9e1bcd85092df0ac0074e4c8804
+Description: Daemon for controlling the orientation of screens
+Description-md5: 2d5d778c56c614abd5f5b72a4cce31a4
+
+Package: astra-safepolicy
+Version: 2.0+ci94
+Architecture: amd64
+Maintainer: Gvozdev Oleg <support@rusbitech.com>
+Installed-Size: 968
+Pre-Depends: libpdac++
+Depends: libc6 (>= 2.14), debconf (>= 0.5) | debconf-2.0, coreutils (>= 6.10-6), astra-version, astra-scripts, grep (>= 2.5.3~dfsg-6), sed (>= 4.1.5-6), libcrack2, libpam-cracklib, attr, gawk, astra-nochmodx-module-common (>= 4.15.3-1.astra2) | linux-astra-modules-common (>= 4.15.3-1.astra26)
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/a/astra-safepolicy/astra-safepolicy_2.0+ci94_amd64.deb
+Size: 345008
+SHA256: 42e992e56fc9f43a48e84f4b9e2041f7a57e1ba77933c9bd4613828e7b76b56a
+SHA1: 871def37d2d9cbfd1593a83302860975d2236c95
+MD5sum: ebc77ecda9e001ccfa805875dbbcc3b3
+Description: Global security policy checker
+ Package checks and sets security settings of the computer.
+Description-md5: 9e151843bd8753a0df6a0c64de2aa0db
+
+Package: astra-sosreport
+Source: fly-sosreport
+Version: 0.2.12+ci2
+Architecture: amd64
+Maintainer: Ilya Zolotarev <maintainers@astralinux.ru>
+Installed-Size: 21
+Homepage: www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-sosreport/astra-sosreport_0.2.12+ci2_amd64.deb
+Size: 4304
+SHA256: 988c1196d4608834af351220ba3f74cbae9e35eaa993d59a72c35cc76dfcf14b
+SHA1: 13b8e3bee8d0ef23c3b284e62569447607498ac0
+MD5sum: f8cb1636d32bdf153d0627d87160bcff
+Description: Astra Linux sosreport plugin
+ Sosreport plugin for collect Astra Linux debug information
+Description-md5: 212c237d99f2fda3111dc2b911dcca55
+
+Package: astra-update
+Version: 2.0+ci12
+Architecture: amd64
+Maintainer: Alexander V. Gusev <support@rusbitech.com>
+Installed-Size: 74
+Depends: libc6 (>= 2.14), coreutils (>= 6.10-6), bash, grep (>= 2.5.3~dfsg-6), sed (>= 4.1.5-6), gostsum, file
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/a/astra-update/astra-update_2.0+ci12_amd64.deb
+Size: 56800
+SHA256: 2e2a6f390ae4ac5c9619ff22dea305849dc2d887b1c6c5e51eb55c64cce5dff6
+SHA1: 0f98fcd315a262fe24a29bedad68cdec39129a13
+MD5sum: 3dc5906de68e98189ceb829a7207c1f4
+Description: Smolensk security update installer
+ Installs Smolensk security updates in a safe manner
+Description-md5: 8a43c5172e8ee36c9f9ab08cc8feb977
+
+Package: astrase-fix-maildir
+Version: 0.2.3+ci5
+Architecture: amd64
+Maintainer: Maltsev Oleg <support@rusbitech.ru>
+Installed-Size: 23
+Depends: libc6 (>= 2.4), libparsec-base3, libpdp
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/mail
+Filename: pool/non-free/a/astrase-fix-maildir/astrase-fix-maildir_0.2.3+ci5_amd64.deb
+Size: 5306
+SHA256: 99287cff8da22d53b8293ff5c6bf50cfdc4eb501e3f45affe3efda757273e99c
+SHA1: fb178820dd88af8c7023691b80c535048918b93f
+MD5sum: e4b83d5927298a577a50dca24df77c7a
+Description: fix security labels in user MailDir directory
+ used by exim4 and dovecot in Astra specal edition
+Description-md5: 1c15cdf0450b94cad50c918ce19829a4
+
+Package: csp-monitor
+Source: libpam-csp
+Version: 1.0.6+ci5
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 109
+Depends: libbasicobjects0 (>= 0.4.0), libc6 (>= 2.14), libcollection4 (>= 0.4.0), libdbus-1-3 (>= 1.9.14), libini-config5 (>= 0.4.0), libpam0g (>= 0.99.7.1), libref-array1 (>= 0.4.0), libssl1.1 (>= 1.1.0), libtalloc2 (>= 2.0.4~git20101213), libtevent0 (>= 0.9.9), libudev1 (>= 183), opensc, libp11-kit0, opensc-pkcs11 (>= 0.19.0), pcscd
+Multi-Arch: same
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/admin
+Filename: pool/non-free/libp/libpam-csp/csp-monitor_1.0.6+ci5_amd64.deb
+Size: 31074
+SHA256: d88f020dec2c8ca2dd5d4fcc760eb785921f44812484546268a6ebe2e7aadb21
+SHA1: efabb69479489e4bce7628c25a0cbb0ca75bc4de
+MD5sum: ec2f94f0e9d48de7e5d62ba01a53b948
+Description: Service monitor for tokens
+ This is the service monitor for any tokens that may be supported by
+ opensc-pkcs11 library
+Description-md5: 98a08aca8058be9d98fa3141c0f95308
+
+Package: firmware-sof-astra
+Version: 0.0.3+ci1
+Architecture: amd64
+Maintainer: Dmitry Mastykin <maintainers@astralinux.ru>
+Installed-Size: 817
+Depends: pulseaudio
+Homepage: https://www.rusbitech.ru
+Priority: optional
+Section: non-free/misc
+Filename: pool/non-free/f/firmware-sof-astra/firmware-sof-astra_0.0.3+ci1_amd64.deb
+Size: 290836
+SHA256: ac4173d87044d6f1f6d55f408ce3b1c5fee418ea934b86e95d931fa78435beb1
+SHA1: 543ce0b52936928728ce80d2fb0d0911cc9ea51d
+MD5sum: 344f484f96472d23a16fe5640d48e876
+Description: Firmware for sof sound cards
+ This package replaces sof firmware of linux-firmware package to support RAYbook and Aquarius sound cards.
+Description-md5: 8ad8e97c0950c908648005e34b41a636
+
+Package: fly-admin-ad-client
+Version: 0.2.5
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 100
+Depends: libc6 (>= 2.4), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), fly-su, astra-winbind
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ad-client/fly-admin-ad-client_0.2.5_amd64.deb
+Size: 26498
+SHA256: 716f4534f6ae572cf80a463605f4dff6495296608b622d88253a2ef3c7f9789c
+SHA1: af3cdaab68c4ff91695aaccfe0671ffafc0e6096
+MD5sum: 7c1a3bb39e8703fe376e29d5f88e4140
+Description: Active Directory Client GUI configution tool
+ Active Directory Client GUI configution tool
+Description-md5: 6a4df9a4349a47e24a655be0e9a61927
+
+Package: fly-admin-ad-server
+Version: 0.2.4
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 84
+Depends: libc6 (>= 2.4), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5), fly-su, astra-sambadc
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ad-server/fly-admin-ad-server_0.2.4_amd64.deb
+Size: 22980
+SHA256: 403c525be1568280125321851587ce59b1cd8e09e561b4b6896b34b9311768de
+SHA1: 9485dd1d4fb3408a8b0d768d5e87aee5b583fc3d
+MD5sum: ef9aa4e0d34d3ea5af41dc513dc6b9c2
+Description: Active Directory Server GUI configution tool
+ Active Directory Server GUI configution tool
+Description-md5: 4326422bf28cdd18ed3feac2aeb25d8f
+
+Package: fly-admin-ad-sssd-client
+Version: 0.1.2
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <dyatmanov@astralinux.ru>
+Installed-Size: 96
+Depends: libc6 (>= 2.4), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), fly-su, astra-ad-sssd-client
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ad-sssd-client/fly-admin-ad-sssd-client_0.1.2_amd64.deb
+Size: 24712
+SHA256: dcf521cbaae9c009a22e627e960419eacf993a948ef16005b91093cf0a59d52b
+SHA1: 3cb275c04f21d5bcf41aa48abc9f36d53b51a9ec
+MD5sum: 4af149532f137663e139ac2191dfe198
+Description: Active Directory SSSD GUI configution tool
+ Active Directory SSSD Client GUI configution tool
+Description-md5: 3207a0de77af852f002bbd312f8c5683
+
+Package: fly-admin-ald-client
+Version: 0.2.7
+Architecture: amd64
+Maintainer: Vladislav Mileshkin <support@rusbitech.ru>
+Installed-Size: 121
+Depends: libc6 (>= 2.4), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), fly-su, ald-client-common
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ald-client/fly-admin-ald-client_0.2.7_amd64.deb
+Size: 32712
+SHA256: 86d47835d0eb0fd3a32a73b7e7a198b97333db1d013a6f3e39eff63a0cc779ae
+SHA1: 322454afb70a88190989235c7643c934fd969968
+MD5sum: 5811e03a6ebb59ac982614a6f42bf9b4
+Description: ALD client GUI configution tool
+ ALD client GUI configution tool
+Description-md5: e4a1ac9f8d8b31d415ade3867eb05448
+
+Package: fly-admin-ald-se
+Version: 0.1.32+ci4
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 856
+Depends: ald-client, ald-client-parsec, gmc-common, gmc-common-ald, gmc-miscellaneous, gmc-miscellaneous-se, libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdp, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5.2), fly-admin-ald-server, ald-admin-parsec
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ald-se/fly-admin-ald-se_0.1.32+ci4_amd64.deb
+Size: 237768
+SHA256: ccef555b5f720f1d48850303945a736192a4645f8041ad967d561115d08e80af
+SHA1: 4bf6b2971b61bae13601766afb2b89600440b45e
+MD5sum: 6796295d7a4c5656cc5b1877ed11ded5
+Description: management console
+ This package contains files for management console.
+Description-md5: 102bb202e77df09ae3da043e2bfb01e6
+
+Package: fly-admin-ald-server
+Version: 0.1.53
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 3383
+Depends: ald-client, ald-client-parsec, gmc-common (>= 0.1.55), gmc-common-ald, gmc-miscellaneous (>= 0.1.49), libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkadm5clnt-mit11 (>= 1.15~beta1), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5widgets5 (>= 5.2.0~alpha1), libqt5xml5 (>= 5.0.2), libstdc++6 (>= 5.2), fly-admin-local, ald-admin-common, fly-admin-gmc (>= 0.1.61)
+Conflicts: fly-admin-ald
+Replaces: fly-admin-ald
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ald-server/fly-admin-ald-server_0.1.53_amd64.deb
+Size: 1864592
+SHA256: b4196fa5ce762aa918f598ca08105d3df44ff5c27a2f4881e3030e6343d7cafc
+SHA1: e4a3faa740ebdaa1097f1c7639b6666bd578e0d2
+MD5sum: 03c35ae4aaf8016e28adf845194f9c5d
+Description: management console
+ This package contains files for gui management console.
+Description-md5: 264c70be8c523b1188b6db6b92d38b58
+
+Package: fly-admin-autostart
+Version: 1.0.5+ci11
+Architecture: amd64
+Maintainer: Tsyganov Alexandr <atsyganov@astralinux.ru>
+Installed-Size: 905
+Depends: kio, libc6 (>= 2.14), libflycore, libflyuiaux2, libflyuiextra2, libgcc1 (>= 1:3.0), libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5codecs5 (>= 4.96.0), libkf5completion5 (>= 4.97.0), libkf5configcore5 (>= 4.97.0), libkf5configgui5 (>= 4.97.0), libkf5configwidgets5 (>= 4.96.0), libkf5coreaddons5 (>= 5.69.0), libkf5i18n5 (>= 4.97.0), libkf5jobwidgets5 (>= 4.96.0), libkf5kcmutils5 (>= 4.96.0), libkf5kiocore5 (>= 5.69.0), libkf5kiogui5 (>= 5.69.0), libkf5kiowidgets5 (>= 5.69.0), libkf5service-bin, libkf5service5 (>= 4.96.0), libkf5solid5 (>= 4.97.0), libkf5widgetsaddons5 (>= 4.96.0), libkf5windowsystem5 (>= 4.96.0), libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.5.0), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5widgets5 (>= 5.11.0~rc1), libqt5xml5 (>= 5.0.2), libstdc++6 (>= 5.2), libx11-6, fly-data
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-autostart/fly-admin-autostart_1.0.5+ci11_amd64.deb
+Size: 216470
+SHA256: eeebf125200f588bf4a26b2ca4bd91c06c0438291374b4fae69c52eccc9b74d9
+SHA1: 5c7b2940b2453d50b71a1b5594a31ed562fef9aa
+MD5sum: 3fafd7edbb017cd0621d1c1854c904df
+Description: Fly Autostart
+ Application for autostart control
+Description-md5: 9b80ba12b59ba39262a77b8e2d2142cd
+
+Package: fly-admin-bind
+Version: 0.5.1+ci7
+Architecture: amd64
+Maintainer: Mileshkin Vladislav <support@rusbitech.ru>
+Installed-Size: 589
+Depends: libc6 (>= 2.14), libflyintegration1, libflyuinet2, libgcc1 (>= 1:3.0), libgl1, libisc1100 (>= 1:9.11.3+dfsg), libisccfg163 (>= 1:9.10.6+dfsg), libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5.2), bind9, bind9utils, menu
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-bind/fly-admin-bind_0.5.1+ci7_amd64.deb
+Size: 133700
+SHA256: 11a9c3d8febda16717bc8f76eb493a0d5225d570c370258ae15f5086a7ae608b
+SHA1: 4e61b14f5fdad218c4b94855c26c1562abe408a2
+MD5sum: 16312405ff4e7ac1223be863e855e8d2
+Description: BIND DNS server GUI configuration tool
+ BIND DNS server GUI configuration tool
+Description-md5: 11044b6436d5eb56b2786df9b4ae838b
+
+Package: fly-admin-center
+Version: 1.3.2
+Architecture: amd64
+Maintainer: Michael Vasiliev <support@rusbitech.ru>
+Installed-Size: 218
+Depends: libc6 (>= 2.14), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5configcore5 (>= 4.97.0), libkf5coreaddons5 (>= 4.97.0), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5.2), fly-term, fly-su, debconf
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-center/fly-admin-center_1.3.2_amd64.deb
+Size: 64038
+SHA256: 4efce4849e306f9f6d9cc9aad606e13c2ed88acafb652a6ba3e90baaca13b882
+SHA1: b63d1023a78fb2dfb50070418604b91989186696
+MD5sum: 3c4976268153f8b94293d27a5609f568
+Description: Control center
+ Control center.
+Description-md5: 28602f6d74d40abb11b5982f11bcbfc0
+
+Package: fly-admin-date
+Version: 2.5.8
+Architecture: amd64
+Maintainer: Michael Vasiliev <support@rusbitech.ru>
+Installed-Size: 480
+Depends: fly-admin-time (>= 1.2.10), libc6 (>= 2.14), libflyadmindbus (>= 0.2.14), libflycore, libflyintegration1, libflyuiextra2, libgcc1 (>= 1:3.0), libgl1, libkf5widgetsaddons5 (>= 4.96.0), libpdphelper, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5), fly-admin-date-helper
+Conflicts: fly-admin-date-desktop (<< 2.3.1)
+Replaces: fly-admin-date-desktop (<< 2.3.1)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-date/fly-admin-date_2.5.8_amd64.deb
+Size: 290220
+SHA256: 6f87938ff5cc965e052ebba6740527579d004da40dbb2b870e0cf8639676a699
+SHA1: 31083750f76a9bf7598b37b6509a83e4b44dbd63
+MD5sum: db8e0453e16a619b32188c1029f58c67
+Description: Date and time tool (for Desktop)
+ Date and time tool with NTP sync, based on Qt Widgets.
+Description-md5: c97b2273240aa0989f091cf4d40268a4
+
+Package: fly-admin-date-helper
+Source: fly-admin-date
+Version: 2.5.8
+Architecture: amd64
+Maintainer: Michael Vasiliev <support@rusbitech.ru>
+Installed-Size: 77
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libpolkit-qt5-1-1 (>= 0.112.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5singlecoreapplication5, libstdc++6 (>= 5), ntpdate, coreutils, tzdata, policykit-1
+Conflicts: fly-admin-date (<< 2.1.0)
+Replaces: fly-admin-date (<< 2.1.0)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-date/fly-admin-date-helper_2.5.8_amd64.deb
+Size: 19712
+SHA256: 293c7a58ab37423ad69955d0c885fe1ac88d1ad705bb02877067b8acdcd5aa01
+SHA1: aa7b654bce855208b66999b8463aecf5f3910740
+MD5sum: 468dbd179d01caa78f94798abf31759c
+Description: System DBus helper for Date and time tool
+ It does all jobs that require root privileges.
+Description-md5: 56652128650ae03f6b4490734aad55b3
+
+Package: fly-admin-dbus-helper
+Source: libflyadmin
+Version: 0.2.14
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <dyatmanov@astralinux.ru>
+Installed-Size: 91
+Depends: libc6 (>= 2.4), libflyadminprocess (>= 0.2.14), libflyadminsystemd (>= 0.2.14), libgcc1 (>= 1:3.0), libpolkit-qt5-1-1 (>= 0.112.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5singlecoreapplication5, libstdc++6 (>= 5), coreutils, policykit-1
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyadmin/fly-admin-dbus-helper_0.2.14_amd64.deb
+Size: 20470
+SHA256: 58972ec97762c3dec5fd4defb46ca28b1f0707b3bfdca5e57855b91c486b0ff5
+SHA1: e4ffdac65025f8d466a1f0704b9771c7ce0c1dc2
+MD5sum: 4514a7a2ea50f71ae968c46e7090d45a
+Description: System DBus helper for any admin tools
+ It does some jobs that require root privileges.
+Description-md5: 504285470903fb644a1d517821553cd7
+
+Package: fly-admin-digsig
+Version: 0.2.16
+Architecture: amd64
+Maintainer: NikitinIE <support@rusbitech.ru>
+Installed-Size: 411
+Depends: gmc-common, gmc-miscellaneous, libassuan0 (>= 2.0.1), libc6 (>= 2.14), libflyadminmode (>= 0.2.13+ci1), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libgpg-error0 (>= 1.14), libgpgme11 (>= 1.2.0), libgpgmepp6 (>= 1.12.0), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.7.0), libstdc++6 (>= 5.2), fly-admin-gmc, fly-admin-local, linux-astra-modules-common, bsign (>= 1.0-astra15), gnupg (>= 2.1.18-8~deb9u1astra4), gnupg-l10n (>= 2.1.18-8~deb9u1astra4), pinentry-qt
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-digsig/fly-admin-digsig_0.2.16_amd64.deb
+Size: 111014
+SHA256: 230ab4c52d8b0bcc5c1308cfdd974a4536b291f9170b5f6cc46ff283bf9b1c09
+SHA1: aae32e9daf455ddd1e9ba3337646e9a262817f6e
+MD5sum: a9661a38148353d22bed569f3217c313
+Description: Digital signature manager
+ This package contains files for gui management digital signature.
+Description-md5: 50b7b7ed0f219c401e5bc1ecff84a086
+
+Package: fly-admin-events
+Version: 0.1.20+ci3
+Architecture: amd64
+Maintainer: Konstantin Shaleev <kshaleev@astralinux.ru>
+Installed-Size: 644
+Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5codecs5 (>= 4.96.0), libkf5configcore5 (>= 4.97.0), libkf5configgui5 (>= 4.97.0), libkf5configwidgets5 (>= 4.96.0), libkf5coreaddons5 (>= 4.99.0), libkf5i18n5 (>= 5), libkf5notifyconfig5 (>= 5.18.0), libkf5widgetsaddons5 (>= 4.96.0), libparsec-aud3, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.2.0~alpha1), libqt5xml5 (>= 5.0.2), libstdc++6 (>= 6), astra-event-watcher (>= 0.1.4), syslog-ng-mod-astra (>= 0.2.6)
+Homepage: https://astralinux.ru
+Priority: optional
+Section: non-free
+Filename: pool/non-free/f/fly-admin-events/fly-admin-events_0.1.20+ci3_amd64.deb
+Size: 259076
+SHA256: 66b726a77e3b2693301e740683c233f833ec3ec13b5a12d8313169783288ab9a
+SHA1: 19687f8c0e711ad0ddcc54aee49c42ab710d4c3d
+MD5sum: f86bca4096524b83fd5f8ca6ea8e38b2
+Description: Logging settings
+ Logging system configuration module
+Description-md5: 813b0254d83c41a2a0c2d38d6c1dc566
+
+Package: fly-admin-fonts
+Version: 2.1.9+ci4
+Architecture: amd64
+Maintainer: Suetnov Kirill <kyrie@yandex.ru>
+Installed-Size: 1436
+Depends: libc6 (>= 2.14), libflyintegration1, libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.2.1), libgcc1 (>= 1:3.0), libgl1, libhyphen0 (>= 2.7.1), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.14.1) | libqt5gui5-gles (>= 5.14.1), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5webkit5 (>= 5.212.0~alpha3), libqt5widgets5 (>= 5.2.0), libqt5xml5 (>= 5.0.2), libstdc++6 (>= 5.2)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-fonts/fly-admin-fonts_2.1.9+ci4_amd64.deb
+Size: 422652
+SHA256: ec752402a14dd18fb0d931b5ffcf0b36783ac7a841f898db376eba2446ebe11b
+SHA1: 111330e7f17685e64c2e9f1b615b5c6a564c08e8
+MD5sum: ea440fcbf972305981503e9e175e8378
+Description: System fonts manager
+Description-md5: 00c39a947aa6be541724eb5dbb34ecd9
+
+Package: fly-admin-format
+Version: 0.2.1
+Architecture: amd64
+Maintainer: Mikhail Solomatin <support@rusbitech.ru>
+Installed-Size: 518
+Depends: libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5coreaddons5 (>= 5.69.0), libkf5solid5 (>= 4.97.0), libparted2 (>= 3.1), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5.2), coreutils, dosfstools, ntfs-3g, e2fsprogs, mtools
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-format/fly-admin-format_0.2.1_amd64.deb
+Size: 203052
+SHA256: 89f9b05c8a1734fdee045ab967eaca6fdfef814b32e121da91ba88a8f92b40b0
+SHA1: 33eca629aaedd78fb6e5d0ee079186c5642a41bc
+MD5sum: df384000729568717fa88e80cefaaafb
+Description: Utility for formatting removable drive
+ Utility for formatting removable drive
+Description-md5: f9b7d47f5bbed4539b6dbc983d0fa604
+
+Package: fly-admin-freeipa-client
+Version: 0.1.6+ci4
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 72
+Depends: libc6 (>= 2.4), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5), fly-su, astra-freeipa-client
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-freeipa-client/fly-admin-freeipa-client_0.1.6+ci4_amd64.deb
+Size: 18012
+SHA256: 9be130a4efd14b6a2a601e171b79d9af05d67f6e10ab13f7b2ebe5a482c7f280
+SHA1: a0fd75ca63005ee5155767c014f6b0426603e06e
+MD5sum: 66430c8d1c51aedd97246eff40131099
+Description: FreeIPA client GUI configution tool
+ FreeIPA client GUI configution tool
+Description-md5: fe70e7596b1b7d875f30c490396cb37e
+
+Package: fly-admin-freeipa-server
+Version: 0.1.15
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 104
+Depends: libc6 (>= 2.4), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5), fly-su, astra-freeipa-server
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-freeipa-server/fly-admin-freeipa-server_0.1.15_amd64.deb
+Size: 28836
+SHA256: fe327d5e7801adc1ff129fcec1f22ad7b0e728d223be535f7210baeecad6a35f
+SHA1: 8521eda41b4cf689ea4d2ac7a23df5492d8d9923
+MD5sum: 90a32548c0c3371031e7e9b151d37210
+Description: FreeIPA server GUI configution tool
+ FreeIPA server GUI configution tool
+Description-md5: 2b24c504c7fc7489861b3ecde7267274
+
+Package: fly-admin-ftp
+Version: 1.2.13
+Architecture: amd64
+Maintainer: Igor Nikitin <support@rusbitech.ru>
+Installed-Size: 710
+Depends: libc6 (>= 2.14), libdb5.3++, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.1.0) | libqt5gui5-gles (>= 5.1.0), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5.2), vsftpd
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ftp/fly-admin-ftp_1.2.13_amd64.deb
+Size: 229120
+SHA256: f674ff9bcd671e033a681dd845d4bc6474208fba936f76385a72774fad1602ff
+SHA1: d0b691b06df0c122b73acf49e31a9ac16d85cda9
+MD5sum: 3c5804cff1065ed4b7b7fb1c8d6fb309
+Description: FTP server manager
+ Program to configure FTP service
+Description-md5: 8317e5342c7ab98836d6a0cff9bcf7af
+
+Package: fly-admin-gmc
+Version: 0.1.61
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 270
+Depends: gmc-common (= 0.1.61), libc6 (>= 2.14), libflyadminmode (>= 0.2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5), fly-admin-local (>= 0.2.6)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-gmc/fly-admin-gmc_0.1.61_amd64.deb
+Size: 119656
+SHA256: e9b6bcfa225c4f44b7e3743f63bc5420692576f5133dc91b74e066de83a32a98
+SHA1: ebec84f8fac1ae5ccacf40403afc76bd5bf1eaa2
+MD5sum: c574353b2660f513a84ca581bffaae37
+Description: management console
+ This package contains files for gui management console.
+Description-md5: 264c70be8c523b1188b6db6b92d38b58
+
+Package: fly-admin-int-check
+Version: 1.7.4
+Architecture: amd64
+Maintainer: Ilya Kotov <iokotov@astralinux.ru>
+Installed-Size: 179
+Depends: libc6 (>= 2.4), libfly-admin-int-check, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-int-check/fly-admin-int-check_1.7.4_amd64.deb
+Size: 48528
+SHA256: 7baf2ff9fc62a052848e8bf1ce36c3ecca7d486a034f69bcb32e805559230ea7
+SHA1: 1ab84090ad990bcd996854699ddfd17e4e43af79
+MD5sum: 8ebf3661af5316f40b9c3a4dc6cd7fdc
+Description: system integrity checking tool for Fly desktop
+ This tool compares system file gostsums with original gostsums from distribution.
+Description-md5: f6b226c24c46c24a8fef855baa25024d
+
+Package: fly-admin-iso
+Version: 0.4.3+ci2
+Architecture: amd64
+Maintainer: Vladislav Mileshkin <support@rusbitech.ru>
+Installed-Size: 134
+Depends: libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5solid5 (>= 4.97.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5.2), coreutils, diffutils
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-iso/fly-admin-iso_0.4.3+ci2_amd64.deb
+Size: 36674
+SHA256: a989c7752825930b4d047654b64a43e80b12236caa4e252398259653c801dcaa
+SHA1: dbe6db3a387b816b2cad96a7811d5bd1877ca63c
+MD5sum: 59dc199a8d9702978672ba056ced05a5
+Description: Utility for writing iso image to removable drive
+ Utility for writing iso image to removable drive
+Description-md5: 6bdd8a0f79498ba85f9857a109a31b5f
+
+Package: fly-admin-kiosk
+Version: 1.6.0+ci42
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 946
+Depends: libc6 (>= 2.14), libflyintegration1, libflyuiextra2, libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5coreaddons5 (>= 4.97.0), libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5.2), parsec-kiosk2, fly-term (>= 1.4.2)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-kiosk/fly-admin-kiosk_1.6.0+ci42_amd64.deb
+Size: 322344
+SHA256: f7548a035e42db4b1771692eee6e8778d6bb6e2877b5b47e957073d5e60866b4
+SHA1: c59750c902011e0a5a897f0a2dbde4440ddea347
+MD5sum: fe3f73627e5a3ec873f554d4d687ea11
+Description: System kiosk management application
+ fly-admin-kiosk utility for system kiosk management and application tracing
+Description-md5: a76a66bc6f5f794ef950b3491b10f7ee
+
+Package: fly-admin-local
+Version: 0.2.11+ci8
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 4406
+Depends: gmc-common (>= 0.1.55), gmc-miscellaneous (>= 0.1.51), libc6 (>= 2.14), libconfig++9v5 (>= 1.5-0.4~), libflyadminmode (>= 0.2.14), libflyintegration1, libflyuiaux2, libflyuiextra2, libgcc1 (>= 1:3.0), libgl1, libpam0g (>= 0.99.7.1), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.8.0) | libqt5gui5-gles (>= 5.8.0), libqt5network5 (>= 5.0.2), libqt5widgets5 (>= 5.2.0~alpha1), libqt5xml5 (>= 5.0.2), libstdc++6 (>= 5.2), fly-admin-gmc, astra-safepolicy (>= 1.0.88+ci35), quota, firejail, libkf5config-bin, fly-qdm (>= 2.6.19), fly-wm (>= 2.24.10), xdg-user-dirs (>= 0.15-2astra1), kmod
+Conflicts: fly-admin-local-se (<= 0.1.44)
+Breaks: fly-kiosk
+Replaces: fly-kiosk
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-local/fly-admin-local_0.2.11+ci8_amd64.deb
+Size: 2606108
+SHA256: 8aab0c0be88523ae4bf8d8f91a0b8fa132e30f49e02fc7d8e32eb6fe263d6432
+SHA1: 343c3b478ded7a29f1538a823eacec6aaf749aea
+MD5sum: 1bda06e7d4958dd7231d92cd2a2e383d
+Description: management console
+ This package contains files for gui management console.
+Description-md5: 264c70be8c523b1188b6db6b92d38b58
+
+Package: fly-admin-local-se
+Version: 0.1.52+ci2
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 2771
+Depends: gmc-common (>= 0.1.51), gmc-miscellaneous, gmc-miscellaneous-se (>= 0.1.37+ci10), libc6 (>= 2.14), libflyadminmode (>= 0.2.14), libflyadminsystemd (>= 0.2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libparsec-aud3, libparsec-cap3, libparsec-mic3, libpdac++, libpdp, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5.2), fly-admin-local, astra-safepolicy, parsec-base
+Replaces: fly-kiosk
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-local-se/fly-admin-local-se_0.1.52+ci2_amd64.deb
+Size: 1865158
+SHA256: 0216a2a2b54b90ca35ae6438cadcaefd92e1a62397b8b230f5f4d755d58b8197
+SHA1: 78a4abcc0e0cae17e704dcb3c5529ba21b8ba673
+MD5sum: 4cf761bbaee378bcca1c77d033a029a9
+Description: management console
+ This package contains files for gui management console.
+Description-md5: 264c70be8c523b1188b6db6b92d38b58
+
+Package: fly-admin-marker
+Version: 3.1.6+ci2
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 607
+Depends: libc6 (>= 2.14), libflyadminpackage (>= 0.2.13+ci1), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5coreaddons5 (>= 4.97.0), libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.11.0~rc1) | libqt5gui5-gles (>= 5.11.0~rc1), libqt5singleapplication5, libqt5widgets5 (>= 5.14.1), libstdc++6 (>= 5)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-marker/fly-admin-marker_3.1.6+ci2_amd64.deb
+Size: 156854
+SHA256: 4beb6d2d707124f9769a4a5b671227ac49fa6a6d71bf7aaa694c56136cdb6d11
+SHA1: 361bb61971307c9a56abef23b81cef06be7b3fef
+MD5sum: 7bc87a90648412984e0587b7fc01eb7f
+Description: Marker template editor for secure CUPS version
+ This package contains visual editor for marker templates creation.
+Description-md5: 2c6527cc52352846ad8b1a51d8e70628
+
+Package: fly-admin-mic
+Version: 0.3.1+ci19
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 429
+Depends: gmc-common, gmc-miscellaneous, libc6 (>= 2.14), libflyadminmode (>= 0.2.13+ci1), libflyadminpackage (>= 0.2.13+ci1), libflyadminsystemd (>= 0.2.13+ci1), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdp, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5), fly-admin-gmc, parsec-base, pdp, astra-safepolicy
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-mic/fly-admin-mic_0.3.1+ci19_amd64.deb
+Size: 123924
+SHA256: 4cb47b0828481ee0316df06098ac9421db4001433f59e26f343d218537dfd4c3
+SHA1: 2035b46d3049d59b53b15b316253cd52cfd207c2
+MD5sum: 9e4bb8b7d434ecbc0ba9c1b823b0b0d4
+Description: management console
+ This package contains files for gui management console.
+Description-md5: 264c70be8c523b1188b6db6b92d38b58
+
+Package: fly-admin-multiseat
+Version: 1.0.8+ci2
+Architecture: amd64
+Maintainer: Ilya Zolotarev <maintainers@astralinux.ru>
+Installed-Size: 408
+Depends: libc6 (>= 2.14), libflyadminsystemd (>= 0.2.13+ci1), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.12.2), libstdc++6 (>= 5), systemd (>= 232-25+deb9u12astra.ce3) | systemd (>= 232-25+deb9u12astra.se10)
+Homepage: www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-multiseat/fly-admin-multiseat_1.0.8+ci2_amd64.deb
+Size: 211906
+SHA256: 6f202dceccd66d15526bffc680f0a8903ea6c2327282b4e589ca3486f66e2834
+SHA1: b54a183d62abd84ce07f809d8d05993eedc37716
+MD5sum: e9070394c0a8c6de52316a83dcff4731
+Description: Multiseat management application
+ Fly-admin-multiseat is application for device assignment between users of single station
+Description-md5: 9b57eadf46012a80816efee1d3be8c8e
+
+Package: fly-admin-network
+Version: 1.1.2
+Architecture: amd64
+Maintainer: Nikitin.I <support@rusbitech.ru>
+Installed-Size: 190
+Depends: libc6 (>= 2.14), libflyadminpackage (>= 0.2.14), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5.2), systemd, procps
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-network/fly-admin-network_1.1.2_amd64.deb
+Size: 53372
+SHA256: a4d33d8881f6ce4b5ed94ac54808dbfa6e5bf1e28bc8412f9be307978dfb09b2
+SHA1: 1b0f768db7ca11f911f415f622865542533e39e0
+MD5sum: 3828b8497f386456a5ec1066fc45172a
+Description: Network configuration application
+Description-md5: 0225659c59e6f3892c96569881992088
+
+Package: fly-admin-ntp
+Version: 1.2.9
+Architecture: amd64
+Maintainer: Igor Nikitin <support@rusbitech.ru>
+Installed-Size: 459
+Depends: libc6 (>= 2.14), libflyintegration1, libflyuinet2, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.14.1), libstdc++6 (>= 5), fly-su (>= 0.1.2)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ntp/fly-admin-ntp_1.2.9_amd64.deb
+Size: 124412
+SHA256: f834e51b930b3668e4ea51f42e0f7ad0680e55d6904ea3951755a5a0165a6759
+SHA1: 91b6c16144b0271afbe2c906c959f99c2ac96684
+MD5sum: a37fe08d545eb7f697479898e3b685a7
+Description: NTP system manager
+ NTP system manager
+Description-md5: d7d0f598c8d45d6f808bbc3f25d20212
+
+Package: fly-admin-openvpn-server
+Version: 0.1.11
+Architecture: amd64
+Maintainer: MileshkinVV <support@rusbitech.ru>
+Installed-Size: 187
+Depends: libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.11.0~rc1), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5.2), astra-openvpn-server
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-openvpn-server/fly-admin-openvpn-server_0.1.11_amd64.deb
+Size: 50268
+SHA256: 9b980f68e17b6da7aec7858700954c8459ef9319fea80ccb50525f8a9c4893c6
+SHA1: c088980a028697149f734c251a46224e733df927
+MD5sum: a369529286b60b3297746c5270ffd397
+Description: OpenVPN server GUI configution tool
+ OpenVPN server GUI configution tool
+Description-md5: 73c309b6863f7d4537ce0712f90b1c5a
+
+Package: fly-admin-printer
+Version: 2.2.18
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 1122
+Depends: libfly-admin-printer2 (= 2.2.18), libc6 (>= 2.15), libcups2 (>= 2.2.4), libflyadminpackage (>= 0.2.14), libflyintegration1, libflyuinet2, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.9.0~beta), libqt5serialport5 (>= 5.6.0), libqt5singleapplication5, libqt5widgets5 (>= 5.14.1), libstdc++6 (>= 5), udev, cups-client (>= 2.2.1)
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-printer/fly-admin-printer_2.2.18_amd64.deb
+Size: 299880
+SHA256: 6306bbda2494fc672d2b4fdea9d73fd5a55335c81df1bc0f28c686865c83c34b
+SHA1: 8c04f98ec73c848572a49abb5e02e9efec21e62a
+MD5sum: a5c6d785a5daa9da6be2e390216cf417
+Description: FlyDE printing system management
+ FlyDE utility for printing system and printer management,
+ designed for Common UNIX Printing System.
+Description-md5: 62a9ea3bbbb332a1164250b0ae963d72
+
+Package: fly-admin-printer-mac
+Version: 2.2.3
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 163
+Depends: libfly-admin-printer-mac2 (= 2.2.3), libc6 (>= 2.14), libfly-admin-printer2, libgcc1 (>= 1:3.0), libgl1, libparsec-mac-qt5-1, libpdp, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5), fly-admin-printer
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-printer-mac/fly-admin-printer-mac_2.2.3_amd64.deb
+Size: 43124
+SHA256: bef2cd6356e8151a32390436780a66c8d858635c1bfb777d0ee47697e0779987
+SHA1: 71806d78af389aaa223d79daa516bce5fc9ef561
+MD5sum: 45ce82d6e6daa635eb09ae6f244da450
+Description: FlyDE printing system management MAC support
+ FlyDE utility for printing system and printer management,
+ designed for Common UNIX Printing System.
+ .
+ This package contains plugin for MAC support in fly-admin-printer
+Description-md5: e76ede3df0aa938f54c8dc5c5d80f6b1
+
+Package: fly-admin-repo
+Version: 1.0.0
+Architecture: amd64
+Maintainer: Andrei Kozlov <support@rusbitech.ru>
+Installed-Size: 843
+Depends: libc6 (>= 2.14), libflyadminpackage (>= 0.2.13+ci1), libflyadminsystemd (>= 0.2.13+ci1), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5archive5 (>= 4.96.0), libkf5itemviews5 (>= 4.96.0), libqca-qt5-2 (>= 2.0.2), libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5), archivemount, fuse, reprepro, bsign, fly-admin-repo-helper, fly-admin-sourcelist
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-repo/fly-admin-repo_1.0.0_amd64.deb
+Size: 252526
+SHA256: 7c2bd9de295b88e4e6729165ab8f863fc0b00b55ad5fe349b3986f9e02ff8049
+SHA1: 3ad4ff401be819daba7efe1c91667d7c346000a5
+MD5sum: bf60da05ebd39dbf96209d95d29545e8
+Description: Utility for creating and editing local repositories
+ Utility for creating and editing local repositories
+Description-md5: d5ab842d9e81a1c63859daf9b9d969f4
+
+Package: fly-admin-repo-helper
+Source: fly-admin-repo
+Version: 1.0.0
+Architecture: amd64
+Maintainer: Andrei Kozlov <support@rusbitech.ru>
+Installed-Size: 87
+Depends: libc6 (>= 2.4), libflyadminsystemd (>= 0.2.13+ci1), libflyintegration1, libgcc1 (>= 1:3.0), libpolkit-qt5-1-1 (>= 0.112.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5singlecoreapplication5, libstdc++6 (>= 5), policykit-1
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-repo/fly-admin-repo-helper_1.0.0_amd64.deb
+Size: 21386
+SHA256: 4b3b1e60f031c09e07366e93dbd65c52ccbdc0ed9ce23485bae9d0994edecf31
+SHA1: 56bde6414b35c416d825e98e02c2e7da08b81ee2
+MD5sum: e16f0dab826e08eab8424f8053b589cb
+Description: System DBus helper for fly-admin-repo
+ It does all jobs that require root privileges.
+Description-md5: bf38fd2d4894d3ceecafed8e5fffd7d3
+
+Package: fly-admin-samba
+Version: 1.5.7+ci3
+Architecture: amd64
+Maintainer: Vladislav Mileshkin <support@rusbitech.ru>
+Installed-Size: 760
+Depends: libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5.2), samba
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-samba/fly-admin-samba_1.5.7+ci3_amd64.deb
+Size: 249086
+SHA256: ab6f2d7e50cee5b5a429a1c5aeffde8c628c5040757cda4fada906b76cf6d4ad
+SHA1: 94b105f90fb9d009cbb51045c03fb5c1bf1d9fd6
+MD5sum: 712ebcaed3600876d3399e2a9ff51f81
+Description: Samba configuration tool
+ Samba configuration tool
+Description-md5: 622fe809fb8cb74be9cfd95322cdc587
+
+Package: fly-admin-security-monitor
+Version: 0.3.2+ci4
+Architecture: amd64
+Maintainer: Vladislav Mileshkin <support@rusbitech.ru>
+Installed-Size: 200
+Depends: gmc-common, libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5.2), fly-admin-gmc, astra-safepolicy
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-security-monitor/fly-admin-security-monitor_0.3.2+ci4_amd64.deb
+Size: 49776
+SHA256: 4ac6146a0f54b79bf424188b1a3e7ee3478b33ba944f686b8b48ddfe3c3e83d0
+SHA1: d3e74942727524406cbc59b8381472ed7b6773d7
+MD5sum: 7c3193bc20db1e73bee78ede433a3853
+Description: Security Monitor
+ Fly Admin Security Monitor
+Description-md5: 828aa48954e8f8c3a21f95d11228ca12
+
+Package: fly-admin-service
+Version: 0.1.35
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 1441
+Depends: gmc-common, libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), fly-admin-gmc (>= 0.1.61)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-service/fly-admin-service_0.1.35_amd64.deb
+Size: 306984
+SHA256: c31e36e996770cb72ef642a3d329c7a44d12cb3b405aa1cf828d7d305490ae6c
+SHA1: 8b5cd90ec6c5f99e49e1afbcf42535a1c8ed1cef
+MD5sum: ef460d1496d932f8825be73479ee2d08
+Description: management console
+ This package contains files for management console.
+Description-md5: 102bb202e77df09ae3da043e2bfb01e6
+
+Package: fly-admin-service-se
+Version: 0.1.47
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 323
+Depends: gmc-common, libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5network5 (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), fly-admin-service, python3-all, python3 (>= 3.2.0~)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-service-se/fly-admin-service-se_0.1.47_amd64.deb
+Size: 66464
+SHA256: 915dda613d21690f95d40794229c02b771e9447bbed09c24554b3430a034eeba
+SHA1: ebf11eaa1a41fe246ac6516cbb430551063cadff
+MD5sum: d41e76d12504379e53432aba53cf25de
+Description: management console
+ This package contains files for management console.
+Description-md5: 102bb202e77df09ae3da043e2bfb01e6
+
+Package: fly-admin-time
+Version: 1.2.11
+Architecture: amd64
+Maintainer: Ilya Zolotarev <maintainers@astralinux.ru>
+Installed-Size: 887
+Depends: libc6 (>= 2.14), libflyadmindbus (>= 0.2.14), libflyadminpackage (>= 0.2.14), libflyadminsystemd (>= 0.2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5), fly-admin-dbus-helper (>= 0.2.11)
+Homepage: www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-time/fly-admin-time_1.2.11_amd64.deb
+Size: 301540
+SHA256: 2ece88bfdec29e6a897058a7dd306c969bb9a7e02e7eea9ef407e69a8912e375
+SHA1: 04a15a1dc424d53e8b30109e1ddae5f48cd60d92
+MD5sum: b3411eb43448027daf19015bce177f82
+Description: Time synchro clients management application
+ Fly-admin-time is application for configuring time synchronization servers from the client side
+Description-md5: e4d2033a2e14581d586c8ad949c5a2a3
+
+Package: fly-admin-usbip
+Version: 0.1.14
+Architecture: amd64
+Maintainer: Andrei Kozlov <support@rusbitech.ru>
+Installed-Size: 284
+Depends: libc6 (>= 2.4), libflyadminpackage (>= 0.2.14), libflyadminsystemd (>= 0.2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5solid5 (>= 4.97.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.11.0~rc1), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), fly-admin-usbip-helper
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-usbip/fly-admin-usbip_0.1.14_amd64.deb
+Size: 74678
+SHA256: f29645d6c416bef0058a3b7069dca01fbf178ae10156a0364fcd019cb1fb577e
+SHA1: fd186227afc4d63705f000f9df03cbb0a1e46002
+MD5sum: d0a81125e358fbdb1548319c55a664f2
+Description: Utility for USB storages sharing over IP network
+ Utility for USB storages sharing over IP network
+Description-md5: cdc6e68fe17440482a5efc0623f18fbc
+
+Package: fly-admin-usbip-helper
+Source: fly-admin-usbip
+Version: 0.1.14
+Architecture: amd64
+Maintainer: Andrei Kozlov <support@rusbitech.ru>
+Installed-Size: 79
+Depends: libc6 (>= 2.4), libflyintegration1, libgcc1 (>= 1:3.0), libpolkit-qt5-1-1 (>= 0.112.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5singlecoreapplication5, libstdc++6 (>= 5), policykit-1
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-usbip/fly-admin-usbip-helper_0.1.14_amd64.deb
+Size: 17932
+SHA256: 208241db0c66bdb15bbef1d6f0bce5aac3f16c81fe7232b1cf16e33751a063ef
+SHA1: d9861eac187cd40bacbe8d4fe565f9d11805a0e5
+MD5sum: 93ef42c5dbc64a5118906aad32c288c5
+Description: System DBus helper for USB over IP tool
+ It does all jobs that require root privileges.
+Description-md5: 793129242f1518ef30729900243e0167
+
+Package: fly-admin-winprops
+Version: 1.2.18+ci4
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 199
+Depends: fly-winprops-service, libc6 (>= 2.4), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5iconthemes5 (>= 4.96.0), libkf5windowsystem5 (>= 4.97.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5), fly-wm (>= 2.32.5+ci1)
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-winprops/fly-admin-winprops_1.2.18+ci4_amd64.deb
+Size: 55874
+SHA256: 96869a6be7d1934eec7f83ba5a643114d3d63084f18e84b9c7494db42e88933d
+SHA1: eed6c48901164aee12d5931ab77b62f9fb2ef6fa
+MD5sum: 28cc4e73e1351fbb5ad9510c4591b872
+Description: Configure window properties
+ Window properties configuration tool for Fly
+Description-md5: aa8a0e50db7c40acb5073bdb9f680166
+
+Package: fly-admin-wm
+Version: 2.8.14+ci1
+Architecture: amd64
+Maintainer: Alexander Smirnov <asminrov@astralinux.ru>
+Installed-Size: 1215
+Depends: libc6 (>= 2.14), libconfig9, libflycore (>= 2.10.6), libflyintegration1, libflyqtconfig, libflyuiextra2, libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.3.5), libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5codecs5 (>= 4.96.0), libkf5configcore5 (>= 4.97.0), libkf5configgui5 (>= 4.97.0), libkf5configwidgets5 (>= 4.96.0), libkf5coreaddons5 (>= 4.97.0), libkf5widgetsaddons5 (>= 5.69.0), libkf5windowsystem5 (>= 4.96.0), libpulse0 (>= 0.99.1), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.6.0~beta), libqt5gui5 (>= 5.8.0) | libqt5gui5-gles (>= 5.8.0), libqt5multimedia5 (>= 5.6.0~beta), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5svg5 (>= 5.6.0~beta), libqt5widgets5 (>= 5.15.1), libqt5x11extras5 (>= 5.6.0), libqt5xml5 (>= 5.0.2), libslidingstackedwidget, libstdc++6 (>= 5.2), libx11-6, libxcursor1 (>> 1.1.2), fly-wm (>= 2.41.25+ci7), vorbis-tools, alsa-utils, qtnotifydaemon | fly-notifications, fly-data (>= 2.5.3), sox
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-wm/fly-admin-wm_2.8.14+ci1_amd64.deb
+Size: 345326
+SHA256: aa0438ada26dafe2794933a39811611d3e37f68e1e994e9cc2bea76a97c3c779
+SHA1: ddf5feb30b44d24b966eb90b12e7836c6c3319e9
+MD5sum: f07ca86b30c7d9d31d2252d93673cb19
+Description: fly-admin-wm - admin utils for Fly window manager
+ The utils edit fly-wm settings (hotkeys, themes, menus).
+Description-md5: 2dfa95aa2da18924c7a0ec7ec49d9713
+
+Package: fly-all-games
+Source: fly-all
+Version: 2.8.12+ci1
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 3
+Pre-Depends: kpat, klines, kmines, jag
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-all/fly-all-games_2.8.12+ci1_amd64.deb
+Size: 1084
+SHA256: 881f857c29d4d58c44e5f7f319555bb3742a8c9e0b360ad5dbb8d00107e9d15f
+SHA1: 632074dde560e877c52c145f29556670de61c295
+MD5sum: ba3734ffcc38995c10dbe005fcafe78e
+Description: Dummy package to have all FLY games packages
+ Dummy fly-all-games depends on all FLY games packages
+Description-md5: 408caacb59c8e1d3630dd1052f3566bc
+
+Package: fly-all-main
+Source: fly-all
+Version: 2.8.12+ci1
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 3
+Pre-Depends: fly-fm-mac, fly-mac-dialog, fly-run-sumac, fly-fm-bsign, fly-fm-audit, ksysguard-mac, ksystemstats, fly-kcm-about-astra, fly-admin-printer-mac, kolourpaint, kcalc, okular, okular-extra-backends, fly-admin-network, fly-admin-multiseat, fly-admin-repo, fly-admin-usbip, fly-admin-touchpad, breeze, breeze-cursor-theme, kde-style-breeze, kwin-style-breeze, qml-module-org-kde-qqc2desktopstyle, libpam-gnome-keyring, fly-sosreport, fly-print-station, fonts-pt, astra-event-watcher, fly-admin-events, fly-event-viewer, fly-admin-driver, xorg-all-main, dbus-x11, gnome-keyring, fly-admin-policykit-1, polkit-kde-agent-1, fly-plastique-style, qt5-style-plugins, qt5-image-formats-plugins, fly-doc, fly-admin-autostart, fly-admin-center, fly-admin-cron, fly-admin-device-manager, fly-admin-dm, fly-admin-env, fly-admin-fonts, fly-admin-screen, fly-admin-mouse, fly-admin-grub2, kmix, pavucontrol-qt, fly-admin-power, systemdgenie, fly-admin-winprops, fly-admin-wm, fly-admin-alternatives, fly-data, fly-dm, gwenview, fly-fm, gvfs, fly-brightness, fly-jobviewer, fly-print-monitor, fly-qdm, fly-reflex, fly-run, fly-scan, fly-su, fly-start-panel, fly-shutdown-dialog, fly-search, ksysguard, fly-term, fly-videocamera, fly-vkbd, fly-winprops-service, fly-wm, fly-wm-decor, fly-admin-date, fly-xkbmap, flyui-utils, qtchooser, flyqt5platformtheme, qttranslations5-l10n, breeze-gtk-theme, fonts-wine-tahoma, fonts-liberation, fonts-croscore, fonts-crosextra-carlito, fly-fontconfig-settings, at-spi2-core, qt-at-spi, qt-at-spi-doc, libatk-adaptor, libatk-bridge2.0-0, fly-admin-printer, fly-admin-local, kde-spectacle, kate, sonnet-plugins, kinfocenter, powerdevil, libkf5globalaccel-bin, fly-orientation, xdg-desktop-portal-kde, fly-admin-format, fly-admin-time, qbat, ark, librsvg2-bin, picom, synaptic, yelp
+Breaks: fly-notify-prevlogin, skanlite
+Replaces: fly-notify-prevlogin, skanlite
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-all/fly-all-main_2.8.12+ci1_amd64.deb
+Size: 1904
+SHA256: c1afd0d017fbfdcd0cabd0124d214ba36e47ffdb3d47f15b765be43f1213cd6f
+SHA1: 3350fd38886e74753035f8653f18afb67b435899
+MD5sum: f848ae7b26ef0662b49887edb9c80f85
+Description: Dummy package to have all FLY main packages
+ Dummy fly-all-main depends on all FLY main packages
+ You don't need to install it
+Description-md5: 1210855847ec60587edb2a72576c4f5c
+
+Package: fly-all-network
+Source: fly-all
+Version: 2.8.12+ci1
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 3
+Pre-Depends: plasma-nm, krdc, fly-admin-dhcp, fly-admin-ntp, fly-admin-samba, fly-admin-ftp, gufw, modemmanager, mobile-broadband-provider-info, network-manager-openvpn-gnome
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-all/fly-all-network_2.8.12+ci1_amd64.deb
+Size: 1168
+SHA256: a11ff84447c435e59ded00162a5d30ca0261f33fb49715e87d9b684862ff5c9f
+SHA1: e509ed27a7281349ec4013e38b9123c5cda164dd
+MD5sum: 160071396cde076e87c835b1e4e03a21
+Description: Dummy package to have all FLY network packages
+ Dummy fly-all-network depends on all FLY network packages
+ You don't need to install it
+Description-md5: 0bf36f03f907d161e5d80a839baef26b
+
+Package: fly-all-optional
+Source: fly-all
+Version: 2.8.12+ci1
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 3
+Pre-Depends: qapt-deb-installer, vlc, vlc-astra, vlc-l10n, vlc-plugin-access-extra, guvcview, recoll, kgpg, xca, fly-fm-crypt, gparted, k3b, k3b-i18n, fly-admin-iso
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-all/fly-all-optional_2.8.12+ci1_amd64.deb
+Size: 1156
+SHA256: e3cb114720576210fa7365f539cb454acb880149c271573720f64a83ef148318
+SHA1: 1d06978702c32de77f72b78b3d3f643db77d37eb
+MD5sum: 188a399cd7e7f6055c6c9c1e64a76b8c
+Description: Dummy package to have all FLY optional packages
+ Dummy fly-all-optional depends on all FLY optional packages
+Description-md5: 6692cf465676159b93b9269e072f9a35
+
+Package: fly-all-qml
+Source: fly-all
+Version: 2.8.12+ci1
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 3
+Pre-Depends: libflyqmldialog, fly-camera, fly-date, fly-notes, fly-calc, fly-contacts, fly-launcher, fly-qml-dialer, fly-sms, fly-record, fly-gallery, fly-music, fly-gps, fly-system-monitor-widget, fly-weather, fly-pdfview, qtvirtualkeyboard-plugin
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-all/fly-all-qml_2.8.12+ci1_amd64.deb
+Size: 1208
+SHA256: 4ff312a76d1ea6f1946f5efa41d13e90c1f7d872e3ca22fac8ce4754d4bbe13c
+SHA1: b95a0aa1bc2277b2e5e8720630729604085c2365
+MD5sum: 0223492ec1ac08edd51a7fe006835cde
+Description: Dummy package to have all FLY qml packages
+ Dummy fly-all-qml depends on all FLY qml packages
+ You don't need to install it
+Description-md5: ea2a3da6ae8e7247507dd5a3ab6117eb
+
+Package: fly-astra-update
+Version: 0.1.15+ci1
+Architecture: amd64
+Maintainer: Andrei Kozlov <support@rusbitech.ru>
+Installed-Size: 388
+Depends: libc6 (>= 2.14), libflyadminmode (>= 0.2.14), libflyadminpackage (>= 0.2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5), astra-update, xfsdump
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-astra-update/fly-astra-update_0.1.15+ci1_amd64.deb
+Size: 216296
+SHA256: 4b901729f75cdd3c30fb048b2fa6286100870a5ea0c12e72360a4ac3ecc3e591
+SHA1: 3cbca2476b5ec7e15b90105539fe43d4e1ed215c
+MD5sum: 35d1dd215c367c8c52a81d90365031a5
+Description: Utility for update system
+ Utility for update system
+Description-md5: 197130e258a3767a654f260f202488e1
+
+Package: fly-brightness
+Version: 0.3.5+ci6
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 169
+Depends: libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5sensors5 (>= 5.6.0), libqt5singleapplication5, libqt5widgets5 (>= 5.1.0), libstdc++6 (>= 5), udev, acpid, fly-data (>= 2.5.5+ci1), laptop-detect
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-brightness/fly-brightness_0.3.5+ci6_amd64.deb
+Size: 46346
+SHA256: fc6d5f119a277e2495ca2fb6bc55ddcc8e472fc57bffa1a300c255fce64f3157
+SHA1: e37c56e7d0ea8a532a5cfb84b8ddba711957ba0f
+MD5sum: 5ffea0a8ca880665a4d4d1f8cce26c2c
+Description: Fly brightness control
+ Application for brightness control
+Description-md5: a3decf41290427daeb0d6dd0aa255ec5
+
+Package: fly-camera
+Version: 1.3.14
+Architecture: amd64
+Maintainer: YatmanovDA <support@rusbitech.ru>
+Installed-Size: 426
+Depends: libqt5qml5 (>= 5.15.2+dfsg), libqt5qml5 (<< 5.15.21), libavcodec58 (>= 7:4.0), libavdevice58 (>= 7:4.0), libavformat58 (>= 7:4.1), libavutil56 (>= 7:4.0), libc6 (>= 2.14), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5multimedia5 (>= 5.6.0~beta), libqt5network5 (>= 5.0.2), libqt5qmlmodels5 (>= 5.14.1), libqt5quick5 (>= 5.0.2) | libqt5quick5-gles (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), libswresample3 (>= 7:4.0), libswscale5 (>= 7:4.0), fly-data, qml-module-qtquick2, qml-module-qtgraphicaleffects, fly-qml-components (>= 1.0.17), qml-module-qtquick-window2, qml-module-qtmultimedia, libqt5multimedia5-plugins, fly-gallery (>= 0.3.10), gstreamer1.0-plugins-base, gstreamer1.0-plugins-good, gstreamer1.0-plugins-ugly, gstreamer1.0-libav, gstreamer1.0-x, gstreamer1.0-alsa
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-camera/fly-camera_1.3.14_amd64.deb
+Size: 109746
+SHA256: 4d86b161846850ff5cc5480b9f38bc6556b042016d338b895c6fa55678427f53
+SHA1: 788e087d5dded643caabd4e09a0c7eb5d44771d6
+MD5sum: 92095a3b84726f25978f7ca85464abd2
+Description: Fly Camera
+ Fly Camera
+Description-md5: 2a32c933fdb334d497a68430a9ca35e9
+
+Package: fly-csp-cryptopro
+Version: 1.0.36
+Architecture: amd64
+Maintainer: Vladislav Mileshkin <support@rusbitech.ru>
+Installed-Size: 398
+Depends: python3:any, python3-setuptools, python3-pyqt5, libreoffice (>= 6.1.5), libreoffice-l10n-ru, pdp, libccid, pcscd, zip, fuse, python3-psutil, unzip
+Conflicts: fly-csp
+Replaces: fly-csp
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-csp-cryptopro/fly-csp-cryptopro_1.0.36_amd64.deb
+Size: 202556
+SHA256: 50d705db16907f7914a6d5f60452e51f66213cb042b5f1473832bcfe391a539a
+SHA1: d3d489693832c07b68b9cac82bdeba5409092cad
+MD5sum: 039015c548530517f0c39042bb1020be
+Description: fly-csp-cryptopro
+ Utility for working with CryptoPro cryptographic provider
+Description-md5: 1a1c18a0cc3a6a8672d436b3ddfc4126
+
+Package: fly-data
+Version: 2.5.12
+Architecture: all
+Maintainer: asminrov <asmirnov@astralinux.ru>
+Installed-Size: 212960
+Depends: hicolor-icon-theme, sound-theme-freedesktop, shared-mime-info, gtk-update-icon-cache, librsvg2-bin, adwaita-icon-theme
+Homepage: http://www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-data/fly-data_2.5.12_all.deb
+Size: 180406260
+SHA256: 05cfda80f38bd6e02bc547b3f534395e25d1d265ad44246cac7c184e69766778
+SHA1: 18ea1e45c06b54bee5901e7b5b9a4af02ce86775
+MD5sum: 3f6ee484556861754209527db2964697
+Description: Data files (cursors, icon themes, etc.) for Fly desktop
+ Data files (cursors, icon themes, etc.) for Fly desktop
+Description-md5: 0de856251222a8e0ec9dcf5c53733e5b
+
+Package: fly-dm
+Version: 2.11.21+ci5
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 334
+Depends: libc6 (>= 2.28), libcap2 (>= 1:2.10), libdrm2 (>= 2.3.1), libflygetexe, libgcc1 (>= 1:3.0), libpam0g (>= 0.99.7.1), libparsec-base3, libparsec-cap3, libparsec-mic3, libpdp, libstdc++6 (>= 4.1.1), libsystemd0, libx11-6, libx11-xcb1, libxau6, libxcb-xparsec (>= 1.14-2astra.se9), libxcb1, libxdmcp6, debconf | debconf-2.0, lsb-base (>= 3.2-14), gawk, libcap2-bin, fly-data, fly-qdm (>= 2.13.15), libflygetexe-bin, input-utils, systemd (>= 232-25+deb9u2astra), libpam-systemd
+Recommends: x-session-manager | x-window-manager, logrotate, xserver-xorg | xserver, xterm | x-terminal-emulator, fly-mac-dialog
+Provides: x-display-manager
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-dm/fly-dm_2.11.21+ci5_amd64.deb
+Size: 129278
+SHA256: a589fc75122a0dd8eaef6b470ab294d597ad0f6eea9ab18207a377be3271ac64
+SHA1: 74deffa39338ca8eee65c62cf2664ec2131e99af
+MD5sum: 904a28404a37f183295a7cf3dbc2bfd6
+Description: Fly Display Manager (service part)
+ Fly-dm manages a collection of X servers running on local or remote machines.
+ It allows users to easily log into their preferred desktop environment, connect
+ to a remote XDMCP server, or shut down the system.
+ .
+ Fly-dm supports custom themes and can display a list of users with icons.
+ .
+ This package is part of Fly desktop environment.
+ .
+ Under special purpose OS Smolensk it calls MACcmd (fly-mac-dialog,  see fly-dmrc)
+ to get mandatory label in login.
+Description-md5: dae020ed531fe22476b20688566653bf
+
+Package: fly-doc
+Version: 10.2.se5
+Architecture: amd64
+Maintainer: Tatyana Nemchenko <maintainers@astralinux.ru>
+Installed-Size: 38384
+Depends: qt5-assistant
+Homepage: https://www.astralinux.ru
+Priority: extra
+Section: non-free/fly
+Filename: pool/non-free/f/fly-doc/fly-doc_10.2.se5_amd64.deb
+Size: 37248472
+SHA256: e25399f428c183d4439f7a4179ac950cc46b637280675460e8fc77a8e74d840a
+SHA1: 2421e0d36522eeeae0e9c6d60b3a35ef05158a8e
+MD5sum: 71541b59ed14f1f99998c10cc43924d2
+Description: Fly documentation
+Description-md5: 54175dfd316af80b0ec81a8952b68201
+
+Package: fly-event-viewer
+Version: 0.3+ci14
+Architecture: amd64
+Maintainer: Konstantin Shaleev <kshaleev@astralinux.ru>
+Installed-Size: 485
+Depends: libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdp, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5printsupport5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.15.1), libstdc++6 (>= 5.2), astra-event-watcher (>= 0.1.4), syslog-ng-mod-astra (>= 0.2.6)
+Homepage: https://astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-event-viewer/fly-event-viewer_0.3+ci14_amd64.deb
+Size: 221566
+SHA256: 533ac4ff3def8f6d32adb080001807535bf1d99ca6b70e301b4b886ebc8b5d7b
+SHA1: cf1e9fd3de495cc1e6a458dce33c6f4429439f2b
+MD5sum: e8197e0aede69b4a9153c92417d80fd6
+Description: Log viewer
+ syslog-ng-mod-astra log viewer
+Description-md5: 3e3d36a1441b3a232836fd9379ebb98a
+
+Package: fly-fm
+Version: 1.7.109
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 1637
+Depends: dbus-x11, fly-fm-libs, kio, libacl1 (>= 2.2.23), libc6 (>= 2.14), libflycore, libflyintegration1, libflythumbnails2, libflyuiaux2, libflyuiextra2, libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5bookmarks5 (>= 4.96.0), libkf5codecs5 (>= 4.96.0), libkf5configcore5 (>= 4.97.0), libkf5configgui5 (>= 4.97.0), libkf5configwidgets5 (>= 4.96.0), libkf5coreaddons5 (>= 5.16.0), libkf5kiocore5 (>= 5.69.0), libkf5kiogui5 (>= 5.69.0), libkf5kiowidgets5 (>= 5.69.0), libkf5service-bin, libkf5service5 (>= 4.96.0), libkf5solid5 (>= 4.97.0), libkf5widgetsaddons5 (>= 4.96.0), libkf5windowsystem5 (>= 4.96.0), libkf5xmlgui5 (>= 4.96.0), libphonon4qt5-4 (>= 4:4.8.0), libqt5concurrent5 (>= 5.11.0-0astra34), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.11.0-0astra34) | libqt5gui5-gles (>= 5.11.0-0astra34), libqt5singleapplication5, libqt5widgets5 (>= 5.15.1), libqt5xml5 (>= 5.11.0-0astra34), libstdc++6 (>= 5.2), libwbclient0 (>= 2:4.0.3+dfsg1), phonon4qt5
+Recommends: udisks2, libimage-exiftool-perl, libarchive-zip-perl
+Conflicts: dbus-user-session
+Replaces: nautilus
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-fm/fly-fm_1.7.109_amd64.deb
+Size: 394222
+SHA256: a5e0545fe017988833cb184049c193ffd29dda7d32c3c275ebca4e17c205f721
+SHA1: 84ab39976a26a026fed1c14b6a18a20ca210b372
+MD5sum: 37294f78bb1c0eb7c5f0e7284fa68508
+Description: Fly desktop environment file manager
+Description-md5: 37d5fa30716952e8e39b53621f60ee88
+
+Package: fly-fm-bsign
+Version: 1.1.1
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 77
+Depends: fly-fm-libs, libc6 (>= 2.4), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5network5 (>= 5.0.2), libqt5printsupport5 (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libqt5xmlpatterns5 (>= 5.0.2), libstdc++6 (>= 5), bsign, gnupg, coreutils, findutils, grep
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-fm-bsign/fly-fm-bsign_1.1.1_amd64.deb
+Size: 17572
+SHA256: 12d1dba4fc5772f4d84bcf7e766e3950e19c6a4a272c237e209cb19cfe6c5922
+SHA1: d035d5bbb111344a244dec5bef19156afc2653e7
+MD5sum: f6ba8e96dac7066568e1e026cc46f333
+Description: fly-fm bsign plugin
+Description-md5: e7fda410ab54b563eb79347214f467d7
+
+Package: fly-fm-libs
+Source: fly-fm
+Version: 1.7.109
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 4266
+Depends: libc6 (>= 2.14), libflycore, libflyintegration1, libflysecrets, libflysu2, libflythumbnails2, libflyuiaux2, libflyuiextra2, libgcc1 (>= 1:3.0), libgl1, libkf5configcore5 (>= 4.97.0), libkf5coreaddons5 (>= 4.98.0), libkf5iconthemes5 (>= 4.96.0), libkf5solid5 (>= 4.97.0), libmount1 (>= 2.24.2), libpdphelper, libqt5concurrent5 (>= 5.11.0-0astra34), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.14.1) | libqt5gui5-gles (>= 5.14.1), libqt5singleapplication5, libqt5widgets5 (>= 5.15.2+dfsg-0astra27), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5), libxcb1, qtbase-abi-5-15-2, psmisc, smbclient, samba-common-bin, smbnetfs, curlftpfs, sshfs, archivemount
+Recommends: fly-secretsservice
+Conflicts: fly-fm (<< 0.7.9)
+Replaces: fly-fm (<< 0.7.9)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-fm/fly-fm-libs_1.7.109_amd64.deb
+Size: 1073514
+SHA256: 2f9a1bac5116401af9695038d088a5be74742d16d3db0d1ff5e73cbc19a283da
+SHA1: b6b1cac8e0dfe092d37b30c22de38ede4932f14a
+MD5sum: d82476ef79c701032dd878ca4bdde8bf
+Description: Libraries for the Fly desktop environment file mananger
+Description-md5: 74397f6d019e572cd5dcdd9c195c6ab9
+
+Package: fly-fm-mac
+Version: 0.5.1
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 64
+Depends: fly-fm-libs, libc6 (>= 2.4), libgcc1 (>= 1:3.0), libgl1, libparsec-base3, libparsec-mac-qt5-1, libpdp, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-fm-mac/fly-fm-mac_0.5.1_amd64.deb
+Size: 14310
+SHA256: e811a23651b0b2e8cafb58537c507188e64b6131bb63b25f724687f8e9595220
+SHA1: 71ab853d84ba6fad634b0c2716dc9338571d636b
+MD5sum: 5389204998765c2b4ce29df731912e4d
+Description: Parsec mac plugin
+Description-md5: 981ba65527111bd595dd4f6ce926ed52
+
+Package: fly-fm-searchfilters
+Source: fly-fm
+Version: 1.7.109
+Architecture: all
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 41
+Depends: python3, python3-uno
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-fm/fly-fm-searchfilters_1.7.109_all.deb
+Size: 29448
+SHA256: 472d5593dd2c915a00483eebe527d3ffa6ee012a00539ab897ce6246f8565a91
+SHA1: 49e16370ecaa3eb207c23619c67378889f827753
+MD5sum: 6ce06bbd065de23f50a53f064d2c8858
+Description: Search filters for the Fly desktop environment file mananger
+ Config files and scripts to make fly-fm search text in files that can be
+ converted to text, e.g. office documents.
+Description-md5: 94daf134b0fe37da3ed7a6605b364fe8
+
+Package: fly-gps
+Version: 1.0.10+ci3
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 221
+Depends: libqt5qml5 (>= 5.15.2+dfsg), libqt5qml5 (<< 5.15.21), libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5idletime5 (>= 4.96.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5positioning5 (>= 5.6.0), libqt5qmlmodels5 (>= 5.14.1), libqt5quick5 (>= 5.0.2) | libqt5quick5-gles (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), fly-data, qml-module-qtquick2, qml-module-qtgraphicaleffects, fly-qml-components (>= 1.0.17), qml-module-qtquick-window2, libqt5positioning5-plugins, libqt5positioning5-gpsd-plugin, gpsd
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-gps/fly-gps_1.0.10+ci3_amd64.deb
+Size: 68432
+SHA256: 8d916fa65df1af1a755e23d9f4981257dc494383ea92078c5085a1ee4493d8a7
+SHA1: 3d3e73b7af57e30156e3aa3a1b374bf3ce3a15be
+MD5sum: fcb82e88d291bd0ef9fbd16c8a04659a
+Description: Fly GPS
+ Fly GPS
+Description-md5: d844a2907ce30b5d91fcbb6ef9c82cd2
+
+Package: fly-jobviewer
+Source: fly-admin-printer
+Version: 2.2.18
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 72
+Depends: libfly-admin-printer2 (= 2.2.18), libc6 (>= 2.14), libcups2 (>= 2.2.1), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), cups-client (>= 2.2.1)
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-printer/fly-jobviewer_2.2.18_amd64.deb
+Size: 24112
+SHA256: a32213e06c14f4d58d6b09f13541ca7d2e435475d719c3f5b252402fe17e8325
+SHA1: 164d3b8fb88c4abc54a2112ab87e1f6f6ead7977
+MD5sum: 599e7f492209dca883e732d69934c2fc
+Description: FlyDE printer queue viewer
+ FlyDE utility to view and control print jobs in
+ Common UNIX Printing System.
+Description-md5: 6dd6136a438888354fcac92f4efc0bc8
+
+Package: fly-launcher
+Version: 1.5.22+ci1
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 3144
+Depends: libqt5qml5 (>= 5.15.2+dfsg), libqt5qml5 (<< 5.15.21), astra-orientation, fly-launcher-libs, fly-phone-db-client, fly-phone-dbus, libc6 (>= 2.14), libcrypto++6, libdbusmenu-qt5-2 (>= 0.9.3+14.10.20140619), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5configcore5 (>= 4.97.0), libkf5idletime5 (>= 4.96.0), libkf5windowsystem5 (>= 4.100.0), libqofono-qt5-0, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5multimedia5 (>= 5.6.0~beta), libqt5network5 (>= 5.0.2), libqt5qmlmodels5 (>= 5.14.1), libqt5quick5 (>= 5.1.0) | libqt5quick5-gles (>= 5.1.0), libqt5sensors5 (>= 5.6.0), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5.2), libx11-6, libxtst6, fly-data, fly-qml-components (>= 1.0.17), fly-phone-widgets, fly-data-mobile, qml-module-qtquick2, qml-module-qtgraphicaleffects, qml-module-qtquick-window2, qml-module-qtquick-controls, qml-module-qtquick-particles2, qml-module-ofono, libconnman-qt, fly-vkbd (>= 1.0.3), qml-module-qtmultimedia, qml-module-qtsensors, iio-sensor-proxy, libqt5multimedia5-plugins, gstreamer1.0-plugins-good, fly-admin-autostart (>= 0.1.9), fly-date, ofono, fly-calc, sni-qt, xembed-sni-proxy, qtvirtualkeyboard-plugin
+Breaks: fly-qdm (<< 2.3.3)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-launcher/fly-launcher_1.5.22+ci1_amd64.deb
+Size: 807856
+SHA256: dc093eaf93c43130325fb05ccdf24969f7bb93ab7205a773c8d70892d559fad0
+SHA1: bcb05b7f8684fbf68f2689a4680b879271d6e5ac
+MD5sum: 3fe4f0cd5d66ddb5c8d4f7254642a849
+Description: Fly Launcher
+ Fly Launcher
+Description-md5: 32f0ac85231729d4aa7d5a29c7d2313c
+
+Package: fly-mac-dialog
+Version: 0.12.16+ci10
+Architecture: amd64
+Maintainer: Alexander Smirnov <rusbitech@mail.ru>
+Installed-Size: 52
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libgl1, libkf5configcore5 (>= 4.97.0), libparsec-mac-qt5-1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5), libx11-6
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-mac-dialog/fly-mac-dialog_0.12.16+ci10_amd64.deb
+Size: 12394
+SHA256: 741874d0d1095469907a514f5e1ea39ac8d61851f8ee82227d1a182a39dd4776
+SHA1: 8120342786beda128721b0c3d96a831bb9eb2172
+MD5sum: e76d33a8346aa024185883ea67b9fbb7
+Description: MAClabel selecting dialog for Fly desktop
+Description-md5: b0b191ae234b648b7308258c4832b49f
+
+Package: fly-music
+Version: 0.5.24
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 2792
+Depends: libqt5qml5 (>= 5.15.2+dfsg), libqt5qml5 (<< 5.15.21), libasound2 (>= 1.0.27), libavcodec58 (>= 7:4.0), libavformat58 (>= 7:4.1), libavutil56 (>= 7:4.0), libc6 (>= 2.14), libcurl3-gnutls (>= 7.16.2), libenca0 (>= 1.9), libflac8 (>= 1.3.0), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libmpg123-0 (>= 1.12.1), libogg0 (>= 1.0rc3), libopus0 (>= 1.1), libopusfile0 (>= 0.5), libpulse0 (>= 0.99.1), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5network5 (>= 5.14.1), libqt5qmlmodels5 (>= 5.14.1), libqt5quick5 (>= 5.0.2) | libqt5quick5-gles (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libsndfile1 (>= 1.0.20), libsoxr0 (>= 0.1.0), libstdc++6 (>= 5), libtag1v5 (>= 1.11), libvorbis0a (>= 1.1.2), libvorbisfile3 (>= 1.1.2), libwavpack1 (>= 5.0.0), libxmp4 (>= 4.4.0), fly-data, fly-data-mobile (>= 1.0.2), qml-module-qtquick2, qml-module-qtgraphicaleffects, fly-qml-components (>= 1.0.17), qml-module-qt-labs-folderlistmodel, qml-module-qtquick-window2, qml-module-qtquick-xmllistmodel
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-music/fly-music_0.5.24_amd64.deb
+Size: 628330
+SHA256: 2eebcf61a6205115e82f75ae275120ba83d63e2db5c6075ea56ec73a7dcee9bc
+SHA1: 4a537125a5f9c6f61e5b026b37fcde2b6b584676
+MD5sum: cc53062d24c4eba3dc92c0800751b29c
+Description: Fly Music
+ Fly Music
+Description-md5: 0ffc355f688c23dd8c77fac0e1e0a992
+
+Package: fly-notifications
+Version: 1.0.11
+Architecture: amd64
+Maintainer: Vladislav Mileshkin <vmileshkin@astralinux.ru>
+Installed-Size: 1014
+Depends: kpackagetool5, libc6 (>= 2.14), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5codecs5 (>= 4.96.0), libkf5configcore5 (>= 4.97.0), libkf5configgui5 (>= 4.97.0), libkf5configwidgets5 (>= 4.96.0), libkf5coreaddons5 (>= 4.100.0), libkf5i18n5 (>= 4.97.0), libkf5itemmodels5 (>= 5.78.0), libkf5kcmutils5 (>= 4.96.0), libkf5notifyconfig5 (>= 5.18.0), libkf5package5 (>= 5.5.0+git), libkf5plasma5 (>= 5.53~), libkf5service-bin, libkf5service5 (>= 4.96.0), libkf5widgetsaddons5 (>= 4.96.0), libnotificationmanager-astra1 (>= 4:5.16.90astra8+ci16), libpdphelper, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.5.0), libqt5gui5 (>= 5.14.1) | libqt5gui5-gles (>= 5.14.1), libqt5network5 (>= 5.0.2), libqt5qml5 (>= 5.0.2), libqt5qmlmodels5 (>= 5.14.1), libqt5quick5 (>= 5.0.2) | libqt5quick5-gles (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.15.1), libqt5x11extras5 (>= 5.6.0), libqt5xml5 (>= 5.0.2), libstdc++6 (>= 5.2), libsystemd0, libx11-6, fly-wm (>= 2.41.25+ci4), plasma-framework, kcmshell
+Breaks: qtnotifydaemon
+Replaces: qtnotifydaemon
+Provides: notification-daemon
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-notifications/fly-notifications_1.0.11_amd64.deb
+Size: 340666
+SHA256: f2f0599aef7f1792b61f7ed1b6f24582d0b50b78fc84dfbc4da71436555f3c22
+SHA1: 39be1101a5157d2a7fec68811ef4effa4ef3d49b
+MD5sum: eaabaea65e1f7515217706ef1bde3381
+Description: Fly Desktop Notifications
+ Fly Desktop Notifications
+Description-md5: 29af1182be31c22004ba3b4538c14af2
+
+Package: fly-notify-prevlogin
+Version: 1.1.0+ci3
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 192
+Depends: libc6 (>= 2.14), libflyadminprocess (>= 0.2.13+ci1), libflyintegration1, libgcc1 (>= 1:3.0), libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5coreaddons5 (>= 4.97.0), libqt5core5a (>= 5.15.1), libstdc++6 (>= 5.2), util-linux, libnotify-bin
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-notify-prevlogin/fly-notify-prevlogin_1.1.0+ci3_amd64.deb
+Size: 36320
+SHA256: 092355afe2635d73030a961e33cdde486252749aea761e0f154f9c59a5e979de
+SHA1: 31b86e755e4ea3fb1ce563978ea7579aa831c261
+MD5sum: ec7a80124607f864c4c0c62cf79d7426
+Description: Shows notification with info about previous login.
+ Shows notification with info about previous login.
+Description-md5: 0bf594421a91f860945de6acb6e8f116
+
+Package: fly-orientation
+Version: 0.2.2+ci13
+Architecture: amd64
+Maintainer: Nikitin.I <support@rusbitech.ru>
+Installed-Size: 216
+Depends: astra-orientation (= 0.2.2+ci13), libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5sensors5 (>= 5.6.0), libqt5singleapplication5, libqt5widgets5 (>= 5.1.0), libstdc++6 (>= 5.2), fly-data (>> 2.4.28)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-orientation/fly-orientation_0.2.2+ci13_amd64.deb
+Size: 54174
+SHA256: 8c71f61e66e297e7713e7f2bfe5d0540abd2600bc75ddcba15bb73018bc2bb50
+SHA1: 72836318cf1469b98be57db90bb9d82b24b1f06f
+MD5sum: 7f9f741777aae245bfb141c69e76b22e
+Description: Descktop application for controlling the orientation of screens
+Description-md5: fd631a01ca4f6b478d0da5e5e0f04e61
+
+Package: fly-print-monitor
+Source: fly-admin-printer
+Version: 2.2.18
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 179
+Depends: libc6 (>= 2.14), libcups2 (>= 2.2.1), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), cups-client (>= 2.2.1)
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-printer/fly-print-monitor_2.2.18_amd64.deb
+Size: 53398
+SHA256: d38c5feaa17a7bf21d2db600e56739be5dab134cbdd1c39855b5b64ce275c229
+SHA1: fc0249e4c10c9de96842b886433a825b3a583ff8
+MD5sum: 26e8a386458f7026743649b7e6651617
+Description: FlyDE printer monitor for system tray
+ FlyDE tray applet for monitoring printing events.
+ Can call fly-job-viewer and fly-admin-printer for last
+ active queue
+Description-md5: 69323c3ceae20c65f27e6e65b9241b42
+
+Package: fly-print-station
+Source: fly-admin-printer-mac
+Version: 2.2.3
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 336
+Depends: libfly-admin-printer-mac2 (= 2.2.3), libc6 (>= 2.14), libcups2 (>= 2.2.1), libfly-admin-printer2, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdp, libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.11.0~rc1) | libqt5gui5-gles (>= 5.11.0~rc1), libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5)
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-printer-mac/fly-print-station_2.2.3_amd64.deb
+Size: 99170
+SHA256: 56b232a83a5c6e15946f0615694a0cd555b2fad02b18680660cc80af39218075
+SHA1: 2562d95d8d83be03a80e7b784fcecf747448602f
+MD5sum: aacafcabbbf185b9bbe83170a9743e00
+Description: FlyDE printing system management MAC support
+ FlyDE utility for printing system and printer management,
+ designed for Common UNIX Printing System.
+ .
+ This package contains document printing control application
+Description-md5: b61743e11888d74e226d312677addb37
+
+Package: fly-search
+Version: 0.5.25
+Architecture: amd64
+Maintainer: Vladislav Mileshkin <vmileshkin@astralinux.ru>
+Installed-Size: 240
+Depends: libc6 (>= 2.14), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.14.1) | libqt5gui5-gles (>= 5.14.1), libqt5network5 (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5.2), baloo-kf5, libkf5baloo5, libkf5balooengine5, libkf5filemetadata3, libkf5filemetadata-bin, libkf5filemetadata-data, fly-wm (>= 2.37.9)
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-search/fly-search_0.5.25_amd64.deb
+Size: 66444
+SHA256: d8ce6aa8c5cb57d288c53cdc1f5cbc5d85738d92ea2b4fdb2ab733a9df2fdd56
+SHA1: f3d4e008c32423d8053cac5a6db15b5dfc70b2c3
+MD5sum: ca9363352d793dac3e17dbc3156ac8f9
+Description: Fly search tools
+ Fly search tools
+Description-md5: 71bf5eb8c5ab1afb6d53dbd24a1be67f
+
+Package: fly-shutdown-dialog
+Version: 1.0.32+ci3
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 151
+Depends: libc6 (>= 2.14), libdbus-1-3 (>= 1.9.14), libflycore (>= 2.10.0), libflydbus, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.14.1) | libqt5gui5-gles (>= 5.14.1), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5.2), libx11-6, fly-wm (>= 2.2.6-4), qtnotifydaemon | fly-notifications, libnotify-bin, fly-data
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-shutdown-dialog/fly-shutdown-dialog_1.0.32+ci3_amd64.deb
+Size: 46600
+SHA256: 09e121ad26ce656a6840ada6f2bb3e61fcfe6de5a49ed05858d1b690985d0325
+SHA1: 67d2ebe986371afd7826581e94361a80a7ec9728
+MD5sum: 126fb58897eed09b50f22bcca95d3618
+Description: fly-shutdown-dialog - shutdown dialog for Fly desktop
+ The utils calls fly-wm to dutdown/sleep/switch user.
+Description-md5: aca7c7002276c55cbe4dd00c5ae53c19
+
+Package: fly-sosreport
+Version: 0.2.12+ci2
+Architecture: amd64
+Maintainer: Ilya Zolotarev <maintainers@astralinux.ru>
+Installed-Size: 555
+Depends: fly-fm-libs, libc6 (>= 2.14), libflyadmindbus (>= 0.2.14), libflyadminpackage (>= 0.2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5), fly-admin-dbus-helper (>= 0.2.13), sosreport (>= 4.0-2+ci202206091258), ccrypt, zip
+Homepage: www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-sosreport/fly-sosreport_0.2.12+ci2_amd64.deb
+Size: 271926
+SHA256: 5533bfe47993936feb0f19094add929ca99dda71dd3f0f70d21d36fad8f07a99
+SHA1: d35fae854f01ea74d8cf4a44fec09a6afed37ffa
+MD5sum: f9544963349b49fdd8c0dd598154659b
+Description: GUI for sosreport utility
+ Fly-sosreport is graphical shell for sosreport utility
+Description-md5: 05abf28842a97606b8820b6506943aa9
+
+Package: fly-start-panel
+Version: 2.5.11+ci2
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 276
+Depends: fly-fm-libs, libc6 (>= 2.14), libflycore (>= 2.10.0), libflyintegration1, libflyuiaux2, libgcc1 (>= 1:3.0), libgl1, libkf5windowsystem5 (>= 4.96.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.14.1) | libqt5gui5-gles (>= 5.14.1), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libslidingstackedwidget, libstdc++6 (>= 5.2), libx11-6
+Recommends: flyqt5platformtheme
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-start-panel/fly-start-panel_2.5.11+ci2_amd64.deb
+Size: 85046
+SHA256: f2defe20342d8c6526a7ceb9f0dab920b7735b084af3cbf1192c1b3417b259cf
+SHA1: 4dbc2f7c65e1112d2f09e137a11bdcf9470d93c9
+MD5sum: 89e28e5b9c6e6a824774cc2cb07b5bdc
+Description: Fly start panel and menu
+Description-md5: c478257d93688a270b0133c1da907fab
+
+Package: fly-su
+Version: 0.3.2
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 177
+Depends: libc6 (>= 2.15), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5coreaddons5 (>= 4.98.0), libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5)
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-su/fly-su_0.3.2_amd64.deb
+Size: 53208
+SHA256: 6d8ef19465786b5a9e0b28faa890ad54870e32e107df25d3e4ef515f7a1a7037
+SHA1: 93f5b6b02f45068e3c6675aa303c62dd86eb477b
+MD5sum: 57ee348a4bb9cd0fa479aa76b711b6e9
+Description: Graphical su
+ Graphical su frontend for Fly desktop
+Description-md5: 9b2c7d79647abaf330f04e56a7992a8e
+
+Package: fly-update-notifier
+Version: 1.39.10+ci1
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 659
+Depends: fly-phone-dbus, libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libkf5auth5 (>= 4.96.0), libkf5authcore5 (>= 5.61.0), libkf5coreaddons5 (>= 4.97.0), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5singleapplication5, libqt5widgets5 (>= 5.12.2), libstdc++6 (>= 5), python-apt (>= 1.4.0~beta3), cron, python, fly-data (>= 2.4.55)
+Recommends: fly-admin-package, fly-admin-apt-licence-keys
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-update-notifier/fly-update-notifier_1.39.10+ci1_amd64.deb
+Size: 254340
+SHA256: dfe06a72131f2447f75878533fb2902273252ddb9fb303178d54cf35437b710a
+SHA1: 9f0fa0ae490bb70fd1f57cb43b1d9fbc1794f1f1
+MD5sum: 401ea154a759b2f09b94d1e5aaefb236
+Description: Update notifier for Fly desktop
+ notify for upgradable packages in current apt repositories
+Description-md5: 881a7bd66d2667fa8d0a91b4ae7db7ec
+
+Package: fly-weather
+Version: 0.1.6+ci2
+Architecture: amd64
+Maintainer: Vladislav Mileshkin <support@rusbitech.ru>
+Installed-Size: 493
+Depends: libqt5qml5 (>= 5.15.2+dfsg), libqt5qml5 (<< 5.15.21), libc6 (>= 2.14), libflycore, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5location5 (>= 5.6.0), libqt5network5 (>= 5.14.1), libqt5positioning5 (>= 5.6.0), libqt5positioningquick5 (>= 5.15.2+dfsg), libqt5qmlmodels5 (>= 5.14.1), libqt5quick5 (>= 5.0.2) | libqt5quick5-gles (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), qml-module-qtquick2, qml-module-qtgraphicaleffects, fly-qml-components, libqt5positioning5-plugins, libqt5positioning5-gpsd-plugin, libqt5location5-plugins, ca-certificates
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-weather/fly-weather_0.1.6+ci2_amd64.deb
+Size: 190736
+SHA256: b551d2c2081ddc0b5c52f06e09e69ac56459583af77b2dc776101839a623553a
+SHA1: b5d805dda0801c205e5e9c85486030a7e17d75a9
+MD5sum: a4f2087f0bd0a6ed46fca725d41a5436
+Description: Fly Weather
+Description-md5: d59e5f3ce55bb09d535a7716d254b561
+
+Package: fly-winprops-service
+Source: fly-admin-winprops
+Version: 1.2.18+ci4
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 125
+Depends: libc6 (>= 2.14), libflycore, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5singleapplication5, libqt5widgets5 (>= 5.0.2), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5.2)
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-winprops/fly-winprops-service_1.2.18+ci4_amd64.deb
+Size: 30288
+SHA256: 615462ff74e935b7dd17c8cffc9a8775db286ed434ebc2c50a1da079fe2ff0ac
+SHA1: cdc0d1540d72927bf121680a204e22c1fddb1702
+MD5sum: 0bef93778cfc504ae521dca8aa235e00
+Description: Windows properties service
+ D-Bus service to configure windows properties and library to use it
+Description-md5: 7187e84d565392d240994d43fa8a44c7
+
+Package: fly-wm
+Version: 2.42.5+ci8
+Architecture: amd64
+Maintainer: AstraLinux <support@astralinux.ru>
+Installed-Size: 5027
+Depends: libasound2 (>= 1.0.16), libc6 (>= 2.27), libdbus-1-3 (>= 1.9.14), libev4 (>= 1:4.04), libflycore (>= 2.11.12), libflydbus, libfontconfig1 (>= 2.12.6), libgcc1 (>= 1:3.0), libice6 (>= 1:1.0.0), libimlib2 (>= 1.7.1-1astra1), libnanosvg, libpam0g (>= 0.99.7.1), libparsec-base3, libparsec-cap3, libpdp, libprocps7 (>= 2:3.3.15-1), libsm6, libstb0 (>= 0.0~git20180212.15.e6afb9c), libstdc++6 (>= 5.2), libsystemd0, libx11-6 (>= 2:1.2.99.901), libx11-xcb1, libxcb-xparsec (>= 1.14), libxcb1, libxcomposite1 (>= 1:0.4.5), libxcursor1 (>> 1.1.2), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxft2 (>> 2.1.1), libxi6 (>= 2:1.2.99.4), libxinerama1, libxpm4, libxrandr2 (>= 2:1.2.99.3), libxrender1, libxres1 (>= 2:1.2.1), libxss1, libxtst6, coreutils, findutils, fly-data (>= 2.5.12), x11-xserver-utils, xdg-utils, xdg-user-dirs, xosd-bin, flyui-utils (>= 2.2.6-1), fly-admin-winprops (>= 1.2.9), fly-su, pm-utils, upower, inotify-tools, libnotify-bin, fly-admin-wm (>= 2.8.14), xserver-xephyr (>= 1.20.10-1astra.se5)
+Recommends: parsec-mac, xbacklight, fly-wm-decor, fly-reflex, fly-fm, fly-admin-date, fly-xkbmap, fly-orientation, qtnotifydaemon | fly-notifications, compton | picom, iio-sensor-proxy, fly-start-panel (>= 2.4.5), fly-shutdown-dialog, fly-admin-screen, fly-vkbd (>= 1.1.5), fly-search (>= 0.5.10), sox
+Homepage: http://www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-wm/fly-wm_2.42.5+ci8_amd64.deb
+Size: 1426070
+SHA256: 80a6978d52acb50c740331ea140b8ca1ef7e83cfdaa810c9ee2e8baa226f4f3c
+SHA1: 0a47e413fc694effb6c08a5ce50daa6230b74713
+MD5sum: 7f65a8239e4585d3764f182ce41abf62
+Description: fly-wm - Window Manager for Fly Desktop
+ The light weight freedesktop.org compliant window manager for Fly deskop.
+Description-md5: 879b2d4b29812b71430ed13ce465481e
+
+Package: fly-wm-decor
+Source: fly-wm
+Version: 2.42.5+ci8
+Architecture: amd64
+Maintainer: AstraLinux <support@astralinux.ru>
+Installed-Size: 2498
+Depends: fly-wm
+Homepage: http://www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-wm/fly-wm-decor_2.42.5+ci8_amd64.deb
+Size: 301340
+SHA256: 4a8ffea434923177a865ae8020cb8b2cacced009afd811d8f8ea9b5a38b3638b
+SHA1: 7178092950ea7241f5d0d869512bc52311acf401
+MD5sum: 6ef56053f5c6e3cc54c544c53393cba7
+Description: fly-wm-decor - additional themes for for Fly Desktop
+Description-md5: d79b4e099fd8402b3778a27bf48b99c3
+
+Package: gmc-common
+Source: fly-admin-gmc
+Version: 0.1.61
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 923
+Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5 (>= 5.0.2), libqt5printsupport5 (>= 5.0.2), libqt5widgets5 (>= 5.11.0~rc1), libqt5xmlpatterns5 (>= 5.0.2), libstdc++6 (>= 5.2), astra-safepolicy (>= 2.0+ci9)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-gmc/gmc-common_0.1.61_amd64.deb
+Size: 214386
+SHA256: 718667b68e21110127d16605824419866e23ad33ad043e957baea28bc3728f3c
+SHA1: 8ce660b41d69501d7df5a3fb941b9ca7d4ac9c5f
+MD5sum: 012006f8573347540618f96ca46ec8fa
+Description: common files for managment console
+ This package contains common files for management console.
+Description-md5: 70dd6e552b90026d387e4ef05ec8002f
+
+Package: gmc-common-ald
+Source: fly-admin-ald-server
+Version: 0.1.53
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 40
+Depends: ald-client, libc6 (>= 2.14), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5.2)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-ald-server/gmc-common-ald_0.1.53_amd64.deb
+Size: 9222
+SHA256: bc473543895ae3facfcd5a7747b85e9e27c79bb4b1b31b38e7a4dd4a1ddd3f4f
+SHA1: 568c3c50433bbee4b9c22047880ff46bf7bd6636
+MD5sum: ec316f0a9d729f0c72a060fc1a79b2c9
+Description: common files for managment console
+ This package contains common files for gui management console.
+Description-md5: 6f25045c8e7ef51bc599d15937fbf59f
+
+Package: gmc-miscellaneous
+Source: fly-admin-gmc
+Version: 0.1.61
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 179
+Depends: gmc-common, libc6 (>= 2.14), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-gmc/gmc-miscellaneous_0.1.61_amd64.deb
+Size: 45016
+SHA256: ed5c8942aa8e398128b5faa4c293324ea0221b7a679e201de1caf04fbbcb8889
+SHA1: 8091f86bf0483105e7302bbf6a7bfb8dcc33fd6f
+MD5sum: 58c31ba9354584fd111f70110d4688c2
+Description: common files for managment console
+ This package contains miscellaneous files for gui management console.
+Description-md5: eb8f70f6d6e832116cebae791cd89a14
+
+Package: gmc-miscellaneous-se
+Source: fly-admin-gmc-se
+Version: 0.1.39+ci1
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 546
+Depends: gmc-common (>= 0.1.51), gmc-miscellaneous, libc6 (>= 2.14), libflydevices, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libparsec-base3, libparsec-mic3, libpdp, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.8.0) | libqt5gui5-gles (>= 5.8.0), libqt5widgets5 (>= 5.2.0~rc1), libstdc++6 (>= 5), libflydevices-icons, parsec-cap
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-gmc-se/gmc-miscellaneous-se_0.1.39+ci1_amd64.deb
+Size: 123194
+SHA256: c0957aa167186a644f3be2f3ae8979756129bb9d0a63defc657f47064e5560dd
+SHA1: e61b32035b6badd44956a99620f486ddf0d04453
+MD5sum: 3c8d3283f36aad51da5424b9d68a8b3e
+Description: common files for managment console
+ This package contains miscellaneous files for gui management console.
+Description-md5: eb8f70f6d6e832116cebae791cd89a14
+
+Package: intel-microcode
+Version: 3.20220510.1
+Architecture: amd64
+Maintainer: Henrique de Moraes Holschuh <hmh@debian.org>
+Installed-Size: 5809
+Depends: iucode-tool (>= 1.0)
+Recommends: initramfs-tools (>= 0.113~)
+Conflicts: microcode.ctl (<< 0.18~0)
+Homepage: https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files
+Priority: standard
+Section: non-free/admin
+Filename: pool/non-free/i/intel-microcode/intel-microcode_3.20220510.1_amd64.deb
+Size: 4091700
+SHA256: 227c52c5357db6f74731e886c78bc144616bdf4e1bd155086ff68deb08a0af01
+SHA1: 4e717088bff1bd40ea31201831f19db06110cc39
+MD5sum: 27394f8dc7df8b3975b0add873181717
+Description: Processor microcode firmware for Intel CPUs
+ This package contains updated system processor microcode for
+ Intel i686 and Intel X86-64 processors.  Intel releases microcode
+ updates to correct processor behavior as documented in the
+ respective processor specification updates.
+ .
+ For AMD processors, please refer to the amd64-microcode package.
+Description-md5: 3edb9824276886579313f0e847f6bb14
+
+Package: iptables-astralabel-5.10.0-1057-generic
+Source: iptables-astralabel (2.0.0+ci18)
+Version: 2.0.0+ci18+b3
+Architecture: amd64
+Maintainer: Alexander V. Gusev <support@rusbitech.ru>
+Installed-Size: 21
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: linux-image-5.10.0-1057-generic (= 5.10.0-1057.astra6+ci79), kmod
+Priority: optional
+Section: non-free/net
+Filename: pool/non-free/i/iptables-astralabel/iptables-astralabel-5.10.0-1057-generic_2.0.0+ci18+b3_amd64.deb
+Size: 4360
+SHA256: 2dc7fec5891421b57dfbffca3b1b55423c3d34b232c23fa04dc7781d57e6cbb2
+SHA1: 8b99000e8eea6de95c0c584c98dd879047141f98
+MD5sum: 246654ee13c2db7eeaee0f06fed92df0
+Description: iptables-astralabel modules for version 5.10.0-1057-generic
+ iptables-astralabel kernel modules for version 5.10.0-1057-generic
+Description-md5: 8d8528bd9fa1235599388e533157b5dc
+
+Package: iptables-astralabel-5.10.0-1057-hardened
+Source: iptables-astralabel (2.0.0+ci18)
+Version: 2.0.0+ci18+b3
+Architecture: amd64
+Maintainer: Alexander V. Gusev <support@rusbitech.ru>
+Installed-Size: 21
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: linux-image-5.10.0-1057-hardened (= 5.10.0-1057.astra6+ci79), kmod
+Priority: optional
+Section: non-free/net
+Filename: pool/non-free/i/iptables-astralabel/iptables-astralabel-5.10.0-1057-hardened_2.0.0+ci18+b3_amd64.deb
+Size: 4358
+SHA256: 83a81f6826b4ed21d5206a48f6ff15d6b88e674c06a7dfc7b91ea23e9767838f
+SHA1: 77db2ba2c07ff7494b80c4d43861352080336212
+MD5sum: c47fde065cb589f29e97a433b12881ec
+Description: iptables-astralabel modules for version 5.10.0-1057-hardened
+ iptables-astralabel kernel modules for version 5.10.0-1057-hardened
+Description-md5: f15f1b449633cf8b07374254e4d66969
+
+Package: iptables-astralabel-5.15.0-33-generic
+Source: iptables-astralabel (2.0.0+ci18)
+Version: 2.0.0+ci18+b3
+Architecture: amd64
+Maintainer: Alexander V. Gusev <support@rusbitech.ru>
+Installed-Size: 22
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: linux-image-5.15.0-33-generic (= 5.15.0-33.astra2+ci56), kmod
+Priority: optional
+Section: non-free/net
+Filename: pool/non-free/i/iptables-astralabel/iptables-astralabel-5.15.0-33-generic_2.0.0+ci18+b3_amd64.deb
+Size: 4684
+SHA256: 352ab8f3ab60962eecdebd68b37aa83328ac172a046f43b8f3b0e910007635fa
+SHA1: c0c15a65f35aac4433df54794e97ddac09ab2067
+MD5sum: 1bf18cf4254d99594d801f30c2db792e
+Description: iptables-astralabel modules for version 5.15.0-33-generic
+ iptables-astralabel kernel modules for version 5.15.0-33-generic
+Description-md5: ecf399673750ff2e80efe1302692d299
+
+Package: iptables-astralabel-5.15.0-33-hardened
+Source: iptables-astralabel (2.0.0+ci18)
+Version: 2.0.0+ci18+b3
+Architecture: amd64
+Maintainer: Alexander V. Gusev <support@rusbitech.ru>
+Installed-Size: 22
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: linux-image-5.15.0-33-hardened (= 5.15.0-33.astra2+ci56), kmod
+Priority: optional
+Section: non-free/net
+Filename: pool/non-free/i/iptables-astralabel/iptables-astralabel-5.15.0-33-hardened_2.0.0+ci18+b3_amd64.deb
+Size: 4668
+SHA256: 02dee4cdfe6d1fd13333f4ebc078dbbbb8bf5da6a43963b11ecad58647eff0d8
+SHA1: 11d4855a3364d718d2e73055fc6e8ceef550afff
+MD5sum: c5d77f00a9c2371539a171eeafec31ab
+Description: iptables-astralabel modules for version 5.15.0-33-hardened
+ iptables-astralabel kernel modules for version 5.15.0-33-hardened
+Description-md5: 82f13675b8cff19d6b877d886bf289fa
+
+Package: iptables-astralabel-5.4.0-110-generic
+Source: iptables-astralabel (2.0.0+ci18)
+Version: 2.0.0+ci18+b3
+Architecture: amd64
+Maintainer: Alexander V. Gusev <support@rusbitech.ru>
+Installed-Size: 21
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: linux-image-5.4.0-110-generic (= 5.4.0-110.astra35+ci74), kmod
+Priority: optional
+Section: non-free/net
+Filename: pool/non-free/i/iptables-astralabel/iptables-astralabel-5.4.0-110-generic_2.0.0+ci18+b3_amd64.deb
+Size: 4358
+SHA256: 469c48572d206566df314cc053b570084f5f67f21e936430e86e7204ba8b6771
+SHA1: 555a3958ab26842004be7897d41b1b112b323eb7
+MD5sum: 1eb43d2e74f086367a07007beedef9fa
+Description: iptables-astralabel modules for version 5.4.0-110-generic
+ iptables-astralabel kernel modules for version 5.4.0-110-generic
+Description-md5: 138ea4f2abbbb54fad93fcc58b3ad61b
+
+Package: iptables-astralabel-5.4.0-110-hardened
+Source: iptables-astralabel (2.0.0+ci18)
+Version: 2.0.0+ci18+b3
+Architecture: amd64
+Maintainer: Alexander V. Gusev <support@rusbitech.ru>
+Installed-Size: 21
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: linux-image-5.4.0-110-hardened (= 5.4.0-110.astra35+ci74), kmod
+Priority: optional
+Section: non-free/net
+Filename: pool/non-free/i/iptables-astralabel/iptables-astralabel-5.4.0-110-hardened_2.0.0+ci18+b3_amd64.deb
+Size: 4402
+SHA256: 790b7f5c28d35380f7c4a51762dc80f40d69e302843d149c8f92a5525884c7d3
+SHA1: cca6523fe0f004fc620e1c54aa31c19254bbdda9
+MD5sum: 2fb3ea9ad7a85ddb0f895c6a8833f79c
+Description: iptables-astralabel modules for version 5.4.0-110-hardened
+ iptables-astralabel kernel modules for version 5.4.0-110-hardened
+Description-md5: 306c08fb95d7f81205931c935767b55e
+
+Package: iptables-astralabel-common
+Source: iptables-astralabel (2.0.0+ci18)
+Version: 2.0.0+ci18+b3
+Architecture: amd64
+Maintainer: Alexander V. Gusev <support@rusbitech.ru>
+Installed-Size: 36
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: iptables
+Priority: optional
+Section: non-free/net
+Filename: pool/non-free/i/iptables-astralabel/iptables-astralabel-common_2.0.0+ci18+b3_amd64.deb
+Size: 8456
+SHA256: a9218d9ab24b4cab0f6a9a53aae36075691643b6128c8d03998055f4f685235c
+SHA1: db92237be08a1952fb479983a0e7c0066b62ea01
+MD5sum: 1b09e192ebb84a744cefb52e529ca970
+Description: iptables-astralabel iptables userspace modules
+ iptables-astralabel iptables userspace modules
+Description-md5: adfa87603fd4c7c1885d23073e0230ca
+
+Package: libfly-admin-int-check
+Source: fly-admin-int-check
+Version: 1.7.4
+Architecture: amd64
+Maintainer: Ilya Kotov <iokotov@astralinux.ru>
+Installed-Size: 160
+Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libgost, libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.15.1), libstdc++6 (>= 5)
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-int-check/libfly-admin-int-check_1.7.4_amd64.deb
+Size: 47402
+SHA256: 660bd2ff3019ca2bd7f0708b6eb99f6d2fe0cc6a219f8c31455fe09917aaa7b2
+SHA1: 9d99d3025da7453ee4809dd696bf95ace27e4a2f
+MD5sum: 7b5da9bbdb07a4cf077e977d6e48a409
+Description: system integrity checking tool for Fly desktop -- runtime library
+ This tool compares system file gostsums with original gostsums from distribution.
+Description-md5: 9605505fc1f27904bfd6996bab62d5a2
+
+Package: libfly-admin-printer-mac2
+Source: fly-admin-printer-mac
+Version: 2.2.3
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 310
+Depends: libc6 (>= 2.14), libcups2 (>= 2.2.1), libfly-admin-printer2, libgcc1 (>= 1:3.0), libgl1, libkf5widgetsaddons5 (>= 5.61.0), libpdp, libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5printsupport5 (>= 5.0.2), libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5)
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-printer-mac/libfly-admin-printer-mac2_2.2.3_amd64.deb
+Size: 89190
+SHA256: 682368c8c3a564bdd06efde782f31bc19402f8c47f5f6f66104baf463c12bb11
+SHA1: e89c56820fbeaa5bb6fbb50976e8f9dc6433c929
+MD5sum: 151a8fff1b8e6754f717827062dd8c84
+Description: FlyDE printing system management MAC support
+ FlyDE utility for printing system and printer management,
+ designed for Common UNIX Printing System.
+ .
+ This package contains shared library.
+Description-md5: 334253fa628b58972248fed20b0654a7
+
+Package: libfly-admin-printer2
+Source: fly-admin-printer
+Version: 2.2.18
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 389
+Depends: libc6 (>= 2.14), libcups2 (>= 2.2.1), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.8.0) | libqt5gui5-gles (>= 5.8.0), libqt5network5 (>= 5.0.2), libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5)
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/fly
+Filename: pool/non-free/f/fly-admin-printer/libfly-admin-printer2_2.2.18_amd64.deb
+Size: 114630
+SHA256: 8f8711c13ef70db81ca3442c33a68906e47b12435738700b2d6f13158f98c1e4
+SHA1: e2311d5fc15ad18f46dc9aa918e320fc35d0776e
+MD5sum: d0d226c7eaceac47002c88a449d3345b
+Description: FlyDE printing system management
+ FlyDE utility for printing system and printer management,
+ designed for Common UNIX Printing System.
+ .
+ This package contains shared lib.
+Description-md5: dd9420a30992f8bbc8744d8b8fba5257
+
+Package: libfly-scan
+Version: 0.3.1+ci1
+Architecture: amd64
+Maintainer: Andrei Kozlov <akozlov@astralinux.ru>
+Installed-Size: 183
+Depends: libc6 (>= 2.14), libflyadminpackage (>= 0.2.14), libgcc1 (>= 1:3.0), libkf5i18n5 (>= 5.46.0~), libkf5sane5 (>= 21.08.0-1.astra4), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.7.0~), libstdc++6 (>= 5.2), libtiff5 (>= 4.0.3)
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libfly-scan/libfly-scan_0.3.1+ci1_amd64.deb
+Size: 53802
+SHA256: 8e54c36d591367649167f74ce48b5ff913b4e7807e60a122990283e6815d82df
+SHA1: 3c013a5d948158928bb827323379432d57f2249b
+MD5sum: 54758b9d35a755695e088ba053d7dfea
+Description: Plugin for fly-scan
+ Plugin for fly-scan
+Description-md5: 145412f1d13c8fd348cbd3f9738f4353
+
+Package: libflyadmindbus
+Source: libflyadmin
+Version: 0.2.14
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <dyatmanov@astralinux.ru>
+Installed-Size: 81
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.0.2), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), fly-admin-dbus-helper (= 0.2.14)
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyadmin/libflyadmindbus_0.2.14_amd64.deb
+Size: 19868
+SHA256: bce473de819622c5a46348b46384898fd3ed6170ed842518869e10568f6105e7
+SHA1: d2f4cc652a5a2e3a5f51d6685a92970d18b036f2
+MD5sum: 7f1d6fce799974f4dbc536fdff436341
+Description: Libraries for fly applications
+ Helpers for executing via dbus
+Description-md5: 8f6c7b733942850d21db459ce7a70cf8
+
+Package: libflyadminmode
+Source: libflyadmin
+Version: 0.2.14
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <dyatmanov@astralinux.ru>
+Installed-Size: 44
+Depends: libc6 (>= 2.4), libflyadminprocess (>= 0.2.14), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libstdc++6 (>= 5)
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyadmin/libflyadminmode_0.2.14_amd64.deb
+Size: 10240
+SHA256: a7057945d9ff3686f30e8c30019f8dbd662a9508104f9106abf68c9fed6ca458
+SHA1: 805e8b3dcad03037c401cb89a75f41e774195f2d
+MD5sum: ac9938826ab671087bb42e7351d70bad
+Description: Libraries for fly applications
+ System mode (license) management helpers
+Description-md5: fa268490a81f924b5ab6c98cff203383
+
+Package: libflyadminpackage
+Source: libflyadmin
+Version: 0.2.14
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <dyatmanov@astralinux.ru>
+Installed-Size: 49
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libgl1, libpdphelper, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libstdc++6 (>= 5)
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyadmin/libflyadminpackage_0.2.14_amd64.deb
+Size: 12022
+SHA256: 0c28c4ea6f9b79d37affeee92d2fdc3f0ddf5534e3f4a71f3284991fece18484
+SHA1: 7669854c367e9ec99820b8d913340a12670ffafb
+MD5sum: 9d91a03fb2752b3364786cc06f79950c
+Description: Libraries for fly applications
+ Debian package helpers
+Description-md5: b6c4ba25c47e28a02c6f912915c4bd02
+
+Package: libflyadminprocess
+Source: libflyadmin
+Version: 0.2.14
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <dyatmanov@astralinux.ru>
+Installed-Size: 41
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libstdc++6 (>= 5)
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyadmin/libflyadminprocess_0.2.14_amd64.deb
+Size: 9664
+SHA256: e03157b8de733caffe61b7f36f8dfb7e3b129e5938ffcd66bc68f923085c5bcc
+SHA1: 04333c2601567d399596125a881496ab9d4962af
+MD5sum: 23f1531f9543de13fb75ea5c3f469f26
+Description: Libraries for fly applications
+ Process management helpers
+Description-md5: 71098486c8bc3f227b81d672231ee28d
+
+Package: libflyadminsystemd
+Source: libflyadmin
+Version: 0.2.14
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <dyatmanov@astralinux.ru>
+Installed-Size: 57
+Depends: libc6 (>= 2.4), libflyadminprocess (>= 0.2.14), libgcc1 (>= 1:3.0), libqt5core5a (>= 5.15.1), libstdc++6 (>= 5)
+Homepage: https://astralinux.ru/
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyadmin/libflyadminsystemd_0.2.14_amd64.deb
+Size: 12780
+SHA256: 7af0dd81f201c002971c6780cae2640631b624866248341bc1aaa64d742a8b38
+SHA1: 42e1dbafd435fe12fcd6299ac24b58137cd5f407
+MD5sum: 50333d75f0eff55774cd4f2734ab7582
+Description: Libraries for fly applications
+ Systemd management helpers
+Description-md5: 0be1a5f163576d1cad9b371f6dc98d60
+
+Package: libflycore
+Version: 2.11.12+ci1
+Architecture: amd64
+Maintainer: rusbitech <support@rusbitech.ru>
+Installed-Size: 1203
+Depends: libc6 (>= 2.14), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.2.1), libgcc1 (>= 1:3.0), libstdc++6 (>= 5.2), libx11-6, libxcursor1 (>> 1.1.2), libxft2 (>> 2.1.1), libxi6 (>= 2:1.2.99.4), libxrandr2 (>= 2:1.2.99.3), coreutils, gawk, procps, psmisc, xdg-utils, xdg-user-dirs, shared-mime-info
+Recommends: fly-data (>= 2.2.15)
+Replaces: flycore (<< 2.2.7-25)
+Provides: flycore
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflycore/libflycore_2.11.12+ci1_amd64.deb
+Size: 268310
+SHA256: c947af54caebd486443c86cdea4073d9cf5fe8a366e7e0391ffbea98ecd7998e
+SHA1: 4fdc82e87b22a11c507a8e0e0a1a5fc246b44ce0
+MD5sum: 039765d04baa1471ba4a3cbf3af2251d
+Description: libflycore - core library of Fly desktop
+ The library implements freedesktop.org stardards and other things for Fly desktop.
+Description-md5: 754105326a7164ec07b154911f8a2132
+
+Package: libflyfiledialog2
+Source: libflyfiledialog
+Version: 2.7.0
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 258
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.3.0) | libqt5gui5-gles (>= 5.3.0), libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5)
+Recommends: libflythumbnails2
+Suggests: fly-fm
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyfiledialog/libflyfiledialog2_2.7.0_amd64.deb
+Size: 60782
+SHA256: c0c4bc1d004be6b1c5497efe8846c8b0dfb954f929d139599e0552b7f01a926a
+SHA1: 88afaac92560498246eeff2e271eb2a23ae4fd0d
+MD5sum: 6006c7d32549096a7a82e1d042e1ae85
+Description: Fly file dialog library
+ Library that uses fly-fm file dialog if possible
+Description-md5: 267d1caae914cc6d43efc7f84aa26998
+
+Package: libflygetexe
+Version: 1.0.13
+Architecture: amd64
+Maintainer: Alexander Smirnov <asmirnov@astralinux.ru>
+Installed-Size: 31
+Depends: libc6 (>= 2.4)
+Homepage: http://www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflygetexe/libflygetexe_1.0.13_amd64.deb
+Size: 7040
+SHA256: 32df205f090fc6896d13d04e64c490944f28e346dac3b6fd2bd85da7ce083a6c
+SHA1: 167ed34ad88fea93119bbd1128dd2b5eeee54056
+MD5sum: 7bc9dd76ffba311d53d65617e69389dd
+Description: libflygetexe - library to get exe string by pid
+ The library implements gettting exe string by pid via /proc fs
+Description-md5: d7997ea753053a97c7e47d10bbf89f43
+
+Package: libflygetexe-bin
+Source: libflygetexe
+Version: 1.0.13
+Architecture: amd64
+Maintainer: Alexander Smirnov <asmirnov@astralinux.ru>
+Installed-Size: 36
+Depends: libc6 (>= 2.3.4), libflygetexe (= 1.0.13), debconf | debconf-2.0, lsb-base (>= 3.2-14)
+Replaces: fly-getexe
+Homepage: http://www.astralinux.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflygetexe/libflygetexe-bin_1.0.13_amd64.deb
+Size: 7266
+SHA256: 6fe013b19a1f2e04f8eba5ede185022ccb811a638736f65c4e6ece256d591188
+SHA1: 9cdc7151777bfe865fc65c5771a059e031ea3070
+MD5sum: 0b634df645710fe303f4f33c4a59c304
+Description: Get exe by pid (service part)
+ Fly-getexe is service to get exe string by pid
+Description-md5: 030dc0e6c39a395e544700ef34ec5a43
+
+Package: libflyqmldialog
+Version: 1.0.1+ci4
+Architecture: amd64
+Maintainer: Nikita Medunitsa <support@rusbitech.ru>
+Installed-Size: 309
+Depends: libqt5qml5 (>= 5.15.2+dfsg), libqt5qml5 (<< 5.15.21), fly-phone-dbus, libc6 (>= 2.14), libflyfiledialog2, libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.2.0) | libqt5gui5-gles (>= 5.2.0), libqt5network5 (>= 5.0.2), libqt5qmlmodels5 (>= 5.14.1), libqt5quick5 (>= 5.15.1) | libqt5quick5-gles (>= 5.15.1), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5), qml-module-qtquick2, qml-module-qtquick-controls, qml-module-qtquick-controls2, qml-module-qt-labs-folderlistmodel, fly-qml-components
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyqmldialog/libflyqmldialog_1.0.1+ci4_amd64.deb
+Size: 66644
+SHA256: a09466198113e9e21b7108fb4b90d2458a7dcc09a828fec6c11329adab4fe1ca
+SHA1: d18265dc3cb07815e0a05f63e839f37c5c65b254
+MD5sum: 66630f43b51eb7233f2249cbd81acb02
+Description: Fly qml dialog library
+ Mobile file dialog
+Description-md5: 0ffa06ebcfd478ecf7668c191161053d
+
+Package: libflythumbnails2
+Source: libflythumbnails
+Version: 2.4.1
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 319
+Depends: libavcodec58 (>= 7:4.0), libavformat58 (>= 7:4.1), libavutil56 (>= 7:4.0), libc6 (>= 2.14), libcairo2 (>= 1.2.4), libdjvulibre21 (>= 3.5.27.1), libgcc1 (>= 1:3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libgl1, libglib2.0-0 (>= 2.16.0), libpoppler-qt5-1 (>= 0.24.5), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.3.0), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5singlecoreapplication5, librsvg2-2 (>= 2.32.0), libspectre1 (>= 0.2.9-0astra1), libstdc++6 (>= 5), libswscale5 (>= 7:4.0)
+Recommends: bubblewrap
+Conflicts: libflythumbnails
+Replaces: libflythumbnails
+Homepage: http://rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflythumbnails/libflythumbnails2_2.4.1_amd64.deb
+Size: 67808
+SHA256: 1cab891b5ee3a2683bba09c2bb1e1cb000eed46f85a7cbd4144bfca26ae873e6
+SHA1: a4f9554c802b955f94223452762a8d805c723119
+MD5sum: 16715775e6e3238f1018e7755334493c
+Description: Thumbnails library
+ This library generates thumbnails according to freedesktop.org standard
+Description-md5: efa85a44f47b57fbca4af68e3bace396
+
+Package: libflyuiaux2
+Source: libflyui
+Version: 2.9.1
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 130
+Depends: libc6 (>= 2.14), libflycore, libgcc1 (>= 1:3.0), libqt5core5a (>= 5.15.1), libstdc++6 (>= 5.2)
+Conflicts: flyui
+Replaces: flyui
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyui/libflyuiaux2_2.9.1_amd64.deb
+Size: 36364
+SHA256: 16da0e92d3e33b50e221fc8db5b320b3824341b3e64cda516d4f1e3b33ba81e8
+SHA1: ea2e0fac38c9dd0f44b24881c47fecc083401436
+MD5sum: d182f0ad476f7c7639dd71af8b196532
+Description: Fly desktop UI auxiliary library
+ The library contains auxiliary classes that can be used in
+ non-GUI applications.
+Description-md5: a3f292add20755563e29e7ac665a8506
+
+Package: libflyuiextra2
+Source: libflyui
+Version: 2.9.1
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 557
+Depends: libc6 (>= 2.14), libflycore, libflyintegration1, libflyuiaux2 (= 2.9.1), libgcc1 (>= 1:3.0), libgl1, libkf5iconthemes5 (>= 4.96.0), libkf5windowsystem5 (>= 4.96.0), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5), libx11-6
+Conflicts: flyui
+Replaces: flyui
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyui/libflyuiextra2_2.9.1_amd64.deb
+Size: 151962
+SHA256: e842b7d8272a67844997e8e652e0b38b3255571f75266b16bda6720dca4525fa
+SHA1: c6a7c64982aa6da58249832ddac1c7f0232de441
+MD5sum: fc56849d3f9995e16af7a45b8780db4f
+Description: Fly desktop extra UI library
+ The library implements some extra UI funcs for Fly desktop applications.
+Description-md5: 1f5e76e903557aeaf1c2385be70d6c83
+
+Package: libflyuinet2
+Source: libflyui
+Version: 2.9.1
+Architecture: amd64
+Maintainer: Alexander Volkov <support@rusbitech.ru>
+Installed-Size: 88
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5network5 (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5)
+Conflicts: flyui
+Replaces: flyui
+Homepage: http://www.rusbitech.ru
+Priority: optional
+Section: non-free/fly
+Filename: pool/non-free/libf/libflyui/libflyuinet2_2.9.1_amd64.deb
+Size: 25732
+SHA256: 99e9084e16a426e769fb6d740d322bfec6cef02de04dedb0bfb8f9fbf08e18f2
+SHA1: 862b65df51ca723d8ac41f203df9199e396d01d7
+MD5sum: 9c793521a3cca2c88dcfbc133c6053f6
+Description: Fly desktop UI network library
+ The library implements some network UI funcs for Fly desktop applications.
+Description-md5: b1a1947e9e2b9b2d488fb0ed6e1e03a1
+
+Package: libgost
+Version: 2.0.2-5+ci2
+Architecture: amd64
+Maintainer: Maltsev Oleg <support@rusbitech.ru>
+Installed-Size: 82
+Depends: libc6 (>= 2.14)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/libg/libgost/libgost_2.0.2-5+ci2_amd64.deb
+Size: 35538
+SHA256: 61f4a21c6f5a462170158572a1fa3f802252346983893def09e9d3d7d7816d6d
+SHA1: 1525b1ab52b8c004ad0877130be4a536267b8478
+MD5sum: bac451fe314a29d2ff5928e17e82a0c4
+Description: This package contains the shared library for libgost
+ This package contains the shared library for libgost.
+Description-md5: 52dff721d753a8afac53c2de1c8642cb
+
+Package: libpam-csp
+Version: 1.0.6+ci5
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 210
+Depends: libbasicobjects0 (>= 0.4.0), libc6 (>= 2.14), libcollection4 (>= 0.4.0), libdbus-1-3 (>= 1.9.14), libini-config5 (>= 0.4.0), libpam0g (>= 0.99.7.1), libref-array1 (>= 0.4.0), libssl1.1 (>= 1.1.0), csp-monitor, libpam-runtime, opensc, libp11-kit0, opensc-pkcs11 (>= 0.19.0), pcscd
+Multi-Arch: same
+Homepage: http://www.rusbitech.ru
+Priority: extra
+Section: non-free/admin
+Filename: pool/non-free/libp/libpam-csp/libpam-csp_1.0.6+ci5_amd64.deb
+Size: 46978
+SHA256: 7e922c9517f25f234866fc376fdb742e381e5ffab99e9446729d4d2ec503a238
+SHA1: 6422239c810b5f7c967c32a8cb7925f7c8518827
+MD5sum: bc353cf51444aa22475444143fb093dc
+Description: PAM module for tokens
+ This is the PAM module for any tokens that may be supported by
+ opensc-pkcs11 library
+Description-md5: a4f1f8b40e5e8039ea33951c0da86b74
+
+Package: libparsec-aud-db-ipa3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 55
+Depends: libc6 (>= 2.7), libdbus-1-3 (>= 1.9.14), libpam0g (>= 0.99.7.1), libparsec-aud3, libparsec-base3, sssd-dbus
+Replaces: libparsec-aud-db-ipa2
+Provides: libparsec-aud-db-ipa2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-aud-db-ipa3_3.1+ci65_amd64.deb
+Size: 25690
+SHA256: afa30e00f9fb1e1d402b748668dcd9eba026837b9b5b50b8d00dcd4726512e63
+SHA1: 990927e52d8bb5c2bb74a8936c73ebf305b08de0
+MD5sum: 6c33391506c13df390c11927ea080a03
+Description: PARSEC library to retrieve user's audits on FreeIPA server
+ This package contains the library to retrieve user's audit mask
+ on local SSSD server. It's a component of PARSEC security system.
+Description-md5: 82f07a6d41ec8eab6f3dcc8d7abb9550
+
+Package: libparsec-aud-db-sssd3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 50
+Depends: libc6 (>= 2.7), libdbus-1-3 (>= 1.9.14), libpam0g (>= 0.99.7.1), libparsec-aud3, libparsec-base3, sssd-dbus
+Replaces: libparsec-aud-db-sssd2
+Provides: libparsec-aud-db-sssd2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-aud-db-sssd3_3.1+ci65_amd64.deb
+Size: 25684
+SHA256: a725bc79d4650302cb80a70001b42efd197b01fcfd1c5b8fd1550caec5f3a494
+SHA1: 1947a885b79635564e41b7a95f47aba7201bcf0a
+MD5sum: 053cf713807280b3954c4b14ab177a79
+Description: PARSEC library to retrieve audits lebels from SSSD service
+ This package contains the library to retrieve audit labels
+ from local SSSD service. It's a component of PARSEC security system.
+Description-md5: 72c2b7b1da6d314fe460a012b754f0c1
+
+Package: libparsec-aud3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 95
+Depends: libc6 (>= 2.14), libpam0g (>= 0.99.7.1), libparsec-base3 (= 3.1+ci65)
+Replaces: libparsec-aud2
+Provides: libparsec-aud2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-aud3_3.1+ci65_amd64.deb
+Size: 36862
+SHA256: 982afab02fbd6161f1f9136e2c7639d96436544593e2239a4185078a47152477
+SHA1: 8f2f27b0cb931680f0433a881e4219a2e51d32fc
+MD5sum: 443841e5a3893d31194a975d984757c7
+Description: audit library for PARSEC security system
+ This package contains the library for security events audit.
+ It's a component of PARSEC security system.
+Description-md5: 6e62b24184b0044db073c86a8d56d2a3
+
+Package: libparsec-base3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 92
+Depends: libc6 (>= 2.14), libpam0g (>= 0.99.7.1)
+Replaces: libparsec-base2
+Provides: libparsec-base2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-base3_3.1+ci65_amd64.deb
+Size: 36660
+SHA256: dcedc9ec02df936ae7d7e1f38c96b7a3fffa8b5eda21675ec489aefa53d93723
+SHA1: 6961ba9b85ac6310ae90c3b1c8296f458d5b73fe
+MD5sum: 226bc330c87da8d58829f564dac0b79b
+Description: base library for PARSEC security system
+ This package contains the base library for the PARSEC system.
+ Base library is used by all components of PARSEC security system.
+Description-md5: 381c40f05fd647df45034f5533b340e3
+
+Package: libparsec-cap-db-sssd3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 50
+Depends: libc6 (>= 2.7), libcap2 (>= 1:2.10), libdbus-1-3 (>= 1.9.14), libpam0g (>= 0.99.7.1), libparsec-base3, libparsec-cap3, sssd-dbus
+Replaces: libparsec-cap-db-sssd2
+Provides: libparsec-cap-db-sssd2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-cap-db-sssd3_3.1+ci65_amd64.deb
+Size: 24512
+SHA256: c88e71ac9274ce66912dd660415f2538a2e4d0893487d9b6b0681745ed81ec97
+SHA1: 75077572e3f43e37025cfa5d8155ed9ca8c3323f
+MD5sum: 9c5d1b122510f84f0d8d2e1d49121a3d
+Description: PARSEC library to store user's capabilities on SSSD server
+ This package contains the library to retrievr user's capabilities (standard
+ Linux capabilities and special PARSEC capabilities) on local SSSD server.
+ It's a component of PARSEC security system.
+Description-md5: c07cc1787be1b3385f040c42308d5266
+
+Package: libparsec-cap3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 101
+Depends: libc6 (>= 2.4), libcap2 (>= 1:2.10), libpam0g (>= 0.99.7.1), libparsec-base3
+Replaces: libparsec-cap2
+Provides: libparsec-cap2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-cap3_3.1+ci65_amd64.deb
+Size: 34056
+SHA256: 491b2f59bc856599ddf358d8c1afe85ef56f258cea4fa658ec25c42762dad6d9
+SHA1: 8c33507678a2cef525246bb49e6959d39eb40d25
+MD5sum: d6157f705c6d4cac12af16f7e3342c8f
+Description: capabilities library for PARSEC security system
+ This package contains the library to control system capabilities
+ (standard Linux capabilities and special PARSEC capabilities).
+ It's a component of PARSEC security system.
+Description-md5: 1acd5b9f2f11550d57ef89427bea3030
+
+Package: libparsec-common-qt5-1
+Source: libparsec-common-qt5
+Version: 1.1.5+ci2
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 276
+Depends: libc6 (>= 2.14), libflyintegration1, libgcc1 (>= 1:3.0), libgl1, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.2.0) | libqt5gui5-gles (>= 5.2.0), libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/libp/libparsec-common-qt5/libparsec-common-qt5-1_1.1.5+ci2_amd64.deb
+Size: 171770
+SHA256: 33b2678e0a0d4e53de75efd23726757103b4261b0cdb2e0aaef5f2328d6d0cd3
+SHA1: c0002014a642262cd84dc7c83bd1f7ca086f22e8
+MD5sum: 8b393b2657c1170bc7f94e331987fd68
+Description: libparsec-qt5 common library
+ Extended description does not presented.
+Description-md5: a8638aaf65451753155d259c06d29b4c
+
+Package: libparsec-db-sssd3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 58
+Depends: libc6 (>= 2.7), libdbus-1-3 (>= 1.9.14), libldap-2.4-2 (>= 2.4.7), libparsec-base3, sssd-dbus
+Replaces: libparsec-db-sssd2
+Provides: libparsec-db-sssd2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-db-sssd3_3.1+ci65_amd64.deb
+Size: 26852
+SHA256: 5e96864b4f22b9740bf0556db50dff33dcb17265469048ab82879ab00089dbf2
+SHA1: 9ea0ba2848bfaf5816230261b63208aa8c9b4137
+MD5sum: 4d45f424a155b6d7178042e3a7bcb963
+Description: PARSEC library to communicate with SSSD server over dBus
+ This package contains the library to communicate with local SSSD server.
+ It's a component of PARSEC security system.
+Description-md5: 7063328a1e347b9ba57f67a04f340f35
+
+Package: libparsec-log3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 45
+Depends: libc6 (>= 2.2.5)
+Replaces: libparsec-log2
+Provides: libparsec-log2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-log3_3.1+ci65_amd64.deb
+Size: 22382
+SHA256: cc4bd1b3115d7fbad80747eb819118d815065719bb17894654d725960189a2e4
+SHA1: 1e03f357c6bb07d1b0827a9bec71ac9efc3eb19d
+MD5sum: 88daf3e922a4caf7b3d916081fff4b71
+Description: it's actually a stub
+ This package was needed for parsing audit log files before
+ migration to auditd.
+Description-md5: ad8bd129ca420770e9723a9c33a6aaaf
+
+Package: libparsec-mac-db-sssd3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 62
+Depends: libc6 (>= 2.7), libdbus-1-3 (>= 1.9.14), libpam0g (>= 0.99.7.1), libparsec-base3, libparsec-mac3, libpdp, sssd-dbus
+Replaces: libparsec-mac-db-sssd2
+Provides: libparsec-mac-db-sssd2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-mac-db-sssd3_3.1+ci65_amd64.deb
+Size: 28666
+SHA256: 1a75d242d0e5550c4a5fae2854c06115301e74912e7f4f014d4b6bd900faf9bb
+SHA1: 2d37b38e54acfbec590ad37b4d96b774cd6e4456
+MD5sum: f19b69f6874be0e2e68034e26f7d7aa4
+Description: PARSEC library to read user's mandate labels from SSSD server
+ This package contains the library to read user's mandate
+ labels on local LDAP server. It's a component of PARSEC security system.
+Description-md5: 282edbb26de5396f7ac8d5e11bf8eef7
+
+Package: libparsec-mac-qt5-1
+Source: libparsec-mac-qt5
+Version: 0.14.3+ci1
+Architecture: amd64
+Maintainer: Dmitriy Yatmanov <support@rusbitech.ru>
+Installed-Size: 260
+Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libgl1, libparsec-common-qt5-1, libparsec-mic3, libpdp, libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5widgets5 (>= 5.15.1), libstdc++6 (>= 5)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/libp/libparsec-mac-qt5/libparsec-mac-qt5-1_0.14.3+ci1_amd64.deb
+Size: 65642
+SHA256: e34fcc566a9cd37c3567645e1c472eb0c508751966b89b23df34c5426b61bd6f
+SHA1: 6a741a7a93569dc4507e53d01de04ecbf67350af
+MD5sum: 8b4f9a7367e767c7c22cea6963d8b5af
+Description: Qt5 widgets 4 parsec mac subsystem
+Description-md5: fef46cf7e5464c3bd2534aee62e0aa41
+
+Package: libparsec-mac3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 60
+Depends: libc6 (>= 2.8), libpam0g (>= 0.99.7.1), libparsec-base3, libpdp
+Replaces: libparsec-mac2
+Provides: libparsec-mac2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-mac3_3.1+ci65_amd64.deb
+Size: 27908
+SHA256: 0d6c281645a3e9c6022b91789d7b03976f6a69ce155962375e058bcbc4c298c2
+SHA1: 9a8a67eddfd11fee623364eaafb732e3a60ad855
+MD5sum: 377011e90c95f9a5f229b5da20d140a4
+Description: mandate labels library for PARSEC security system
+ This package contains the library for working with mandate labels.
+ It's a component of PARSEC security system.
+Description-md5: e39aadfaff851d3932697931f0150472
+
+Package: libparsec-mic-db-sssd3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 50
+Depends: libc6 (>= 2.7), libdbus-1-3 (>= 1.9.14), libpam0g (>= 0.99.7.1), libparsec-base3, libparsec-mic3, sssd-dbus
+Replaces: libparsec-mic-db-sssd2
+Provides: libparsec-mic-db-sssd2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-mic-db-sssd3_3.1+ci65_amd64.deb
+Size: 24550
+SHA256: a574b42f514eb4856262def5394bf28a764275398ba2c07a1c90c0aee091024d
+SHA1: 0c605cce567fd8aa48459b72b345b963e71dea71
+MD5sum: 00cdc94ae0f0774d6ce363fea03d53e8
+Description: PARSEC library to store user's mandate integrity labels on SSSD server
+ This package contains the library to retrieve user's mandate integrity
+ label on local SSSD server. It's a component of PARSEC security system.
+Description-md5: 483a91b30917edb956031ce936025959
+
+Package: libparsec-mic3
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 74
+Depends: libc6 (>= 2.4), libpam0g (>= 0.99.7.1), libparsec-base3
+Replaces: libparsec-mic2
+Provides: libparsec-mic2 (= 3.1+ci65)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libparsec-mic3_3.1+ci65_amd64.deb
+Size: 30176
+SHA256: fef2358a1934cf9559865250fec4733eb9b271770f3dc651edd63a53c86bae7f
+SHA1: 817268eba3a6ad199c56c2bff02df45d7a07e1b1
+MD5sum: b9ae759846cfb6e8c0df94a634dca133
+Description: mandate integrity labels library for PARSEC security system
+ This package contains the library for working with mandate integrity labels.
+ It's a component of PARSEC security system.
+Description-md5: b5a024ea212205bf821bbec0bee68151
+
+Package: libpdac++
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 114
+Depends: libc6 (>= 2.14), libconfig++9v5 (>= 1.5-0.4~), libgcc1 (>= 1:3.0), libpam0g (>= 0.99.7.1), libparsec-aud3, libparsec-base3, libpdp, libstdc++6 (>= 5.2)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libpdac++_3.1+ci65_amd64.deb
+Size: 43568
+SHA256: 30bfbe0fda23b64cfd4d1e746c1d78f534e1204d00707c342bb1b6270cb7f145
+SHA1: 430a2afe01930f7fd07230589f30f6d62508035f
+MD5sum: 50a71375340ad29d4695bea62c1ac8db
+Description: PARSEC Device Access Control library
+ PARSEC Device Access Control C++ library
+Description-md5: f2a48fb3062b633ec5de2d151035b03f
+
+Package: libpdp
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 127
+Depends: libc6 (>= 2.8), libpam0g (>= 0.99.7.1), libparsec-base3
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/libpdp_3.1+ci65_amd64.deb
+Size: 49592
+SHA256: d167f8b5b228179b1f955d45721c0473f616583a90807e60f7a8f6fa25407988
+SHA1: bc4d8d9e975e98cc47cd3236f3ffbc388420f36b
+MD5sum: d6052e805fc4172a103fc6f8bcf94b06
+Description: library for PARSEC DP security system
+ This package contains the library for working with security labels.
+ It's a component of PARSEC security system.
+Description-md5: 9765e757ea90c67b59daadd15de86d76
+
+Package: linux-astra-modules-5.10.0-1057-generic
+Source: linux-astra-modules-5.10
+Version: 5.10.0-34.astra35+ci48
+Architecture: amd64
+Maintainer: Pavel Vasilyev <p.vasilyev@rusbitech.ru>
+Installed-Size: 2449
+Pre-Depends: dpkg (>= 1.10.24), linux-image-5.10.0-1057-generic (= 5.10.0-1057.astra6+ci79)
+Depends: linux-astra-modules-common
+Conflicts: parsec-module-5.10.0-1057-generic
+Replaces: parsec-module-5.10.0-1057-generic
+Provides: parsec-module, parsec-module-5.10.0-1057-generic
+Priority: optional
+Section: non-free/base
+Filename: pool/non-free/l/linux-astra-modules-5.10/linux-astra-modules-5.10.0-1057-generic_5.10.0-34.astra35+ci48_amd64.deb
+Size: 451416
+SHA256: 5dcebe85502b33d79bdbc62c4a51de0b2dfd0cc2bcac80bb057e8b757d07e316
+SHA1: 3ab596e162238ba20577b6f19ed5dc20daa48659
+MD5sum: cc0991f54d93c4c4c9136237049a27d7
+Description: Non-free Astra Linux kernel modules for version 5.10.0-1057
+ This package provides restricted modules for Linux version 5.10.0-1057
+ .
+ These modules are "restricted" because they are not available under a
+ completely Free licence.
+Description-md5: d492880b2eca1b7d4801e830ae70ee0e
+
+Package: linux-astra-modules-5.10.0-1057-hardened
+Source: linux-astra-modules-5.10
+Version: 5.10.0-34.astra35+ci48
+Architecture: amd64
+Maintainer: Pavel Vasilyev <p.vasilyev@rusbitech.ru>
+Installed-Size: 1916
+Pre-Depends: dpkg (>= 1.10.24), linux-image-5.10.0-1057-hardened (= 5.10.0-1057.astra6+ci79)
+Depends: linux-astra-modules-common
+Conflicts: parsec-module-5.10.0-1057-hardened
+Replaces: parsec-module-5.10.0-1057-hardened
+Provides: parsec-module, parsec-module-5.10.0-1057-hardened
+Priority: optional
+Section: non-free/base
+Filename: pool/non-free/l/linux-astra-modules-5.10/linux-astra-modules-5.10.0-1057-hardened_5.10.0-34.astra35+ci48_amd64.deb
+Size: 399718
+SHA256: 88f4741980795a94363aa8a12e5387ca786228066625176fae84d778895727a5
+SHA1: 903ac48f409be09b0a40cfc1953fdc3007cdab31
+MD5sum: 864c199f8475f537fd664526fa94dad0
+Description: Non-free Astra Linux kernel modules for version 5.10.0-1057
+ This package provides restricted modules for Linux version 5.10.0-1057
+ .
+ These modules are "restricted" because they are not available under a
+ completely Free licence.
+Description-md5: d492880b2eca1b7d4801e830ae70ee0e
+
+Package: linux-astra-modules-5.15.0-33-generic
+Source: linux-astra-modules-5.15
+Version: 5.15.0-23.astra36+ci15
+Architecture: amd64
+Maintainer: Pavel Vasilyev <p.vasilyev@rusbitech.ru>
+Installed-Size: 2727
+Pre-Depends: dpkg (>= 1.10.24), linux-image-5.15.0-33-generic (= 5.15.0-33.astra2+ci56)
+Depends: linux-astra-modules-common
+Conflicts: parsec-module-5.15.0-33-generic
+Replaces: parsec-module-5.15.0-33-generic
+Provides: parsec-module, parsec-module-5.15.0-33-generic
+Priority: optional
+Section: non-free/base
+Filename: pool/non-free/l/linux-astra-modules-5.15/linux-astra-modules-5.15.0-33-generic_5.15.0-23.astra36+ci15_amd64.deb
+Size: 496026
+SHA256: 9e5536bee4e9d556be9e5b6570a3681d787f2566375201626c55d565399abcf5
+SHA1: dd3e9cacdf32d36369205b7a4f0e8d9d98120665
+MD5sum: fe5266b88cd2a8a286a4b33587334374
+Description: Non-free Astra Linux kernel modules for version 5.15.0-33
+ This package provides restricted modules for Linux version 5.15.0-33
+ .
+ These modules are "restricted" because they are not available under a
+ completely Free licence.
+Description-md5: d007d6b1606d90024a296f259bc4d282
+
+Package: linux-astra-modules-5.15.0-33-hardened
+Source: linux-astra-modules-5.15
+Version: 5.15.0-23.astra36+ci15
+Architecture: amd64
+Maintainer: Pavel Vasilyev <p.vasilyev@rusbitech.ru>
+Installed-Size: 1720
+Pre-Depends: dpkg (>= 1.10.24), linux-image-5.15.0-33-hardened (= 5.15.0-33.astra2+ci56)
+Depends: linux-astra-modules-common
+Conflicts: parsec-module-5.15.0-33-hardened
+Replaces: parsec-module-5.15.0-33-hardened
+Provides: parsec-module, parsec-module-5.15.0-33-hardened
+Priority: optional
+Section: non-free/base
+Filename: pool/non-free/l/linux-astra-modules-5.15/linux-astra-modules-5.15.0-33-hardened_5.15.0-23.astra36+ci15_amd64.deb
+Size: 379192
+SHA256: cf00fba18189003f20c7d73a5da1bf54f0a2b5e375d59ffd507303a5cadb35fe
+SHA1: 64ae78b38c9ba7222eee4607040b2965c8f3409f
+MD5sum: 02248cd3f0b5f2b5e10c44ded41b3eb4
+Description: Non-free Astra Linux kernel modules for version 5.15.0-33
+ This package provides restricted modules for Linux version 5.15.0-33
+ .
+ These modules are "restricted" because they are not available under a
+ completely Free licence.
+Description-md5: d007d6b1606d90024a296f259bc4d282
+
+Package: linux-astra-modules-5.4.0-110-generic
+Source: linux-astra-modules-5.4
+Version: 5.4.0-34.astra34+ci72
+Architecture: amd64
+Maintainer: Pavel Vasilyev <p.vasilyev@rusbitech.ru>
+Installed-Size: 2348
+Pre-Depends: dpkg (>= 1.10.24), linux-image-5.4.0-110-generic (= 5.4.0-110.astra35+ci74)
+Depends: linux-astra-modules-common
+Conflicts: parsec-module-5.4.0-110-generic
+Replaces: parsec-module-5.4.0-110-generic
+Provides: parsec-module, parsec-module-5.4.0-110-generic
+Priority: optional
+Section: non-free/base
+Filename: pool/non-free/l/linux-astra-modules-5.4/linux-astra-modules-5.4.0-110-generic_5.4.0-34.astra34+ci72_amd64.deb
+Size: 436286
+SHA256: 57c620fe15e46b26a7eb9e4546eb74b952cdf7827ea35e54ea2271fa276cb6c5
+SHA1: 0f44bfc5f248479657c31177af451fe65d1f2562
+MD5sum: 23ae83977cf2222097951d4a22b2d731
+Description: Non-free Astra Linux kernel modules for version 5.4.0-110
+ This package provides restricted modules for Linux version 5.4.0-110
+ .
+ These modules are "restricted" because they are not available under a
+ completely Free licence.
+Description-md5: 4d2d0ad629083e847e822669db7726f4
+
+Package: linux-astra-modules-5.4.0-110-hardened
+Source: linux-astra-modules-5.4
+Version: 5.4.0-34.astra34+ci72
+Architecture: amd64
+Maintainer: Pavel Vasilyev <p.vasilyev@rusbitech.ru>
+Installed-Size: 1867
+Pre-Depends: dpkg (>= 1.10.24), linux-image-5.4.0-110-hardened (= 5.4.0-110.astra35+ci74)
+Depends: linux-astra-modules-common
+Conflicts: parsec-module-5.4.0-110-hardened
+Replaces: parsec-module-5.4.0-110-hardened
+Provides: parsec-module, parsec-module-5.4.0-110-hardened
+Priority: optional
+Section: non-free/base
+Filename: pool/non-free/l/linux-astra-modules-5.4/linux-astra-modules-5.4.0-110-hardened_5.4.0-34.astra34+ci72_amd64.deb
+Size: 386586
+SHA256: 094e949043a999b5845046c3028204c8a47817612038379f79aea8601c1c475e
+SHA1: fb469ad51a64f01f3104918b4f69e02114400d07
+MD5sum: 3d98efb3601dc22fd34b2d0c5047cf28
+Description: Non-free Astra Linux kernel modules for version 5.4.0-110
+ This package provides restricted modules for Linux version 5.4.0-110
+ .
+ These modules are "restricted" because they are not available under a
+ completely Free licence.
+Description-md5: 4d2d0ad629083e847e822669db7726f4
+
+Package: linux-astra-modules-common
+Source: linux-astra-modules-5.4
+Version: 5.4.0-34.astra34+ci72
+Architecture: all
+Maintainer: Pavel Vasilyev <p.vasilyev@rusbitech.ru>
+Installed-Size: 43
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: linux-astra-modules-generic-meta | parsec-module, busybox
+Priority: optional
+Section: non-free/base
+Filename: pool/non-free/l/linux-astra-modules-5.4/linux-astra-modules-common_5.4.0-34.astra34+ci72_all.deb
+Size: 17116
+SHA256: 801bf80d001f61208a0dee52b19a296e9f31714f799a5d02cbebd95838c56817
+SHA1: 945bba3f049a34cdbf0bfdd7e8eb91e66d8fd50d
+MD5sum: 32dbf1ed63b1531f51ab41fa2774b200
+Description: Common stuff 4 non-free Astra Linux kernel modules
+ This package provides common stuff 4 restricted modules for Astra Linux SE.
+ .
+ These modules are "restricted" because they are not available under a
+ completely Free licence.
+Description-md5: fc81a4580be47e6df2b044078658bb26
+
+Package: parsec
+Version: 3.1+ci65
+Architecture: all
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 26
+Depends: libparsec-base3, libpdp, parsec-mac, parsec-aud, parsec-cap, parsec-tools, dpkg (>= 1.16.16astra.se0)
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/parsec_3.1+ci65_all.deb
+Size: 20868
+SHA256: 19f5c9e1291c9153442d0f7d2b2107d3c692da916f6ba27150f5a70834048acb
+SHA1: 2390f590e202e55b152030f07aeea1aeb6050e52
+MD5sum: 750297186310e5b6946bb8dd5c6344da
+Description: metapackage for PARSEC system
+ This metapackage depends on all base PARSEC components.
+Description-md5: 2866c1dc6c45ec1b1c698c458eb10a8a
+
+Package: parsec-aud
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 192
+Depends: libc6 (>= 2.14), libpam0g (>= 0.99.7.1), libparsec-aud3, libparsec-base3, libpdp, parsec-base, auditd
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec/parsec-aud_3.1+ci65_amd64.deb
+Size: 56548
+SHA256: 79e5f44c0de1173eccc391b7920d964a5a133e339bcf95bccbb366b009575e4d
+SHA1: 9d0a260439161bb27ab163d08c50e5e90e7d5628
+MD5sum: 873255a42f35555227ef05211823dfd7
+Description: audit base utils for PARSEC security system
+ This package contains the
+ utilities to control PARSEC security events audit. These utilities
+ can set or get audit events for processes and files.
+ It's a component of PARSEC security system.
+Description-md5: 4cbad441c656f4047c3b5ace3ab14e77
+
+Package: parsec-base
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 152
+Depends: libparsec-base3, lsb-base, linux-astra-modules-generic-meta | parsec-module, pdp
+Breaks: parsec-sumac (<< 3.1)
+Replaces: parsec-sumac (<< 3.1)
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec/parsec-base_3.1+ci65_amd64.deb
+Size: 49482
+SHA256: 8cb51a3dd2cfd663b65da030c3b562ac80897f573c62d0f12b791a3fb9d7e893
+SHA1: 7438c74b9866429a731a5e7ad465a7d2ee94de5a
+MD5sum: cf3df3d817c7b6105bd9eb80a7d29f47
+Description: base files for PARSEC security system
+ This package contains the base files for the PARSEC system.
+Description-md5: 7b102a307f0ea891dcbc3d88c897955f
+
+Package: parsec-cap
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 153
+Depends: libc6 (>= 2.4), libcap2 (>= 1:2.10), libpam0g (>= 0.99.7.1), libparsec-base3, libparsec-cap3, libpdp, parsec-base, dash, sudo
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec/parsec-cap_3.1+ci65_amd64.deb
+Size: 45346
+SHA256: 71f03722b17f1057063d67d574c842c9650efa6a27487686e8a0d7035585b866
+SHA1: ccbdf6c8dc6f4ae67b862dbc9d8ef4651b1cd999
+MD5sum: 869d108aef8932a6ae846d00989cedd0
+Description: capabilities base utils for PARSEC security system
+ This package contains the utilities to control system capabilities
+ (standard Linux capabilities and special PARSEC capabilities).
+ It's a component of PARSEC security system.
+Description-md5: 5033699cba482d0f429035f9763634f4
+
+Package: parsec-cups
+Version: 29.11
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 30244
+Depends: libc6 (>= 2.14), libcups2 (>= 1.4.0), libgcc1 (>= 1:3.0), libqt5core5a (>= 5.15.1), libqt5sql5 (>= 5.15.0), libstdc++6 (>= 5), userinfo, cups-bsd, librsvg2-bin, poppler-utils, cups-daemon, libqt5sql5-sqlite, parsec-cups-client (= 29.11)
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec-cups/parsec-cups_29.11_amd64.deb
+Size: 7060826
+SHA256: e2f25d9f3447942142d2aa70d8cbd154bdf8b4f1a75185fa8c725d625a48e62a
+SHA1: d3b7f83e46a9e692f8e8eb28ae963a6a58e7d14b
+MD5sum: 58a8e29b0a938b682ef7ece198959f0f
+Description: CUPS support executables for PARSEC - server support
+ This package provides PARSEC system support for CUPS daemon.
+Description-md5: 185b5efdc270eb6fea428f05e909960e
+
+Package: parsec-cups-client
+Source: parsec-cups
+Version: 29.11
+Architecture: amd64
+Maintainer: Ilya Kotov <support@rusbitech.ru>
+Installed-Size: 211
+Depends: libc6 (>= 2.14), libcups2 (>= 1.7.0), libgcc1 (>= 1:3.0), libpdp, libqt5core5a (>= 5.15.1), libstdc++6 (>= 5.2), cups-client
+Conflicts: parsec-cups (<< 28.0)
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec-cups/parsec-cups-client_29.11_amd64.deb
+Size: 61298
+SHA256: 899160cc1974c6806b8d97ac306a332a16dff6f7f63e7392d0ece3f96110561d
+SHA1: 6f8ac1025624fbe0cd95b626421ac7283a29c230
+MD5sum: 856541bac9de14e89f045e44da2b806a
+Description: CUPS support executables for PARSEC - client programs
+ This package provides PARSEC system support for CUPS daemon in the
+ client side.
+Description-md5: 00e3f1a801410a783d346d2cc568fae2
+
+Package: parsec-kiosk2
+Source: kiosk2
+Version: 1.1.1+ci3
+Architecture: amd64
+Maintainer: Anton Kovalenko <akovalenko@astralinux.ru>
+Installed-Size: 69
+Depends: libc6 (>= 2.14), libpam0g (>= 0.99.7.1), parsec-kiosk2-profiles, tcl8.6
+Multi-Arch: foreign
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/k/kiosk2/parsec-kiosk2_1.1.1+ci3_amd64.deb
+Size: 15622
+SHA256: 64c385def97144363c8e0db11a03cbc77d0f0295a0e9ec0572894c5947a87dbd
+SHA1: ed3f7e575b9c8e99e0dc89d7b2e6cce046252a32
+MD5sum: 8393fedc9ab9228396831e569d34470e
+Description: PARSEC system kiosk implementation
+ Reworked for FA
+Description-md5: 66afe7058d94b42d457cb9534a989c8c
+
+Package: parsec-kiosk2-profiles
+Source: kiosk2-profiles
+Version: 1.1.0+ci7
+Architecture: amd64
+Maintainer: Gleb Semenov <gsemenov@astralinux.ru>
+Installed-Size: 174
+Replaces: parsec-kiosk2
+Multi-Arch: foreign
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/k/kiosk2-profiles/parsec-kiosk2-profiles_1.1.0+ci7_amd64.deb
+Size: 21292
+SHA256: 9338b7871e19a286df0e262db840eab2ea5de45559e7f50c372f3de2a11ab0f3
+SHA1: 95016888102064f3c9e0867b0aa0e01bf52b4cbc
+MD5sum: 08eab8cfade7b6b81a57e0aa2e1b43b9
+Description: PARSEC system kiosk profiles
+Description-md5: 973d48bbb1fcfd50e1b8475a9b8ff265
+
+Package: parsec-mac
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 320
+Depends: libc6 (>= 2.14), libpam0g (>= 0.99.7.1), libparsec-base3, libparsec-mic3, libpdp, parsec-base, pdp, libparsec-mac3, libpam-systemd
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec/parsec-mac_3.1+ci65_amd64.deb
+Size: 79654
+SHA256: 8741b8486178cad4987df6f4da82ae3fec0357c6657791e90d3adff559da8cd0
+SHA1: b83b55eee9239f1ac925dd57aaea2b0997ccdfc5
+MD5sum: ed90be30a3a9f3de36171e73f5587977
+Description: mandate labels base utils for PARSEC security system
+ This package contains the utilities to control PARSEC mandate labels.
+ These utilities can set or get mandate labels for processes and files.
+ It's a component of PARSEC security system.
+Description-md5: ff71417a3f685374fd47c4b6b908331e
+
+Package: parsec-sumac
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 71
+Depends: libc6 (>= 2.8), libpam0g (>= 0.99.7.1), libparsec-base3, libpdp, parsec-base (>= 3.1), parsec-mac
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec/parsec-sumac_3.1+ci65_amd64.deb
+Size: 33380
+SHA256: cecd02c8ea2d3d44595985b1fb2c25f7b675df1f98bf17a3b644a14d30f42043
+SHA1: d2d265c431167a2f79cb7c649e430d6fc0fa9878
+MD5sum: 0d2ad0f3176a553706db12eb46fd7cd3
+Description: sumac util for PARSEC security system
+ This package contains sumac utilities files.
+Description-md5: e05e674305ed4fcf91dd03d63e183d88
+
+Package: parsec-sumic
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 42
+Depends: libc6 (>= 2.4), libpam0g (>= 0.99.7.1), libparsec-base3, libpdp, parsec-base (>= 3.1), parsec-mac
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec/parsec-sumic_3.1+ci65_amd64.deb
+Size: 24412
+SHA256: f7ecdd316255bab9440d402edfab20c4186725552647930c17ccf1117c788f90
+SHA1: ed286f3755684b8e69f803b6fe45743342ab10a4
+MD5sum: 8930a13099f064897868a9e4793072d0
+Description: sumic util for PARSEC security system
+ This package contains sumic utilities files.
+Description-md5: 9576d7395675ead5515b51c15b1a0aae
+
+Package: parsec-tests
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 735
+Depends: libc6 (>= 2.15), libcap2 (>= 1:2.10), libconfig++9v5 (>= 1.5-0.4~), libgcc1 (>= 1:3.0), libpam0g (>= 0.99.7.1), libparsec-aud3, libparsec-base3, libparsec-cap3, libpdac++, libpdp, libstdc++6 (>= 5.2), libsubunit0, parsec-mac, parsec-cap, gettext, python3, xfsprogs, vim
+Priority: optional
+Section: non-free/libs
+Filename: pool/non-free/p/parsec/parsec-tests_3.1+ci65_amd64.deb
+Size: 141886
+SHA256: bd515babc28da498a8a01bcdc32b1c79eec9ada54e1548c4877d492e350db1de
+SHA1: dab4e73044f771dcfaa863e430bcaaceb0811add
+MD5sum: 722682d23cbcd2e6dcf92f64d68706ba
+Description: PARSEC testing system.
+ tool for testing PARSEC mac and cap subsystems.
+Description-md5: f97e0a6ab7b75691e99fbe30435289ad
+
+Package: parsec-tools
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 280
+Depends: libacl1 (>= 2.2.23), libc6 (>= 2.14), libpam0g (>= 0.99.7.1), libparsec-aud3, libparsec-base3, libpdp, pdp, parsec-cap, parsec-mac, parsec-aud, parsec-sumic
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec/parsec-tools_3.1+ci65_amd64.deb
+Size: 81914
+SHA256: 755e1ca2373d65c8d5ac06e8f8cc19ad9538d7a9ff0554a5aa7ce8cfe441507d
+SHA1: ca397d29d5beff742eb289d788799100c2c4a862
+MD5sum: 15ddfad87da9825065fefc56e13e36ed
+Description: additional PARSEC system utilities
+ This package contains additional PARSEC utilities. These utilities
+ deal with several PARSEC subsystems simultaneously and so cannot be included to
+ subsystem specific utilities package.
+Description-md5: e7cc01358f44b079ddc0777b2ec796fa
+
+Package: pdp
+Source: parsec
+Version: 3.1+ci65
+Architecture: amd64
+Maintainer: Egor Lebedev <support@rusbitech.ru>
+Installed-Size: 155
+Depends: libc6 (>= 2.14), libcap2 (>= 1:2.10), libpam0g (>= 0.99.7.1), libparsec-base3, libparsec-cap3, libparsec-mic3, libpdp, parsec-base
+Priority: optional
+Section: non-free/utils
+Filename: pool/non-free/p/parsec/pdp_3.1+ci65_amd64.deb
+Size: 47386
+SHA256: 90ca88dc3da751788f5693ade9cef06203df29f74ee3def0042930cd48205a6e
+SHA1: 0a2977dd24340190678fc9665b69feb059f988f9
+MD5sum: 2c77f88c44862e0b9ff3606fb0cbd6e9
+Description: utils for PARSEC DP security subsystem
+ This package contains the utilities to control PARSEC DP security labels.
+ These utilities can set or get PDP labels for processes and files.
+ It's a component of PARSEC security system.
+Description-md5: 6706237394f42e70e8e720f69000dc97
+
+Package: syslog-ng-mod-astra
+Version: 0.2.26+ci1
+Architecture: amd64
+Maintainer: Mikhail Solomatin <msolomatin@astralinux.ru>
+Installed-Size: 4822
+Depends: libc6 (>= 2.4), syslog-ng (>= 3.19), syslog-ng-mod-python (>= 3.19), python3-pydbus, python-pydbus, python3-psutil, python-psutil
+Homepage: https://www.astralinux.ru
+Priority: important
+Section: non-free
+Filename: pool/non-free/s/syslog-ng-mod-astra/syslog-ng-mod-astra_0.2.26+ci1_amd64.deb
+Size: 839836
+SHA256: a814adbb2213b42c5dd04556538c4f5875c11bffcf8249527ff5283c23450f0c
+SHA1: f43e40e72bbe53b13f995fbb9725ad09f3bccc98
+MD5sum: 004aea4b91bd7e0c834e83cbb5743ba9
+Description: Module for the syslog-ng, that tracks some system events.
+ Module for the syslog-ng, that tracks some system events.
+Description-md5: 53f052984e285c6014bada0c1a32e686
+
